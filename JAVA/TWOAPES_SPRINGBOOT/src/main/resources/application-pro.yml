@@ -1,0 +1,27 @@
+spring:
+  #oracle configure
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@127.0.0.1:1521:twoapes
+    username: twoapes
+    password: 1
+  #mongodb configure
+  data:
+    mongodb:
+      database: twoapes
+      host: 127.0.0.1
+      port: 1
+      username: twoapes
+      password: 1
+#sftp configure
+sftp:
+  sftpHost: 127.0.0.1
+  sftpUserName: twoapes
+  sftpPassword: 1
+  sftpPort: 1
+  sftpPrivateKey: null
+#machine configure
+machine:
+  id: 1
+  secret: 1
+  key: 1

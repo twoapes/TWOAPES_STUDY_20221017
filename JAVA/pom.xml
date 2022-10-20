@@ -14,13 +14,26 @@
     <version>0.0.1</version>
     <packaging>pom</packaging>
     <name>JAVA</name>
-    <description>twoapes microservice platform</description>
-    <modules>
-        <module>TWOAPES_COMMONALITY</module>
-        <module>TWOAPES_JAVA</module>
-        <module>TWOAPES_SPRING</module>
-        <module>TWOAPES_SPRINGBOOT</module>
-    </modules>
+    <description>twoapes code repertory</description>
+    <profiles>
+        <profile>
+            <modules>
+                <module>TWOAPES_COMMONALITY</module>
+                <module>TWOAPES_JAVA</module>
+                <module>TWOAPES_SPRING</module>
+                <module>TWOAPES_SPRINGBOOT</module>
+            </modules>
+        </profile>
+    </profiles>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -40,11 +53,6 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
             <version>3.0.0</version>
         </dependency>
         <dependency>

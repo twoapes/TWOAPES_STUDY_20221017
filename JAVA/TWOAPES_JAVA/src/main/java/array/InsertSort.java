@@ -1,13 +1,10 @@
 package array;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * @author add by huyingzhao
  * 2022-06-19 13:41
  * insertion sort
  */
-@Slf4j
 public class InsertSort {
     public static void insertSort(double[] arrays) {
         for (int i = 1; i < arrays.length; i++) {

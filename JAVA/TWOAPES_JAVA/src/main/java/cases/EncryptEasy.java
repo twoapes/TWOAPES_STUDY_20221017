@@ -15,10 +15,8 @@ public class EncryptEasy {
         String str="encryption/decryption";
         log.info("old:"+str);
         char[] strings=str.toCharArray();
-        int i=0;
         for (char s : strings) {
-            strings[i]=(char)(strings[i]^20000);
-            i++;
+            s=(char)(s^20000);
         }
 
         log.info("new:"+ Arrays.toString(strings));

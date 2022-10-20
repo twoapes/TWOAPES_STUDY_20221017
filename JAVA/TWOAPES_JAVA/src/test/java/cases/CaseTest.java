@@ -1,6 +1,5 @@
 package cases;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 /**
@@ -8,7 +7,6 @@ import org.junit.Test;
  * 2022-10-08 16:28
  * case test
  */
-@Slf4j
 public class CaseTest {
 
     /**

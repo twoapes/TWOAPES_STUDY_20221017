@@ -6,6 +6,7 @@
         <artifactId>JAVA</artifactId>
         <groupId>com.twoapes</groupId>
         <version>0.0.1</version>
+        <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>TWOAPES_SPRING</artifactId>
@@ -103,4 +104,16 @@
             <version>3.12.11</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

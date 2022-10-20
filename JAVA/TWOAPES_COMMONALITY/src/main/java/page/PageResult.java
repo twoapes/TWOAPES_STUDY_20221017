@@ -19,10 +19,6 @@ public class PageResult<T> extends Result {
     private long total;//total
     private T data;//data
 
-    private PageResult() {
-        super();
-    }
-
     private PageResult(String code, String type, String msg) {
         super(code, type, msg);
     }

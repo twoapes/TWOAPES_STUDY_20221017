@@ -1,7 +1,6 @@
 package springboot.service.impl;
 
 import com.mongodb.client.result.DeleteResult;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -23,7 +22,6 @@ import java.util.Map;
  * @author add by huyingzhao
  * 2022-06-09 21:01
  */
-@Slf4j
 @Service
 public class VocabularyServiceImpl implements VocabularyService {
     @Autowired

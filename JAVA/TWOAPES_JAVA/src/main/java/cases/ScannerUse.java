@@ -18,5 +18,7 @@ public class ScannerUse {
         if (s != null && !s.isEmpty()) {
             log.info("s:" + s);
         }
+
+        scanner.close();
     }
 }

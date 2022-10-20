@@ -58,7 +58,7 @@ class TimedThreadPool<E> {
      * @param executeTime executeTime
      */
     public void add(Thread thread, Date executeTime) {
-        new PooledThread(executeTime, thread, this).start();
+        new PooledThread<>(executeTime, thread, this).start();
     }
 
     /**

@@ -1,21 +1,21 @@
 package core;
 
-import org.springframework.beans.factory.xml.XmlBeanFactory;
+// import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
+// import org.springframework.core.io.ClassPathResource;
 
 public class AppCore {
-    /**
-     * @param configLocations configLocations
-     * @return ApplicationContext using xml
-     */
-    public static XmlBeanFactory openFactory(String configLocations) {
-        ClassPathResource  classPathResource= new ClassPathResource(configLocations);
-        return new XmlBeanFactory(classPathResource);
-    }
+    // /**
+    //  * @param configLocations configLocations
+    //  * @return ApplicationContext using xml
+    //  */
+    // public static XmlBeanFactory openFactory(String configLocations) {
+    //     ClassPathResource  classPathResource= new ClassPathResource(configLocations);
+    //     return new XmlBeanFactory(classPathResource);
+    // }
 
     /**
      * @param configLocations configLocations

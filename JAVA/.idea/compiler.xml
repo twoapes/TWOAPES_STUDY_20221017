@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="TWOAPES_JAVA" />
+        <module name="TWOAPES_SPRING" />
+        <module name="TWOAPES_SPRINGBOOT" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="TWOAPES_COMMONALITY" target="11" />
+      <module name="TWOAPES_JAVA" target="11" />
+      <module name="TWOAPES_SPRING" target="11" />
+      <module name="TWOAPES_SPRINGBOOT" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="GreclipseSettings">
+    <option name="greclipsePath" value="$PROJECT_DIR$/../../TWOAPES_REPOSITORY/lib/groovy-eclipse-batch-3.0.8-01.jar" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="TWOAPES_JAVA" options="-parameters" />
+      <module name="TWOAPES_SPRING" options="-parameters" />
+      <module name="TWOAPES_SPRINGBOOT" options="-parameters" />
+    </option>
+  </component>
+</project>

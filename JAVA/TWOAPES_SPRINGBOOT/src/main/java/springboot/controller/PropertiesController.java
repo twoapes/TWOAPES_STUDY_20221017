@@ -2,7 +2,6 @@ package springboot.controller;
 
 import domain.PropertiesDo;
 import io.swagger.annotations.Api;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +14,6 @@ import page.ObjectResult;
  * 2022-01-23 18:35:33
  */
 @RestController
-@Slf4j
 @Api(value = "PropertiesController", tags = "using Properties")
 public class PropertiesController {
     /**

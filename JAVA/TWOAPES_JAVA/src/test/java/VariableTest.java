@@ -26,7 +26,9 @@ public class VariableTest {
      */
     @Test
     public void variableTypeTest() {
-        VariableType.variableType();
+        VariableType.variableTypeStatic();
+        VariableType type= new VariableType();
+        type.variableType();
     }
 
     /**

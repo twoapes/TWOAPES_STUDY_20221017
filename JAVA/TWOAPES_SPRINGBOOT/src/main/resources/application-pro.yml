@@ -1,7 +1,7 @@
 spring:
   #oracle configure
   datasource:
-    driver-class-name: oracle.jdbc.OracleDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:oracle:thin:@127.0.0.1:1521:twoapes
     username: twoapes
     password: 1

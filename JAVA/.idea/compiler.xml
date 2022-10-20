@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TWOAPES_JAVA" />
-        <module name="TWOAPES_SPRING" />
         <module name="TWOAPES_SPRINGBOOT" />
+        <module name="TWOAPES_COMMONALITY" />
+        <module name="TWOAPES_SPRING" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
+      <module name="JAVA" target="11" />
       <module name="TWOAPES_COMMONALITY" target="11" />
       <module name="TWOAPES_JAVA" target="11" />
       <module name="TWOAPES_SPRING" target="11" />
@@ -24,6 +26,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="TWOAPES_COMMONALITY" options="-parameters" />
       <module name="TWOAPES_JAVA" options="-parameters" />
       <module name="TWOAPES_SPRING" options="-parameters" />
       <module name="TWOAPES_SPRINGBOOT" options="-parameters" />

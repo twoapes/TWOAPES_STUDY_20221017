@@ -17,6 +17,7 @@
     <description>twoapes code repertory</description>
     <profiles>
         <profile>
+            <id>TWOAPES</id>
             <modules>
                 <module>TWOAPES_COMMONALITY</module>
                 <module>TWOAPES_JAVA</module>

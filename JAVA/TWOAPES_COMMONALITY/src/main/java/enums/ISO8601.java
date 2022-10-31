@@ -7,35 +7,95 @@ package enums;
  * 2022-07-02 12:51
  */
 public enum ISO8601 {
+    /*
+     * yyyy/MM/dd
+     */
     YYYY_MM_DD("yyyy/MM/dd"),
+    /*
+     * yyyy/MM/dd HH:mm:ss
+     */
     YYYY_MM_DD_HMS("yyyy/MM/dd HH:mm:ss"),
+    /*
+     * yyyy/MM/dd HH:mm
+     */
     YYYY_MM_DD_HM("yyyy/MM/dd HH:mm"),
-
+    /*
+     * yyyy_MM_dd
+     */
     YYYY_MM_DD_UE("yyyy_MM_dd"),
+    /*
+     * yyyy_MM_dd HH:mm:ss
+     */
     YYYY_MM_DD_UE_HMS("yyyy_MM_dd HH:mm:ss"),
+    /*
+     * yyyy_MM_dd HH:mm
+     */
     YYYY_MM_DD_UE_HM("yyyy_MM_dd HH:mm"),
-
+    /*
+     * yyyy-MM-dd
+     */
     YYYY_MM_DD_HE("yyyy-MM-dd"),
+    /*
+     * yyyy-MM-dd HH:mm:ss
+     */
     YYYY_MM_DD_HE_HMS("yyyy-MM-dd HH:mm:ss"),
+    /*
+     * yyyy-MM-dd HH:mm:ss SSS
+     */
     YYYY_MM_DD_HE_HMS_S_S("yyyy-MM-dd HH:mm:ss SSS"),
+    /*
+     * yyyy-MM-dd HH:mm
+     */
     YYYY_MM_DD_HE_HM("yyyy-MM-dd HH:mm"),
-
+    /*
+     * yyyyMMdd
+     */
     YYYYMMDD("yyyyMMdd"),
+    /*
+     * yyyyMMdd HH:mm:ss
+     */
     YYYYMMDD_HMS("yyyyMMdd HH:mm:ss"),
+    /*
+     * yyyyMMddHHmmss
+     */
     YYYYMMDD_HMS_UN("yyyyMMddHHmmss"),
+    /*
+     * yyyyMMdd HH:mm
+     */
     YYYYMMDD_HM("yyyyMMdd HH:mm"),
-
+    /*
+     * dd HH:mm:ss
+     */
     DD_HMS("dd HH:mm:ss"),
+    /*
+     * yyyy_MM_dd
+     */
     UNDERLINE("yyyy_MM_dd"),
+    /*
+     * yyyy_MM_dd(HH_mm_ss)
+     */
     UNDERLINE24("yyyy_MM_dd(HH_mm_ss)"),
+    /*
+     * EEE, dd MMM yyyy HH:mm:ss z
+     */
     EEE_DD_MMM_YYYY_HH_MM_SS_Z("EEE, dd MMM yyyy HH:mm:ss z"),
     ;
+    /*
+     * value
+     */
     private final String value;
 
+    /**
+     * ISO8601
+     * @param value
+     */
     ISO8601(String value) {
         this.value = value;
     }
 
+    /**
+     * value
+     */
     public String value() {
         return value;
     }

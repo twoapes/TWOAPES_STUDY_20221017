@@ -1,6 +1,6 @@
 package cases;
 
-import cases.pojo.Student;
+import entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -21,11 +21,11 @@ public class OptionalTest {
      */
     @Test
     public void optionalTest() {
-        Student studentTO = new Student();
-        studentTO.setName("ZhangSan");
-        studentTO.setAge(22);
+        Student student = new Student();
+        student.setName("ZhangSan");
+        student.setAge(22);
 //        studentDTO.setName("ZhangSan");
-        String name = Optional.of(studentTO).map(Student::getName).orElse("");
+        String name = Optional.of(student).map(Student::getName).orElse("");
         log.info(name);
     }
 }

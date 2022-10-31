@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import page.ObjectResult;
 import page.PageResult;
-import dto.VocabularyTO;
+import dto.VocabularyDTO;
+import dto.QueryVocabularyDTO;
+import dto.ExportVocabularyDTO;
 import springboot.enums.VOCEnum;
 import springboot.service.VocabularyService;
 import statics.CharsetUtil;
@@ -50,16 +52,16 @@ public class VocabularyController {
     @ApiOperation(value = "save a Java Code(single)")
     @PostMapping("/saveJava")
     @ResponseBody
-    public ObjectResult<VocabularyTO> saveJava(@RequestParam @ApiParam(value = "name") String name,
+    public ObjectResult<VocabularyDTO> saveJava(@RequestParam @ApiParam(value = "name") String name,
                                                    @RequestParam @ApiParam(value = "value") String value) {
-        VocabularyTO vocabularyTO = new VocabularyTO();
-        vocabularyTO.setName(name);
-        vocabularyTO.setValue(value);
-        vocabularyTO.setType(VOCEnum.JAVA.name());
+        QueryVocabularyDTO queryVocabularyDTO = new QueryVocabularyDTO();
+        queryVocabularyDTO.setName(name);
+        queryVocabularyDTO.setValue(value);
+        queryVocabularyDTO.setType(VOCEnum.JAVA.name());
         Date date = DateUtils.nowTime();
-        vocabularyTO.setCreateTime(date);
-        vocabularyTO.setLastModifyTime(date);
-        return vocabularyService.insert(vocabularyTO);
+        queryVocabularyDTO.setCreateTime(date);
+        queryVocabularyDTO.setLastModifyTime(date);
+        return vocabularyService.insert(queryVocabularyDTO);
     }
 
     /**
@@ -72,16 +74,16 @@ public class VocabularyController {
     @ApiOperation(value = "save a English(single)")
     @PostMapping("/saveEnglish")
     @ResponseBody
-    public ObjectResult<VocabularyTO> saveEnglish(@RequestParam @ApiParam(value = "name") String name,
+    public ObjectResult<VocabularyDTO> saveEnglish(@RequestParam @ApiParam(value = "name") String name,
                                                       @RequestParam @ApiParam(value = "value") String value) {
-        VocabularyTO vocabularyTO = new VocabularyTO();
-        vocabularyTO.setName(name);
-        vocabularyTO.setValue(value);
-        vocabularyTO.setType(VOCEnum.ENGLISH.name());
+        QueryVocabularyDTO queryVocabularyDTO = new QueryVocabularyDTO();
+        queryVocabularyDTO.setName(name);
+        queryVocabularyDTO.setValue(value);
+        queryVocabularyDTO.setType(VOCEnum.ENGLISH.name());
         Date date = DateUtils.nowTime();
-        vocabularyTO.setCreateTime(date);
-        vocabularyTO.setLastModifyTime(date);
-        return vocabularyService.insert(vocabularyTO);
+        queryVocabularyDTO.setCreateTime(date);
+        queryVocabularyDTO.setLastModifyTime(date);
+        return vocabularyService.insert(queryVocabularyDTO);
     }
 
     /**
@@ -94,16 +96,16 @@ public class VocabularyController {
     @ApiOperation(value = "save idiom(single)")
     @PostMapping("/saveIdiom")
     @ResponseBody
-    public ObjectResult<VocabularyTO> saveIdiom(@RequestParam @ApiParam(value = "name") String name,
+    public ObjectResult<VocabularyDTO> saveIdiom(@RequestParam @ApiParam(value = "name") String name,
                                                     @RequestParam @ApiParam(value = "value") String value) {
-        VocabularyTO vocabularyTO = new VocabularyTO();
-        vocabularyTO.setName(name);
-        vocabularyTO.setValue(value);
-        vocabularyTO.setType(VOCEnum.IDIOM.name());
+        QueryVocabularyDTO queryVocabularyDTO = new QueryVocabularyDTO();
+        queryVocabularyDTO.setName(name);
+        queryVocabularyDTO.setValue(value);
+        queryVocabularyDTO.setType(VOCEnum.IDIOM.name());
         Date date = DateUtils.nowTime();
-        vocabularyTO.setCreateTime(date);
-        vocabularyTO.setLastModifyTime(date);
-        return vocabularyService.insert(vocabularyTO);
+        queryVocabularyDTO.setCreateTime(date);
+        queryVocabularyDTO.setLastModifyTime(date);
+        return vocabularyService.insert(queryVocabularyDTO);
     }
 
 
@@ -124,18 +126,18 @@ public class VocabularyController {
                                    @RequestParam(required = false) @ApiParam(value = "value") String value,
                                    @RequestParam(required = false) @ApiParam(value = "type") String type) {
 
-        VocabularyTO vocabularyTO = vocabularyService.findOne(id);
+        VocabularyDTO vocabularyDTO = vocabularyService.findOne(id);
         if (name != null) {
-            vocabularyTO.setName(name);
+            vocabularyDTO.setName(name);
         }
         if (value != null) {
-            vocabularyTO.setValue(value);
+            vocabularyDTO.setValue(value);
         }
         if (type != null) {
-            vocabularyTO.setType(type);
+            vocabularyDTO.setType(type);
         }
 
-        return vocabularyService.edit(vocabularyTO);
+        return vocabularyService.edit(vocabularyDTO);
     }
 
     /**
@@ -149,15 +151,15 @@ public class VocabularyController {
     @ApiOperation(value = "queryPage(page)")
     @PostMapping("/queryPage")
     @ResponseBody
-    public PageResult<List<VocabularyTO>> queryPage(@RequestParam @ApiParam(value = "index") int index,
+    public PageResult<List<VocabularyDTO>> queryPage(@RequestParam @ApiParam(value = "index") int index,
                                                         @RequestParam @ApiParam(value = "size") int size,
                                                         @RequestParam @ApiParam(value = "type") String type,
                                                         @RequestParam(required = false) @ApiParam(value = "name") String name,
                                                         @RequestParam(required = false) @ApiParam(value = "is accurate query") boolean is) {
-        VocabularyTO vocabularyTO = new VocabularyTO();
-        vocabularyTO.setName(name);
-        vocabularyTO.setType(type);
-        return vocabularyService.query(is, vocabularyTO, index, size);
+        QueryVocabularyDTO queryVocabularyDTO = new QueryVocabularyDTO();
+        queryVocabularyDTO.setName(name);
+        queryVocabularyDTO.setType(type);
+        return vocabularyService.query(is, queryVocabularyDTO, index, size);
     }
 
     /**
@@ -192,10 +194,10 @@ public class VocabularyController {
                        @RequestParam(required = false) @ApiParam(value = "name") String name,
                        @RequestParam(required = false) @ApiParam(value = "is accurate query") boolean is,
                        HttpServletResponse response) {
-        VocabularyTO vocabularyTO = new VocabularyTO();
-        vocabularyTO.setName(name);
-        vocabularyTO.setType(type);
-        PageResult<List<VocabularyTO>> listPageResult = vocabularyService.query(is, vocabularyTO, index, size);
+        ExportVocabularyDTO exportVocabularyDTO = new ExportVocabularyDTO();
+        exportVocabularyDTO.setName(name);
+        exportVocabularyDTO.setType(type);
+        PageResult<List<VocabularyDTO>> listPageResult = vocabularyService.query(is, exportVocabularyDTO, index, size);
         export(listPageResult, response);
     }
 
@@ -205,7 +207,7 @@ public class VocabularyController {
      * @author add by huyingzhao
      * 2022-07-23 13:25
      */
-    private void export(PageResult<List<VocabularyTO>> listPageResult, HttpServletResponse response) {
+    private void export(PageResult<List<VocabularyDTO>> listPageResult, HttpServletResponse response) {
         try {
             Charset utf_8=CharsetUtil.UTF_8;
             XlsxUtils.start();
@@ -228,7 +230,7 @@ public class VocabularyController {
      * @author add by huyingzhao
      * 2022-07-23 13:49
      */
-    private String export(List<VocabularyTO> list) {
+    private String export(List<VocabularyDTO> list) {
         String fileName = "code";
         XlsxUtils.writXlsx("Sheet1", list);
         return fileName;

@@ -13,8 +13,10 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface XLSXDropEnum {
-    /*
-     *drop down
+    /**
+     * @return drop down
+     * @author add by huyingzhao
+     * 2022-10-24 14:51
      */
     String[] values();
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
  * @author huyingzhao
  * 2022-01-23 18:50:20
  * Returns the attribute value of the object by using the Component annotation
+ * do for ConfigurationProperties
  */
 @Component
 @ConfigurationProperties(prefix = "url")

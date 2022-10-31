@@ -5,7 +5,16 @@ package enums;
  * 2022-06-01 9:37
  */
 public enum ResultEnum {
-    ERROR, //500,error
-    SUCCESS,//200,success
-    WARNING,//200,warning
+    /*
+     * 500,error
+     */
+    ERROR,
+    /*
+     * 200,success
+     */
+    SUCCESS,
+    /*
+     * 200,warning
+     */
+    WARNING,
 }

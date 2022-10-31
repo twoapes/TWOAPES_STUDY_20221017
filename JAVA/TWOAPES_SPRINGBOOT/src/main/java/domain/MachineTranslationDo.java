@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 /**
  * @author add by huyingzhao
  * 2022-08-22 10:25
+ *
+ * do for Value
  */
 @Component
 @Data

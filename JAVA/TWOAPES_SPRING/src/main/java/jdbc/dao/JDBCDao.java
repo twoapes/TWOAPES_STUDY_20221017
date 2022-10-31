@@ -86,7 +86,7 @@ public class JDBCDao {
     }
 
     /**
-     * 更新
+     * update
      *
      * @param id id
      * @return StudentDTO

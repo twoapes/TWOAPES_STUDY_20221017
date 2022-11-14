@@ -33,6 +33,6 @@ public class DefaultValue {
                 "boolean default value:" + is + "\n" +
                 "object default value:" + object + "\n" +
                 "String default value" + string + "\n";
-        log.info(stringBuilder);
+        log.info("stringBuilder:{}",stringBuilder);
     }
 }

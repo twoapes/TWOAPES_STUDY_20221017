@@ -29,7 +29,7 @@ public class AnnotationAspect {
     public void before() {
         try {
             String now = DateUtils.format(DateUtils.nowTime(), ISO8601.YYYY_MM_DD_HE_HMS_S_S);
-            log.info("begin(" + (++index) + ")==========" + now + "==========(" + (index) + ")begin");
+            log.info("begin({}=========={}==========({})begin",++index,now,index);
         } catch (Throwable e) {
             log.error(e.getMessage(), e);
             throw e;
@@ -66,7 +66,7 @@ public class AnnotationAspect {
     public void after() {
         try {
             String now = DateUtils.format(DateUtils.nowTime(), ISO8601.YYYY_MM_DD_HE_HMS_S_S);
-            log.info("end(" + (index) + ")==========" + now + "==========(" + (index) + ")end");
+            log.info("end({}=========={}==========({})end",index,now,index);
         } catch (Throwable e) {
             log.error(e.getMessage(), e);
             throw e;

@@ -8,9 +8,8 @@
             <charset>UTF-8</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>debug</level>
             <onMatch>ACCEPT</onMatch>
-            <onMismatch>ACCEPT</onMismatch>
+            <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -28,9 +27,8 @@
             <charset>UTF-8</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>debug</level>
             <onMatch>ACCEPT</onMatch>
-            <onMismatch>ACCEPT</onMismatch>
+            <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
     <appender name="async" class="ch.qos.logback.classic.AsyncAppender">
@@ -38,12 +36,11 @@
         <queueSize>10000</queueSize>
         <appender-ref ref="file"/>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>debug</level>
             <onMatch>ACCEPT</onMatch>
-            <onMismatch>ACCEPT</onMismatch>
+            <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="console"/>
         <appender-ref ref="file"/>
         <appender-ref ref="async"/>

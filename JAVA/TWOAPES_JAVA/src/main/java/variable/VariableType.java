@@ -39,7 +39,7 @@ public class VariableType {
     /*
      * static methods cannot use instance variables
      */
-    // private static double staticMethod2() {
+    /// private static double staticMethod2() {
     // return instanceVariable;
     // }
 
@@ -56,7 +56,7 @@ public class VariableType {
     public static void variableTypeStatic() {
         // instanceMethod1();
         staticMethod1();
-        // instanceMethod2();
+        /// instanceMethod2();
         // staticMethod2();
         log.info("instance variables are not shared, while static variables are shared\n" +
                 "static variables can be accessed through instance methods and static methods\n" +

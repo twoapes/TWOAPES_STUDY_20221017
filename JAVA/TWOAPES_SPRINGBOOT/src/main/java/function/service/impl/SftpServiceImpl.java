@@ -103,7 +103,7 @@ public class SftpServiceImpl extends SSH implements SftpService {
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         } finally {
-            log.info("file[" + file.getPath() + "]upload");
+            log.info("file [{}] upload",file.getPath());
         }
         return result;
     }
@@ -136,7 +136,7 @@ public class SftpServiceImpl extends SSH implements SftpService {
             log.error(e.getMessage(), e);
             return false;
         } finally {
-            log.info("file[" + file.getPath() + "]download");
+            log.info("file [{}] download",file.getPath());
         }
     }
 
@@ -163,7 +163,7 @@ public class SftpServiceImpl extends SSH implements SftpService {
             log.error(e.getMessage(), e);
             return false;
         } finally {
-            log.info("directory[" + directory + "]delete");
+            log.info("directory [{}] delete",directory);
         }
     }
 
@@ -194,7 +194,7 @@ public class SftpServiceImpl extends SSH implements SftpService {
             log.error(e.getMessage(), e);
             return false;
         } finally {
-            log.info("file[" + fileName + "]delete");
+            log.info("file [{}] delete",fileName);
         }
     }
 
@@ -226,7 +226,7 @@ public class SftpServiceImpl extends SSH implements SftpService {
             log.error(e.getMessage(), e);
             return false;
         } finally {
-            log.info("file[" + oldName + "]rename");
+            log.info("file [{}] rename",oldName);
         }
     }
 
@@ -252,7 +252,7 @@ public class SftpServiceImpl extends SSH implements SftpService {
         } catch (SftpException e) {
             log.error(e.getMessage(), e);
         } finally {
-            log.info("directory[" + directory + "]");
+            log.info("directory [{}]",directory);
         }
 
         return hashMap;
@@ -309,19 +309,19 @@ class SSH {
         if (sftp != null && sftp.isConnected()) {
             sftp.disconnect();
         } else {
-            log.debug("sftp closed");
+            log.info("sftp closed");
         }
 
         if (session != null && session.isConnected()) {
             session.disconnect();
         } else {
-            log.debug("session closed");
+            log.info("session closed");
         }
 
         if (channel != null && channel.isConnected()) {
             channel.disconnect();
         } else {
-            log.debug("channel closed");
+            log.info("channel closed");
         }
     }
 
@@ -444,7 +444,7 @@ class SSH {
     boolean mark(String path) {
         try {
             sftp.mkdir(path);
-            log.info("create directory[" + path + "]success");
+            log.info("create directory [{}] success",path);
             return true;
         } catch (SftpException e) {
             log.error(e.getMessage(), e);

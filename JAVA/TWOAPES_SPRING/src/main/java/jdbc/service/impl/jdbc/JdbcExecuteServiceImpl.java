@@ -30,7 +30,7 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
             return;
 
         try {
-            log.debug("execute update now....");
+            log.info("execute update now....");
             openUpdate(parameterPOJO);
             preparedUpdate(parameterPOJO);
             executeUpdate(parameterPOJO);
@@ -55,7 +55,7 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
         if (updateEntities == null || updateEntities.size() == 0)
             return entities;
 
-        log.debug("execute update now....");
+        log.info("execute update now....");
         try {
             for (ParameterPOJO parameterPOJO : updateEntities) {
                 openBatch(parameterPOJO);
@@ -77,10 +77,10 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
      */
     public void execute(List<ParameterPOJO> updateEntities) {
         if (!(updateEntities == null || updateEntities.size() == 0)) {
-            log.debug("execute update now....");
+            log.info("execute update now....");
             int count = 0;
             for (ParameterPOJO parameterPOJO : updateEntities) {
-                log.info("update(" + updateEntities.size() + "):" + (++count));
+                log.info("update {}/{}", updateEntities.size(), (++count));
                 execute(parameterPOJO);
             }
         }
@@ -125,12 +125,12 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
                     openPrepared(parameterPOJO.getSql());
                     preparedParameters(parameters, 2);
                     openOrCloseAutoCommit(true);
-                    log.debug("sql:\n" + parameterPOJO.getSql());
+                    log.info("sql:{}", parameterPOJO.getSql());
                     InputStream in = new ByteArrayInputStream(str.getBytes(Charset.forName(jdbcPOJO.getJdbcChars())));
                     preparedStatement.setBinaryStream(1, in, in.available());
                     int i = preparedStatement.executeUpdate();
                     parameterPOJO.setI(i);
-                    log.debug("update:" + (i > 0 ? "count:" + i + "" : "non data update"));
+                    log.info("update:{}", (i > 0 ? "count:" + i + "" : "non data update"));
                 }
             } catch (Exception e) {
                 rollback();
@@ -151,7 +151,7 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
             openOrCloseAutoCommit(true);
             int[] ints = preparedStatement.executeBatch();
             if (ints != null) {
-                log.debug("update:" + (ints.length > 0 ? "count:" + ints.length + "" : "non data update"));
+                log.info("update:{}", (ints.length > 0 ? "count:" + ints.length + "" : "non data update"));
             }
         } catch (SQLException e) {
             rollback();
@@ -175,12 +175,12 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
                     openPrepared(parameterPOJO.getSql());
                     preparedParameters(parameters, 2);
                     openOrCloseAutoCommit(true);
-                    log.debug("sql:\n" + parameterPOJO.getSql());
+                    log.info("sql:{}",parameterPOJO.getSql());
                     BufferedInputStream fileInputStream = new BufferedInputStream(new FileInputStream(file));
                     preparedStatement.setBlob(1, fileInputStream, fileInputStream.available());
                     int i = preparedStatement.executeUpdate();
                     parameterPOJO.setI(i);
-                    log.debug("update:" + (i > 0 ? "count:" + i + "" : " non data update"));
+                    log.info("update:{}", (i > 0 ? "count:" + i + "" : " non data update"));
                 }
             } catch (Exception e) {
                 rollback();
@@ -227,10 +227,10 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
             return;
 
         openOrCloseAutoCommit(true);
-        log.debug("sql:\n" + parameterPOJO.getSql());
+        log.info("sql:{}", parameterPOJO.getSql());
         int i = preparedStatement.executeUpdate();
         parameterPOJO.setI(i);
-        log.debug("update:" + (i > 0 ? "count:" + i + "" : " non data update"));
+        log.info("update:{}", (i > 0 ? "count:" + i + "" : " non data update"));
     }
 
     /**
@@ -268,7 +268,7 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
                     preparedStatement.setObject(index++, parameter);
                 }
                 preparedStatement.addBatch();
-                log.debug("current" + parameters);
+                log.info("current{}", parameters);
             } else {
                 preparedStatement.addBatch();
             }
@@ -279,7 +279,7 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
         try {
             if (isConnected() && !connection.getAutoCommit()) {
                 connection.commit();
-                log.debug("commit success");
+                log.info("commit success");
             }
         } catch (SQLException e) {
             rollback();
@@ -291,7 +291,7 @@ public class JdbcExecuteServiceImpl extends JdbcConnectServiceImpl implements Jd
         try {
             if (isConnected()) {
                 connection.rollback();
-                log.debug("rollback success");
+                log.info("rollback success");
             }
         } catch (SQLException e) {
             log.error(e.getMessage(), e);

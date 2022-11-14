@@ -18,7 +18,7 @@ public class Student {
     private int age;
 
     public Student() {
-        log.debug("call ioc.xml.pojo.Student.Student");
+        log.info("call ioc.xml.pojo.Student.Student");
     }
 
     @ConstructorProperties({"name", "age"})

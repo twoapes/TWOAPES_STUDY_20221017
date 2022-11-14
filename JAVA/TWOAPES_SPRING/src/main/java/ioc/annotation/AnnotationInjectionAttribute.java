@@ -40,7 +40,7 @@ public class AnnotationInjectionAttribute extends AnnotationDI {
      */
     public static void value() {
         String stringBuilder = "\n--------------using Value annotation---------------" + "\n";
-        log.info(stringBuilder);
+        log.info("stringBuilder:{}",stringBuilder);
         ApplicationContext context = AppCore.openClass(ioc.annotation.attribute.value.AppConfig.class);
         ValueService valueService = valueService(context);
         String str = "\n";
@@ -49,7 +49,7 @@ public class AnnotationInjectionAttribute extends AnnotationDI {
         str += "string:" + valueService.getValue2() + "\n";
         str += "SpringEL:" + valueService.getValue3() + "\n";
         str += "be based upon for Value extend:" + valueService.getValue4() + "\n";
-        log.info(str);
+        log.info("str:{}",str);
     }
 
     /**
@@ -58,7 +58,7 @@ public class AnnotationInjectionAttribute extends AnnotationDI {
      */
     public static void bean() {
         String stringBuilder = "\n--------------using Bean annotation---------------" + "\n";
-        log.info(stringBuilder);
+        log.info("stringBuilder:{}",stringBuilder);
         ApplicationContext context = AppCore.openClass(ioc.annotation.attribute.bean.AppConfig.class);
         BeanService beanService = beanService(context);
         String str = "\n";
@@ -85,7 +85,7 @@ public class AnnotationInjectionAttribute extends AnnotationDI {
      */
     public static void configuration() {
         String stringBuilder = "\n--------------using Configuration annotation---------------" + "\n";
-        log.info(stringBuilder);
+        log.info("stringBuilder:{}",stringBuilder);
         ApplicationContext context = AppCore.openClass(ioc.annotation.attribute.configuration.AppConfig.class);
         ConfigurationService configurationService = configurationService(context);
         configurationService.configuration();
@@ -103,7 +103,7 @@ public class AnnotationInjectionAttribute extends AnnotationDI {
 
     private static void componentScanDI1() {
         String stringBuilder = "\n--------------using ComponentScan annotation(ComponentScanAnnotation annotation)---------------" + "\n";
-        log.info(stringBuilder);
+        log.info("stringBuilder:{}",stringBuilder);
         ApplicationContext context = AppCore.openClass(ioc.annotation.attribute.componentScan.AppConfig.class);
         ComponentScanService componentScanService = componentScanService(context);
         log.info("componentScanService:" + componentScanService);
@@ -111,7 +111,7 @@ public class AnnotationInjectionAttribute extends AnnotationDI {
 
     private static void componentScanDI2() {
         String stringBuilder = "\n--------------using ComponentScan annotation(Component annotation)---------------" + "\n";
-        log.info(stringBuilder);
+        log.info("stringBuilder:{}",stringBuilder);
         ApplicationContext context = AppCore.openClass(AppConfig2.class);
         ComponentScanService2 componentScanService2 = componentScanService2(context);
         log.info("componentScanService2:" + componentScanService2);
@@ -119,7 +119,7 @@ public class AnnotationInjectionAttribute extends AnnotationDI {
 
     private static void componentScanDI3() {
         String stringBuilder = "\n--------------using ComponentScan annotation(spring.components)---------------" + "\n";
-        log.info(stringBuilder);
+        log.info("stringBuilder:{}",stringBuilder);
         ApplicationContext context = AppCore.openClass(ioc.annotation.attribute.componentScan.AppConfig.class);
         ComponentScanService componentScanService = componentScanService(context);
         log.info("componentScanService:" + componentScanService);

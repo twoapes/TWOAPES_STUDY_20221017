@@ -25,7 +25,7 @@ public class ObjectArray {
             stringBuilder.append("i:").append(objectPojo.getI()).append(" j:").append(objectPojo.getJ()).append("\t");
         }
 
-        log.info(stringBuilder.toString());
+        log.info("stringBuilder:{}",stringBuilder);
     }
 }
 

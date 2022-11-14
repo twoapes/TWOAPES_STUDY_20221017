@@ -35,7 +35,7 @@ public class SelectSort {
             stringBuilder.append("(").append(i + 1).append("): ").append(array(arrays)).append("\n");
         }
 
-        log.info(stringBuilder.toString());
+        log.info("stringBuilder:{}",stringBuilder);
     }
 
     private static String array(double[] arrays) {

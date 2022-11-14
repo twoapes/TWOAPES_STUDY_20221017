@@ -206,7 +206,7 @@ public class FileUtil extends Document {
         }
 
         if (file.mkdirs()) {
-            log.info("directory[" + file.getPath() + "]crate success");
+            log.info("directory [{}] crate success",file.getPath());
             return property(file);
         } else {
             return map;
@@ -321,7 +321,7 @@ public class FileUtil extends Document {
                     stringBuilder.setLength(0);
                 }
 
-                log.info("split success");
+                log.info("split success:{}",listMap);
             } else {
                 log.error("split max size :" + strings.size());
             }
@@ -356,9 +356,9 @@ class Document {
             deleteFolders(file);
             if (isRoot) {
                 if (!file.delete()) {
-                    log.error("directory[" + file.getName() + "]delete fail");
+                    log.error("directory [{}] delete fail",file.getPath());
                 } else {
-                    log.info("directory[" + file.getName() + "]delete success");
+                    log.info("directory [{}] delete success",file.getPath());
                 }
             }
         }
@@ -380,13 +380,13 @@ class Document {
                 } catch (IOException e) {
                     log.error(e.getMessage(), e);
                 } finally {
-                    log.info("file[" + file.getPath() + "]write success");
+                    log.info("file [{}] write success",file.getPath());
                 }
             } else {
-                log.error("file[" + file.getPath() + "]error");
+                log.error("file [{}] write error",file.getPath());
             }
         } else {
-            log.error("file[" + file.getPath() + "]error");
+            log.error("file[{}] error",file.getPath());
         }
     }
 
@@ -444,9 +444,9 @@ class Document {
     static void deleteFile(File file) {
         if (file != null && file.isFile()) {
             if (!file.delete()) {
-                log.error("file[" + file.getName() + "]delete fail");
+                log.error("file [{}] delete fail",file.getPath());
             } else {
-                log.info("file[" + file.getName() + "]delete success");
+                log.info("file [{}] delete success",file.getPath());
             }
         } else {
             log.error("file is not null and must exist");
@@ -477,7 +477,7 @@ class Document {
                 //free the memory
                 Object o = ClassUtils.invoke("sun.nio.ch.FileChannelImpl", "unmap", byteBuffer);
                 if (o != null) {
-                    log.debug(o.toString());
+                    log.info("o:{}",o);
                 }
             }
         }
@@ -494,6 +494,7 @@ class Document {
             if (!file.delete()) {
                 if (!file.renameTo(file)) {
                     log.error("file[" + file.getPath() + "]clear fail");
+                    log.error("file[{}]clear fail");
                 } else {
                     log.error("file[" + file.getPath() + "]clear fail");
                 }

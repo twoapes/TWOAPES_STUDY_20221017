@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a3a914a9-e546-4a16-8746-44bf2a82e0d3" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TWOAPES_JAVA/TWOAPES_JAVA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_JAVA/TWOAPES_JAVA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TWOAPES_SPRING/TWOAPES_SPRING.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_SPRING/TWOAPES_SPRING.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TWOAPES_SPRINGBOOT/TWOAPES_SPRINGBOOT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_SPRINGBOOT/TWOAPES_SPRINGBOOT.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +33,6 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -50,11 +52,12 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "a62ad719eef581f1d98085c64f718dd4"
+    "settings.editor.selected.configurable": "advanced.settings",
+    "spring.configuration.checksum": "250c486cf094471da3a95df63145a8c2"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -65,12 +68,38 @@
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dto" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CaseTest.factorialTest">
+    <configuration name="CaseTest.factorialTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TWOAPES_JAVA" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CaseTest" />
+      <option name="METHOD_NAME" value="factorialTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StreamTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TWOAPES_JAVA" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StreamTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringBootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="TWOAPES_SPRINGBOOT" />
@@ -79,6 +108,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CaseTest.factorialTest" />
+        <item itemvalue="JUnit.StreamTest.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringBootOptions">
@@ -99,6 +134,13 @@
       <workItem from="1666408053908" duration="407000" />
       <workItem from="1666511946623" duration="1211000" />
       <workItem from="1666573343682" duration="8754000" />
+      <workItem from="1667286391371" duration="128000" />
+      <workItem from="1667286590470" duration="1560000" />
+      <workItem from="1667288365173" duration="678000" />
+      <workItem from="1667289685018" duration="83000" />
+      <workItem from="1667645738003" duration="6074000" />
+      <workItem from="1668346072600" duration="5354000" />
+      <workItem from="1668419967798" duration="6262000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1666334709910</created>

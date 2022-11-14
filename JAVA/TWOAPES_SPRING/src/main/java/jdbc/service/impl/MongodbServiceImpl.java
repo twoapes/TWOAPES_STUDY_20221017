@@ -49,7 +49,7 @@ public class MongodbServiceImpl implements MongodbService {
 
             if (!collectionNameList.contains(name)) {
                 mongoDatabase.createCollection(name);
-                log.info("create collection[" + name + "]success");
+                log.info("create collection [{}] success",name);
             }
         } catch (Exception e) {
             log.error(e.getMessage(), e);
@@ -68,7 +68,7 @@ public class MongodbServiceImpl implements MongodbService {
         MongoDatabase mongoDatabase = getMongoDatabaseVerify();
         try {
             MongoCollection<Document> collection = mongoDatabase.getCollection(name);
-            log.info("select collection[" + name + "]success");
+            log.info("insertOne [{}] success",name);
             collection.insertOne(document);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
@@ -87,7 +87,7 @@ public class MongodbServiceImpl implements MongodbService {
         MongoDatabase mongoDatabase = getMongoDatabaseVerify();
         try {
             MongoCollection<Document> collection = mongoDatabase.getCollection(name);
-            log.info("select collection[" + name + "]success");
+            log.info("insert [{}] success",name);
             collection.insertMany(documentList);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
@@ -106,7 +106,7 @@ public class MongodbServiceImpl implements MongodbService {
 
         try {
             MongoCollection<Document> collection = mongoDatabase.getCollection(name);
-            log.info("select collection[" + name + "]success");
+            log.info("collection [{}] success",name);
             return collection.find();
         } catch (Exception e) {
             log.error(e.getMessage(), e);
@@ -129,11 +129,11 @@ public class MongodbServiceImpl implements MongodbService {
 
         try {
             MongoCollection<Document> collection = mongoDatabase.getCollection(name);
-            log.info("select collection[" + name + "]success");
+            log.info("collection [{}] success",name);
 
             UpdateResult updateResult = collection.updateMany(var1, var2);
             if (updateResult.getMatchedCount() > 0) {
-                log.info("update collection[" + name + "]success");
+                log.info("update [{}] success",name);
             }
 
             return updateResult.getModifiedCount();
@@ -157,11 +157,11 @@ public class MongodbServiceImpl implements MongodbService {
 
         try {
             MongoCollection<Document> collection = mongoDatabase.getCollection(name);
-            log.info("select collection[" + name + "]success");
+            log.info("collection [{}] success",name);
 
             DeleteResult deleteResult = collection.deleteMany(var);
             if (deleteResult.getDeletedCount() > 0) {
-                log.info("delete collection[" + name + "]success");
+                log.info("delete [{}] success",name);
             }
 
             return deleteResult.getDeletedCount();

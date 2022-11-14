@@ -21,7 +21,7 @@ public class MethodTransferDyadicArray {
         }
 
         stringBuilder.append("sum:").append(sum(ints)).append("\n");
-        log.info(stringBuilder.toString());
+        log.info("stringBuilder:{}",stringBuilder);
     }
 
     /**

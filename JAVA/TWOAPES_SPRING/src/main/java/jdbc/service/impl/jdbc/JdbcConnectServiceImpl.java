@@ -77,9 +77,9 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
                     connection.close();
                     log.info("database connection pool is close");
                 } else if (connection == null) {
-                    log.debug("database connection pool is null");
+                    log.info("database connection pool is null");
                 } else {
-                    log.debug("database connection pool is close");
+                    log.info("database connection pool is close");
                 }
             } catch (SQLException e) {
                 log.error(e.getMessage(), e);
@@ -89,7 +89,7 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
         } else {
             if (error <= 10) {
                 try {
-                    log.warn("warn!!!  the current database is too busy,reconnection (" + (++error) + ") times");
+                    log.warn("warn!!!  the current database is too busy,reconnection ({}) times",(++error));
                     Thread.sleep(5 * 1000);
                     close();
                 } catch (InterruptedException e) {
@@ -131,9 +131,9 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
                 } else {
                     connection.setAutoCommit(false);
                 }
-                log.debug("database successfully closed automatic submission");
+                log.info("database successfully closed automatic submission");
             } else {
-                log.debug("database is not open");
+                log.info("database is not open");
             }
         } catch (SQLException e) {
             log.error(e.getMessage(), e);
@@ -179,7 +179,7 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
         stringBuilder.append("drivers version:").append(databaseMetaData.getDriverVersion()).append("\n");
         stringBuilder.append("drivers main version:").append(databaseMetaData.getDriverMajorVersion()).append("\n");
         stringBuilder.append("drivers sub version:").append(databaseMetaData.getDriverMinorVersion()).append("\n");
-        log.info(stringBuilder.toString());
+        log.info("stringBuilder:{}",stringBuilder);
     }
 
     /**
@@ -214,9 +214,9 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
         try {
             if (!isNullClose(resultSet)) {
                 resultSet.close();
-                log.debug("close ResultSet");
+                log.info("close ResultSet");
             } else {
-                log.debug("non close");
+                log.info("non close");
             }
         } catch (SQLException e) {
             log.error(e.getMessage(), e);
@@ -229,7 +229,7 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
                 preparedStatement.close();
                 log.info("close PreparedStatement");
             } else {
-                log.debug("non close");
+                log.info("non close");
             }
         } catch (SQLException e) {
             log.error(e.getMessage(), e);
@@ -257,7 +257,8 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
             for (Object parameter : parameters) {
                 preparedStatement.setObject(index++, parameter);
             }
-            log.debug("current parameters" + parameters);
+
+            log.info("current parameters:{}", parameters);
         }
     }
 }

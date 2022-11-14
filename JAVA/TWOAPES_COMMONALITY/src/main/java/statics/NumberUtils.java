@@ -35,7 +35,7 @@ public class NumberUtils {
         try {
             number = NumberFormat.getNumberInstance(Locale.getDefault()).parse(thousand);
         } catch (ParseException e) {
-            log.info(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
 
         return number;

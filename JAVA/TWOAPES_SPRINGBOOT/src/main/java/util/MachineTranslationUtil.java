@@ -49,7 +49,7 @@ public class MachineTranslationUtil {
             str += ("machine before:=>" + jsonObject.getString("src"));
             str += ("\t");
             str += ("machine after:=>" + jsonObject.getString("dst"));
-            log.debug(str);
+            log.info("str:{}",str);
             str = jsonObject.getString("dst");
         } catch (Exception e) {
             log.error(e.getMessage(), e);

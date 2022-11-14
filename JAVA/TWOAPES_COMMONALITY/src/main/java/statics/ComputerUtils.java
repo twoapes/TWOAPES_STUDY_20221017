@@ -134,7 +134,7 @@ public class ComputerUtils {
             str = "error";
         }
 
-        log.info("[" + desc + "]consuming:" + str);
+        log.info("[{}] consuming: {}",desc,str);
     }
 
     /**

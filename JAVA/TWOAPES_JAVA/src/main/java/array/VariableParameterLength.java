@@ -12,8 +12,9 @@ import java.util.Arrays;
 @Slf4j
 public class VariableParameterLength {
     public static void variableParameterLength(double... numbers) {
-        if (numbers.length == 0)
-            log.info("list must not empty");
+        if (numbers.length == 0) {
+            log.warn("list must not empty");
+        }
 
         double result = numbers[0];
         for (double number : numbers) {
@@ -22,6 +23,6 @@ public class VariableParameterLength {
             }
         }
 
-        log.info(Arrays.toString(numbers) + "maximum:" + result);
+        log.info("numbers:[{}] result:{}" ,Arrays.toString(numbers), result);
     }
 }

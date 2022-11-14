@@ -19,7 +19,7 @@ public class BinaryChop {
         while (begin <= end) {
             int mind = (begin + end) / 2;
             if (value == arrays[mind]) {
-                log.info("arrays["+value+"][" + mind + "]");
+                log.info("arrays find value:{} mind:{}",value,mind);
                 is = true;
                 break;
             } else if (value < arrays[mind]) {
@@ -29,7 +29,7 @@ public class BinaryChop {
             }
         }
         if (!is) {
-            log.info("arrays not find:" + value);
+            log.info("arrays not find:{}", value);
         }
     }
 }

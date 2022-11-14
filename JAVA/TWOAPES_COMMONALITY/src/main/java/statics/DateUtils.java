@@ -153,7 +153,7 @@ public class DateUtils {
      * 2022-07-01 9:33
      */
     public static Date get(int year, int month, int day, int hour, int minute, int second) {
-        log.debug("nowTime:" + format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
+        log.info("nowTime:{}", format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
         calendar.set(Calendar.YEAR, year);
         calendar.set(Calendar.MONTH, month - 1);
         calendar.set(Calendar.DAY_OF_MONTH, day);
@@ -169,7 +169,7 @@ public class DateUtils {
      * 2022-07-01 9:33
      */
     public static Date getMinimum() {
-        log.debug("nowTime:" + format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
+        log.info("nowTime:{}", format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
         calendar.set(Calendar.HOUR_OF_DAY, calendar.getMinimum(Calendar.HOUR_OF_DAY));
         calendar.set(Calendar.MINUTE, calendar.getMinimum(Calendar.MINUTE));
         calendar.set(Calendar.SECOND, calendar.getMinimum(Calendar.SECOND));
@@ -182,7 +182,7 @@ public class DateUtils {
      * 2022-07-01 9:33
      */
     public static Date getMaximum() {
-        log.debug("nowTime:" + format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
+        log.info("nowTime:{}", format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
         calendar.set(Calendar.HOUR_OF_DAY, calendar.getMaximum(Calendar.HOUR_OF_DAY));
         calendar.set(Calendar.MINUTE, calendar.getMaximum(Calendar.MINUTE));
         calendar.set(Calendar.SECOND, calendar.getMaximum(Calendar.SECOND));
@@ -199,7 +199,7 @@ public class DateUtils {
      * 2022-07-01 10:51
      */
     public static Date assignDate(int day, Date date) {
-        log.debug("nowTime:" + format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
+        log.info("nowTime:{}", format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
         calendar.setTime(date);
         calendar.add(Calendar.DAY_OF_MONTH, day);
         return calendar.getTime();
@@ -213,7 +213,7 @@ public class DateUtils {
      * 2022-07-01 11:01
      */
     public static int getYear(Date date) {
-        log.debug("nowTime:" + format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
+        log.info("nowTime:{}", format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
         calendar.setTime(date);
         return calendar.get(Calendar.YEAR);
     }
@@ -226,7 +226,7 @@ public class DateUtils {
      * 2022-07-01 11:01
      */
     public static int getMonth(Date date) {
-        log.debug("nowTime:" + format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
+        log.info("nowTime:{}", format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
         calendar.setTime(date);
         return calendar.get(Calendar.MONTH) + 1;
     }
@@ -239,7 +239,7 @@ public class DateUtils {
      * 2022-07-01 11:01
      */
     public static int getDay(Date date) {
-        log.debug("nowTime:" + format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
+        log.info("nowTime:{}", format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
         calendar.setTime(date);
         return calendar.get(Calendar.DAY_OF_MONTH);
     }
@@ -302,7 +302,7 @@ public class DateUtils {
      * 2022-07-01 11:16
      */
     public static int getDiffForDay(Date startDate, Date endDate) {
-        log.debug("nowTime:" + format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
+        log.info("nowTime:{}", format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
         Calendar startCalender = Calendar.getInstance();
         startCalender.setTime(startDate);
         Calendar endCalender = Calendar.getInstance();
@@ -314,14 +314,14 @@ public class DateUtils {
     /**
      * date difference(for time)
      *
-     * @param startDate startDate
+log.info     * @param startDate startDate
      * @param endDate   endDate
      * @return getDiff
      * @author add by huyingzhao
      * 2022-07-01 11:16
      */
     public static String getDiff(Date startDate, Date endDate) {
-        log.debug("nowTime:" + format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
+        log.info("nowTime:{}", format(nowTime(), ISO8601.YYYY_MM_DD_HE_HMS));
         Calendar startCalender = Calendar.getInstance();
         startCalender.setTime(startDate);
         Calendar endCalender = Calendar.getInstance();

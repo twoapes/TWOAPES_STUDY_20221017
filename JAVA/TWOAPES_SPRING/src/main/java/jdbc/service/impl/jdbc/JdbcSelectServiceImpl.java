@@ -154,7 +154,7 @@ class Select extends JdbcConnectServiceImpl {
         } else if (is) {
             try {
                 dataList = getSelect(resultSet, parameterPOJO, string);
-                log.debug("sql:\n" + parameterPOJO.getSql());
+                log.info("sql:{}" , parameterPOJO.getSql());
             } catch (SQLException e) {
                 log.error(e.getMessage(), e);
             } finally {
@@ -180,7 +180,7 @@ class Select extends JdbcConnectServiceImpl {
         } else if (is) {
             try {
                 dataList = getSelect(resultSet, o, pojo, string);
-                log.debug("sql:\n" + pojo.getSql());
+                log.info("sql:{}" , pojo.getSql());
             } catch (SQLException e) {
                 log.error(e.getMessage(), e);
             } finally {
@@ -196,7 +196,7 @@ class Select extends JdbcConnectServiceImpl {
      * @param resultSet ResultSet
      */
     private void getSelect(ResultSet resultSet) throws SQLException {
-        log.debug("searching.....");
+        log.info("searching.....");
         ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
         for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++) {
             commMap.put(resultSetMetaData.getColumnName(i), resultSetMetaData.getColumnTypeName(i));

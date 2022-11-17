@@ -1,7 +1,9 @@
-package statics;
+package util;
 
 import lombok.extern.slf4j.Slf4j;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -9,6 +11,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.InetAddress;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +23,7 @@ import java.util.Map;
  * only computer related
  */
 @Slf4j
-public class ComputerUtils {
+public class ComputerUtil {
 
     /**
      * @param file     file/directory
@@ -134,7 +138,7 @@ public class ComputerUtils {
             str = "error";
         }
 
-        log.info("[{}] consuming: {}",desc,str);
+        log.info("[{}] consuming: {}", desc, str);
     }
 
     /**
@@ -196,6 +200,15 @@ public class ComputerUtils {
     }
 
     /**
+     * @param content content
+     * @return encodeAES
+     */
+    public static String encodeAES(byte[] content) {
+        final Base64.Encoder encoder = Base64.getEncoder();
+        return encoder.encodeToString(content);
+    }
+
+    /**
      * @param charset charset
      * @param content content
      * @return decodeAES
@@ -203,5 +216,52 @@ public class ComputerUtils {
     public static String decodeAES(Charset charset, String content) {
         final Base64.Decoder decoder = Base64.getDecoder();
         return new String(decoder.decode(content), charset);
+    }
+
+    /**
+     * @param str str
+     * @return MD5
+     * @author add by huyingzhao
+     * 2022-11-15 17:33
+     */
+    public static String digest(String str) {
+        MessageDigest md5;
+        try {
+            md5 = MessageDigest.getInstance("MD5");
+            byte[] md5Bytes = md5.digest(str.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexValue = new StringBuilder();
+            for (byte md5Byte : md5Bytes) {
+                int val = md5Byte & 0xff;
+                if (val < 16)
+                    hexValue.append("0");
+                hexValue.append(Integer.toHexString(val));
+            }
+            str = hexValue.toString();
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+        return str;
+    }
+
+
+    /**
+     * @param data data
+     * @param key  key
+     * @return hmacSHA256
+     * @author add by huyingzhao
+     * 2022-11-15 17:40
+     */
+    public static byte[] hmacSHA256(String data, String key) {
+        try {
+            final String algorithm = "hmacSHA256";
+            Mac sha256_HMAC = Mac.getInstance(algorithm);
+            SecretKeySpec secret_key = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), algorithm);
+            sha256_HMAC.init(secret_key);
+            return sha256_HMAC.doFinal(data.getBytes(StandardCharsets.UTF_8));
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+
+        return null;
     }
 }

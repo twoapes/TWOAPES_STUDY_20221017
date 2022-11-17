@@ -1,6 +1,7 @@
 package springboot.service.impl;
 
 import com.mongodb.client.result.DeleteResult;
+import dto.VocabularyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -9,9 +10,8 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 import page.ObjectResult;
 import page.PageResult;
-import dto.VocabularyDTO;
 import springboot.service.VocabularyService;
-import statics.DateUtils;
+import util.DateUtil;
 import util.QueryUtil;
 
 import java.util.HashMap;
@@ -77,7 +77,7 @@ public class VocabularyServiceImpl implements VocabularyService {
         Update update = new Update();
         update.set("name", vocabularyDTO.getName());
         update.set("value", vocabularyDTO.getValue());
-        update.set("last_modify_time", DateUtils.nowTime());
+        update.set("last_modify_time", DateUtil.nowTime());
         return ObjectResult.success("edit success", mongoTemplate.upsert(query, update, VocabularyDTO.class).getModifiedCount());
     }
 

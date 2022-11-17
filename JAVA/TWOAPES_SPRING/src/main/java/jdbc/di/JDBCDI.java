@@ -1,7 +1,7 @@
 package jdbc.di;
 
 import core.AppCore;
-import dto.StudentTO;
+import jdbc.pojo.StudentTO;
 import jdbc.dao.JDBCDao;
 import jdbc.pojo.ParameterPOJO;
 import jdbc.service.AppConfig;

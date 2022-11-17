@@ -1,4 +1,4 @@
-import array.*;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -42,10 +42,10 @@ public class ArrayTest {
         str += ("ints[7] --> " + ints[7] + "\t");
         str += ("ints[8] --> " + ints[8] + "\t");
         str += ("ints[9] --> " + ints[9] + "\t");
-        log.info("str:{}",str);
+        log.info("str:{}", str);
         str = "";
         str += (Arrays.toString(new int[]{100, 200, 300}));
-        log.info("str:{}",str);
+        log.info("str:{}", str);
     }
 
     /**
@@ -56,13 +56,13 @@ public class ArrayTest {
      */
     @Test
     public void methodTransferDimensionalArrayTest() {
-        int[] ins=new int[]{1, 2, 3, 4, 5, 6};
+        int[] ins = new int[]{1, 2, 3, 4, 5, 6};
         StringBuilder stringBuilder = new StringBuilder("\n");
         for (int i = 0; i < ins.length; i++) {
             ins[i] = 5 * (i + 1);
             stringBuilder.append(ins[i]).append("\n");
         }
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder:{}", stringBuilder);
     }
 
     /**
@@ -81,7 +81,7 @@ public class ArrayTest {
             str.append("d(").append(++index).append("):").append(d).append("\t");
         }
 
-        log.info("str:{}",str);
+        log.info("str:{}", str);
     }
 
     /**
@@ -92,7 +92,7 @@ public class ArrayTest {
      */
     @Test
     public void linearLookupMethodTest() {
-        int[] ins=new int[]{1, 2, 3, 4, 5, 6, 7, 8};
+        int[] ins = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
         StringBuilder str = new StringBuilder("\n");
         for (int in : ins) {
             if (in % 2 == 0) {
@@ -111,7 +111,21 @@ public class ArrayTest {
      */
     @Test
     public void objectArrayTest() {
-        ObjectArray.objectArray();
+        ObjectPojo[] objectPojoList = new ObjectPojo[2];
+        objectPojoList[0] = new ObjectPojo();
+        ObjectPojo objectPojo1 = objectPojoList[0];
+        objectPojo1.setI(1);
+        objectPojo1.setJ(2);
+        objectPojoList[1] = new ObjectPojo();
+        ObjectPojo objectPojo2 = objectPojoList[1];
+        objectPojo2.setI(3);
+        objectPojo2.setJ(4);
+        StringBuilder stringBuilder = new StringBuilder("\n");
+        for (ObjectPojo objectPojo : objectPojoList) {
+            stringBuilder.append("i:").append(objectPojo.getI()).append(" j:").append(objectPojo.getJ()).append("\t");
+        }
+
+        log.info("stringBuilder:{}", stringBuilder);
     }
 
     /**
@@ -122,12 +136,13 @@ public class ArrayTest {
      */
     @Test
     public void binaryChopTest() {
-        BinaryChop.binaryChop(4);
-        BinaryChop.binaryChop(14);
+        Array.binaryChop(4);
+        Array.binaryChop(14);
     }
 
     /**
      * test InsertSort
+     *
      * @author add by huyingzhao
      * 2022-09-13 13:41
      */
@@ -150,7 +165,7 @@ public class ArrayTest {
             stringBuilder.append("d(").append(++index).append("):").append(d).append("\t");
         }
 
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder:{}", stringBuilder);
     }
 
     /**
@@ -162,7 +177,7 @@ public class ArrayTest {
     @Test
     public void selectSortTest() {
         double[] doubleArrays = {1.1, 13.3, 7.2, 3.3, 195.3};
-        SelectSort.selectSort(doubleArrays);
+        Array.selectSort(doubleArrays);
     }
 
     /**
@@ -196,7 +211,7 @@ public class ArrayTest {
             stringBuilder.append("i:").append(ins[i]).append("\n");
         }
 
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder:{}", stringBuilder);
     }
 
     /**
@@ -221,7 +236,7 @@ public class ArrayTest {
             stringBuilder.append(i).append("\n");
         }
 
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder:{}", stringBuilder);
     }
 
     /**
@@ -243,7 +258,7 @@ public class ArrayTest {
         }
 
         stringBuilder.append("dyadic array length:").append(ints.length);
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder:{}", stringBuilder);
     }
 
     /**
@@ -254,7 +269,7 @@ public class ArrayTest {
      */
     @Test
     public void methodTransferDyadicArrayTest() {
-        MethodTransferDyadicArray.methodTransferDyadicArray();
+        Array.methodTransferDyadicArray();
     }
 
     /**
@@ -265,7 +280,124 @@ public class ArrayTest {
      */
     @Test
     public void variableParameterLengthTest() {
-        VariableParameterLength.variableParameterLength(1.0, 3.5, 33.8);
-        VariableParameterLength.variableParameterLength(1.2, 3.14, 220.8);
+        Array.variableParameterLength(1.0, 3.5, 33.8);
+        Array.variableParameterLength(1.2, 3.14, 220.8);
     }
+}
+
+@Slf4j
+class Array {
+    public static void variableParameterLength(double... numbers) {
+        if (numbers.length == 0) {
+            log.warn("list must not empty");
+        }
+
+        double result = numbers[0];
+        for (double number : numbers) {
+            if (result < number) {
+                result = number;
+            }
+        }
+
+        log.info("numbers:[{}] result:{}", Arrays.toString(numbers), result);
+    }
+
+
+    /**
+     * @param arrays arrays
+     * @author add by huyingzhao
+     * 2022-09-13 14:25
+     */
+    public static void selectSort(double[] arrays) {
+        StringBuilder stringBuilder = new StringBuilder("\n");
+        for (int i = 0; i < arrays.length - 1; i++) {
+            final double cur = arrays[i];
+            double last = 0;
+            int lastIndex = i;
+            for (int j = i + 1; j < arrays.length; j++) {
+                if (cur > arrays[j]) {
+                    last = arrays[j];
+                    lastIndex = j;
+                }
+            }
+
+            if (lastIndex != i) {
+                arrays[lastIndex] = arrays[i];
+                arrays[i] = last;
+            }
+
+            stringBuilder.append("(").append(i + 1).append("): ").append(array(arrays)).append("\n");
+        }
+
+        log.info("stringBuilder:{}", stringBuilder);
+    }
+
+    private static String array(double[] arrays) {
+        StringBuilder stringBuilder = new StringBuilder("\n");
+        for (double d : arrays) {
+            stringBuilder.append(d).append("\t");
+        }
+        return stringBuilder.toString();
+    }
+
+    public static void methodTransferDyadicArray() {
+        StringBuilder stringBuilder = new StringBuilder("\n");
+        int[][] ints = new int[3][4];
+        int count = 0;
+        for (int i = 0; i < ints.length; i++) {
+            for (int j = 0; j < ints[i].length; j++) {
+                stringBuilder.append("[").append(i + 1).append("],[").append(j + 1).append("]value:").append(++count).append("\n");
+                ints[i][j] = count;
+            }
+        }
+
+        stringBuilder.append("sum:").append(sum(ints)).append("\n");
+        log.info("stringBuilder:{}", stringBuilder);
+    }
+
+    /**
+     * @param ints ints
+     * @return sum
+     */
+    private static int sum(int[][] ints) {
+        int total = 0;
+        for (int[] anInt : ints) {
+            for (int i : anInt) {
+                total += i;
+            }
+        }
+
+        return total;
+    }
+
+    public static void binaryChop(int value) {
+        int[] arrays = {2, 3, 4, 5, 6};
+
+        boolean is = false;
+        int begin = 0;
+        int end = arrays.length - 1;
+
+        while (begin <= end) {
+            int mind = (begin + end) / 2;
+            if (value == arrays[mind]) {
+                log.info("arrays find value:{} mind:{}", value, mind);
+                is = true;
+                break;
+            } else if (value < arrays[mind]) {
+                end = mind - 1;
+            } else {
+                begin = mind + 1;
+            }
+        }
+
+        if (!is) {
+            log.info("arrays not find:{}", value);
+        }
+    }
+}
+
+@Data
+class ObjectPojo {
+    private int i;
+    private int j;
 }

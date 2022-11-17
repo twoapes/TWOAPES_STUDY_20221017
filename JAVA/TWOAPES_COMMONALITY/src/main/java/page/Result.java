@@ -24,9 +24,9 @@ public class Result {
 
     /**
      * Result
-     * @param code
-     * @param type
-     * @param msg
+     * @param code code
+     * @param type type
+     * @param msg msg
      */
     Result(String code, String type, String msg) {
         this.code = code;

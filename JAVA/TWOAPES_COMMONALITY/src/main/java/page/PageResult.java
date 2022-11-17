@@ -34,7 +34,7 @@ public class PageResult<T> extends Result {
     /**
      * PageResult
      * @param code code
-     * @param code code
+     * @param type type
      * @param msg msg
      */
     private PageResult(String code, String type, String msg) {

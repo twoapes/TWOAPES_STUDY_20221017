@@ -1,4 +1,4 @@
-package statics;
+package util;
 
 import document.XLSXColumnEnum;
 import document.XLSXDropEnum;
@@ -406,7 +406,7 @@ class Workbook {
             // create row
             if (o instanceof String) {
                 if (xlsxColumnEnum.map() != null && !xlsxColumnEnum.map().isEmpty()) {
-                    Map<String, String> map = StringUtils.toMap(xlsxColumnEnum.map());
+                    Map<String, String> map = StringUtil.toMap(xlsxColumnEnum.map());
                     String str = (String) o;
                     for (String s : map.keySet()) {
                         if (s.equals(str)) {
@@ -427,7 +427,7 @@ class Workbook {
             } else if (o instanceof Byte) {
                 cell.setCellValue((Byte) o);
             } else if (o instanceof Date) {
-                cell.setCellValue(DateUtils.format((Date) o, xlsxColumnEnum.format()));
+                cell.setCellValue(DateUtil.format((Date) o, xlsxColumnEnum.format()));
             } else if (o instanceof Double) {
                 cell.setCellValue((Double) o);
             } else if (o instanceof Float) {

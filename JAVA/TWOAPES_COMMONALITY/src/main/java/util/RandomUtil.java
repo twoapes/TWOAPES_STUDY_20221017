@@ -1,4 +1,4 @@
-package statics;
+package util;
 
 import java.math.BigDecimal;
 import java.util.Random;

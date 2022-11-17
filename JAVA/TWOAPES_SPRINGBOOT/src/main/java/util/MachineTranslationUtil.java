@@ -1,13 +1,8 @@
 package util;
 
 import com.alibaba.fastjson.JSONObject;
-import enums.ISO8601;
+import enums.ISO8601Enum;
 import lombok.extern.slf4j.Slf4j;
-import statics.ComputerUtils;
-import statics.DateUtils;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -55,7 +50,7 @@ public class MachineTranslationUtil {
             log.error(e.getMessage(), e);
         }
 
-        ComputerUtils.end(startTime,"util.MachineTranslationUtil.machine");
+        ComputerUtil.end(startTime,"util.MachineTranslationUtil.machine");
         return str;
     }
 
@@ -108,16 +103,14 @@ public class MachineTranslationUtil {
         String httpRequestUrl = requestUrl.replace("ws://", "http://").replace("wss://", "https://");
         try {
             url = new URL(httpRequestUrl);
-            String date = DateUtils.format(DateUtils.nowTime(), ISO8601.EEE_DD_MMM_YYYY_HH_MM_SS_Z, Locale.US, TimeZone.getTimeZone("GMT"));
+            String date = DateUtil.format(DateUtil.nowTime(), ISO8601Enum.EEE_DD_MMM_YYYY_HH_MM_SS_Z, Locale.US, TimeZone.getTimeZone("GMT"));
             String host = url.getHost();
             String builder = "host: " + host + "\n" + "date: " + date + "\n" + "POST " + url.getPath() + " HTTP/1.1";
-            Mac mac = Mac.getInstance("hmacsha256");
-            SecretKeySpec spec = new SecretKeySpec(secret.getBytes(charset), "hmacsha256");
-            mac.init(spec);
-            byte[] hexDigits = mac.doFinal(builder.getBytes(charset));
-            String sha = Base64.getEncoder().encodeToString(hexDigits);
+            byte[] hexDigits = ComputerUtil.hmacSHA256(builder,secret);
+
+            String sha = ComputerUtil.encodeAES(hexDigits);
             String authorization = String.format("api_key=\"%s\", algorithm=\"%s\", headers=\"%s\", signature=\"%s\"", key, "hmac-sha256", "host date request-line", sha);
-            String authBase = Base64.getEncoder().encodeToString(authorization.getBytes(charset));
+            String authBase = ComputerUtil.encodeAES(authorization.getBytes(charset));
             return String.format("%s?authorization=%s&host=%s&date=%s", requestUrl, URLEncoder.encode(authBase, charset), URLEncoder.encode(host, charset), URLEncoder.encode(date, charset));
         } catch (Exception e) {
             log.error(e.getMessage(), e);
@@ -138,7 +131,7 @@ public class MachineTranslationUtil {
      */
     private static String buildParam(Charset charset, String id, String from, String to, String text) {
         String RES_ID = "its_en_cn_word";
-        return "{" + "    \"header\": {" + "        \"app_id\": \"" + id + "\"," + "        \"status\": 3," + "        \"res_id\": \"" + RES_ID + "\"" + "    }," + "    \"parameter\": {" + "        \"its\": {" + "            \"from\": \"" + from + "\"," + "            \"to\": \"" + to + "\"," + "            \"result\": {}" + "        }" + "    }," + "    \"payload\": {" + "        \"input_data\": {" + "            \"encoding\": \"utf8\"," + "            \"status\": 3," + "            \"text\": \"" + Base64.getEncoder().encodeToString(text.getBytes(charset)) + "\"" + "        }" + "    }" + "}";
+        return "{" + "    \"header\": {" + "        \"app_id\": \"" + id + "\"," + "        \"status\": 3," + "        \"res_id\": \"" + RES_ID + "\"" + "    }," + "    \"parameter\": {" + "        \"its\": {" + "            \"from\": \"" + from + "\"," + "            \"to\": \"" + to + "\"," + "            \"result\": {}" + "        }" + "    }," + "    \"payload\": {" + "        \"input_data\": {" + "            \"encoding\": \"utf8\"," + "            \"status\": 3," + "            \"text\": \"" + ComputerUtil.encodeAES(text.getBytes(charset)) + "\"" + "        }" + "    }" + "}";
     }
 
     /**

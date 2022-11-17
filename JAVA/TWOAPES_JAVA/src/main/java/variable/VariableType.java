@@ -1,5 +1,6 @@
 package variable;
 
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -8,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  *         variable type
  */
 @Slf4j
+@Setter
 public class VariableType {
 
     // static variable
@@ -16,24 +18,24 @@ public class VariableType {
     /*
      * instance methods can use static variables
      */
-    private double instanceMethod1() {
-        return staticVariable;
+    private void instanceMethod1() {
+        log.info("instanceMethod1:{}",staticVariable);
     }
 
     /**
      * static methods can use static variables
      */
-    private static double staticMethod1() {
-        return staticVariable;
+    private static void staticMethod1() {
+        log.info("staticMethod1:{}",staticVariable);
     }
 
-    private double instanceVariable;
+//    private double instanceVariable;
 
     /**
      * instance methods can use instance variables
      */
-    private double instanceMethod2() {
-        return instanceVariable;
+    private void instanceMethod2() {
+        log.info("instanceMethod2:{}",staticVariable);
     }
 
     /*

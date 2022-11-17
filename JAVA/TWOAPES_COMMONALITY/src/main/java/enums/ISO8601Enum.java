@@ -6,7 +6,7 @@ package enums;
  * @author add by huyingzhao
  * 2022-07-02 12:51
  */
-public enum ISO8601 {
+public enum ISO8601Enum {
     /*
      * yyyy/MM/dd
      */
@@ -89,7 +89,7 @@ public enum ISO8601 {
      * ISO8601
      * @param value
      */
-    ISO8601(String value) {
+    ISO8601Enum(String value) {
         this.value = value;
     }
 
@@ -106,38 +106,38 @@ public enum ISO8601 {
      * @author add by huyingzhao
      * 2022-07-02 14:02
      */
-    public static ISO8601 iso8601(String type) {
-        ISO8601 iso8601 = null;
-        if (type.equals(ISO8601.YYYY_MM_DD.value())) {
-            iso8601 = ISO8601.UNDERLINE;
-        } else if (type.equals(ISO8601.YYYY_MM_DD_HMS.value())) {
-            iso8601 = ISO8601.YYYY_MM_DD_HMS;
-        } else if (type.equals(ISO8601.YYYY_MM_DD_HM.value())) {
-            iso8601 = ISO8601.YYYY_MM_DD_HM;
-        } else if (type.equals(ISO8601.YYYY_MM_DD_UE.value())) {
-            iso8601 = ISO8601.YYYY_MM_DD_UE;
-        } else if (type.equals(ISO8601.YYYY_MM_DD_UE_HMS.value())) {
-            iso8601 = ISO8601.YYYY_MM_DD_UE_HMS;
-        } else if (type.equals(ISO8601.YYYY_MM_DD_UE_HM.value())) {
-            iso8601 = ISO8601.YYYY_MM_DD_UE_HM;
-        } else if (type.equals(ISO8601.YYYY_MM_DD_HE.value())) {
-            iso8601 = ISO8601.YYYY_MM_DD_HE;
-        } else if (type.equals(ISO8601.YYYY_MM_DD_HE_HMS.value())) {
-            iso8601 = ISO8601.YYYY_MM_DD_HE_HMS;
-        } else if (type.equals(ISO8601.YYYY_MM_DD_HE_HM.value())) {
-            iso8601 = ISO8601.YYYY_MM_DD_HE_HM;
-        } else if (type.equals(ISO8601.YYYYMMDD.value())) {
-            iso8601 = ISO8601.YYYYMMDD;
-        } else if (type.equals(ISO8601.YYYYMMDD_HMS.value())) {
-            iso8601 = ISO8601.YYYYMMDD_HMS;
-        } else if (type.equals(ISO8601.YYYYMMDD_HMS_UN.value())) {
-            iso8601 = ISO8601.YYYYMMDD_HMS_UN;
-        } else if (type.equals(ISO8601.YYYYMMDD_HM.value())) {
-            iso8601 = ISO8601.YYYYMMDD_HM;
-        } else if (type.equals(ISO8601.UNDERLINE.value())) {
-            iso8601 = ISO8601.UNDERLINE;
-        } else if (type.equals(ISO8601.UNDERLINE24.value())) {
-            iso8601 = ISO8601.UNDERLINE24;
+    public static ISO8601Enum iso8601(String type) {
+        ISO8601Enum iso8601 = null;
+        if (type.equals(ISO8601Enum.YYYY_MM_DD.value())) {
+            iso8601 = ISO8601Enum.UNDERLINE;
+        } else if (type.equals(ISO8601Enum.YYYY_MM_DD_HMS.value())) {
+            iso8601 = ISO8601Enum.YYYY_MM_DD_HMS;
+        } else if (type.equals(ISO8601Enum.YYYY_MM_DD_HM.value())) {
+            iso8601 = ISO8601Enum.YYYY_MM_DD_HM;
+        } else if (type.equals(ISO8601Enum.YYYY_MM_DD_UE.value())) {
+            iso8601 = ISO8601Enum.YYYY_MM_DD_UE;
+        } else if (type.equals(ISO8601Enum.YYYY_MM_DD_UE_HMS.value())) {
+            iso8601 = ISO8601Enum.YYYY_MM_DD_UE_HMS;
+        } else if (type.equals(ISO8601Enum.YYYY_MM_DD_UE_HM.value())) {
+            iso8601 = ISO8601Enum.YYYY_MM_DD_UE_HM;
+        } else if (type.equals(ISO8601Enum.YYYY_MM_DD_HE.value())) {
+            iso8601 = ISO8601Enum.YYYY_MM_DD_HE;
+        } else if (type.equals(ISO8601Enum.YYYY_MM_DD_HE_HMS.value())) {
+            iso8601 = ISO8601Enum.YYYY_MM_DD_HE_HMS;
+        } else if (type.equals(ISO8601Enum.YYYY_MM_DD_HE_HM.value())) {
+            iso8601 = ISO8601Enum.YYYY_MM_DD_HE_HM;
+        } else if (type.equals(ISO8601Enum.YYYYMMDD.value())) {
+            iso8601 = ISO8601Enum.YYYYMMDD;
+        } else if (type.equals(ISO8601Enum.YYYYMMDD_HMS.value())) {
+            iso8601 = ISO8601Enum.YYYYMMDD_HMS;
+        } else if (type.equals(ISO8601Enum.YYYYMMDD_HMS_UN.value())) {
+            iso8601 = ISO8601Enum.YYYYMMDD_HMS_UN;
+        } else if (type.equals(ISO8601Enum.YYYYMMDD_HM.value())) {
+            iso8601 = ISO8601Enum.YYYYMMDD_HM;
+        } else if (type.equals(ISO8601Enum.UNDERLINE.value())) {
+            iso8601 = ISO8601Enum.UNDERLINE;
+        } else if (type.equals(ISO8601Enum.UNDERLINE24.value())) {
+            iso8601 = ISO8601Enum.UNDERLINE24;
         }
 
         return iso8601;

@@ -2,8 +2,9 @@ import ioc.annotation.AnnotationInjectionAttribute;
 import ioc.annotation.AnnotationInjectionObject;
 import ioc.xml.InjectionAttribute;
 import ioc.xml.InjectionObject;
+import util.CharsetUtil;
+
 import org.junit.Test;
-import statics.CharsetUtil;
 
 /**
  * @author add by huyingzhao

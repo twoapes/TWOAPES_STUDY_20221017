@@ -1,11 +1,11 @@
 package aop.cglib.proceedingJoinPoint.aspect;
 
 
-import enums.ISO8601;
+import enums.ISO8601Enum;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
-import statics.ComputerUtils;
-import statics.DateUtils;
+import util.ComputerUtil;
+import util.DateUtil;
 
 /**
  * @author huyingzhao
@@ -27,8 +27,8 @@ public class ProceedingJoinPointAspect {
             Object ret = pjp.proceed();
             String className = pjp.getTarget().getClass().getName();
             String methodName = pjp.getSignature().getName();
-            String now = DateUtils.format(DateUtils.nowTime(), ISO8601.YYYY_MM_DD_HE_HMS_S_S);
-            ComputerUtils.end(startTime, now + "\t" + className + "." + methodName);
+            String now = DateUtil.format(DateUtil.nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS_S_S);
+            ComputerUtil.end(startTime, now + "\t" + className + "." + methodName);
             return ret;
         } catch (Throwable e) {
             log.error(e.getMessage(), e);

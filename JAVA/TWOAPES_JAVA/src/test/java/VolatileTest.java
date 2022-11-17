@@ -4,7 +4,7 @@ import org.junit.Test;
 /**
  * @author add by huyingzhao
  * 2022-09-27 15:37
- * volatile
+ * volatile keyword
  */
 @Slf4j
 public class VolatileTest {

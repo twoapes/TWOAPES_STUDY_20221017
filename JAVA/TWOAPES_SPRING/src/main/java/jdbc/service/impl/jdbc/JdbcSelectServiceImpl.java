@@ -1,15 +1,15 @@
 package jdbc.service.impl.jdbc;
 
 import document.OracleColumn;
-import enums.ISO8601;
+import enums.ISO8601Enum;
 import enums.JdbcEnum;
+import jdbc.pojo.ParameterPOJO;
 import jdbc.service.JdbcSelectService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import jdbc.pojo.ParameterPOJO;
-import statics.DateUtils;
+import util.DateUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -276,7 +276,7 @@ class Select extends JdbcConnectServiceImpl {
                             if (o == null)
                                 o = 0;
                         } else if (JdbcEnum.DATE.name().equals(type)) {
-                            o = DateUtils.format(resultSet.getDate(key), ISO8601.iso8601(jdbcPOJO.getJdbcDataType()));
+                            o = DateUtil.format(resultSet.getDate(key), ISO8601Enum.iso8601(jdbcPOJO.getJdbcDataType()));
                         } else if (JdbcEnum.TIMESTAMP.name().equals(type)) {
                             o = resultSet.getTimestamp(key);
                         } else if ("TIMESTAMP WITH LOCAL TIME ZONE".equals(type)) {
@@ -299,7 +299,7 @@ class Select extends JdbcConnectServiceImpl {
                             if (o == null)
                                 o = "";
                         } else if (JdbcEnum.DATE.name().equals(type)) {
-                            o = DateUtils.format(resultSet.getDate(key), ISO8601.iso8601(jdbcPOJO.getJdbcDataType()));
+                            o = DateUtil.format(resultSet.getDate(key), ISO8601Enum.iso8601(jdbcPOJO.getJdbcDataType()));
                         }
                     }
 
@@ -420,7 +420,7 @@ class Select extends JdbcConnectServiceImpl {
                     result = resultSet.getString(columnLabel);
                 }
             } else if (commType.equals(JdbcEnum.DATE.name()) || (commType.equals(JdbcEnum.TIMESTAMP.name()))) {
-                result = DateUtils.format(resultSet.getDate(columnLabel), ISO8601.iso8601(jdbcPOJO.getJdbcDataType()));
+                result = DateUtil.format(resultSet.getDate(columnLabel), ISO8601Enum.iso8601(jdbcPOJO.getJdbcDataType()));
             } else if (commType.equals(JdbcEnum.NUMBER.name())) {
                 result = resultSet.getString(columnLabel);
             } else {

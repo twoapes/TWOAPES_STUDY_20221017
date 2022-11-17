@@ -1,6 +1,6 @@
 package document;
 
-import enums.ISO8601;
+import enums.ISO8601Enum;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 
@@ -64,7 +64,7 @@ public @interface XLSXColumnEnum {
      * @author add by huyingzhao
      *         2022-06-27 10:14
      */
-    ISO8601 format() default ISO8601.YYYY_MM_DD_HE_HMS;
+    ISO8601Enum format() default ISO8601Enum.YYYY_MM_DD_HE_HMS;
 
     /**
      * 

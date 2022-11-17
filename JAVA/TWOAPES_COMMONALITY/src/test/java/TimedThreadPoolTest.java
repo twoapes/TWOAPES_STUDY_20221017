@@ -30,7 +30,7 @@ public class TimedThreadPoolTest {
         p.add(tt2, date);
 ///        for (int i = 0; i < 10; i++) {
 //            TestThread tt = new TestThread(i + 1, p);
-//            System.out.println("++ add thread " + (i + 1));
+//            log.info("++ add thread " + (i + 1));
 //            p.add(tt, later());
 //            Thread.sleep(270);
 //        }

@@ -4,8 +4,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import page.PageResult;
-import statics.DateUtils;
-
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -130,11 +128,11 @@ public class QueryUtil {
      */
     private static void nowDate(Criteria criteria, String name, Date begin, Date end) {
         if (begin == null) {
-            begin = DateUtils.nowTime();
+            begin = DateUtil.nowTime();
         }
 
         if (end == null) {
-            end = DateUtils.nowTime();
+            end = DateUtil.nowTime();
         }
 
         Calendar calendar = Calendar.getInstance();

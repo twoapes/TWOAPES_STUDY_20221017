@@ -1,4 +1,4 @@
-package statics;
+package util;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,7 +12,7 @@ import java.nio.MappedByteBuffer;
  * invoke method
  */
 @Slf4j
-public class ClassUtils {
+public class ClassUtil {
 
     /**
      * using invoke

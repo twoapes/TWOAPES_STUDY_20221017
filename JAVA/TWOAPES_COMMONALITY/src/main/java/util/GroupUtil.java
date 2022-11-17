@@ -1,6 +1,6 @@
-package statics;
+package util;
 
-import enums.ISO8601;
+import enums.ISO8601Enum;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Field;
@@ -12,7 +12,7 @@ import java.util.*;
  *         2022-06-29 10:38
  */
 @Slf4j
-public class GroupUtils {
+public class GroupUtil {
     /**
      * group for list
      * @param list     list
@@ -23,7 +23,7 @@ public class GroupUtils {
      * @author add by huyingzhao
      *         2022-06-07 21:29
      */
-    public static <T> List<Object> groupList(List<T> list, List<String> groupBys, ISO8601 iso8601) {
+    public static <T> List<Object> groupList(List<T> list, List<String> groupBys, ISO8601Enum iso8601) {
         List<Object> tList = new ArrayList<>();
         try {
             Map<String, List<T>> map = groupMap(list, groupBys);
@@ -156,7 +156,7 @@ public class GroupUtils {
                                     field2.set(t2, Boolean.valueOf(nowString));
                                     break;
                                 case "java.util.Date":
-                                    field2.set(t2, DateUtils.parse(nowString, iso8601));
+                                    field2.set(t2, DateUtil.parse(nowString, iso8601));
                                     break;
                                 default:
                                     field2.set(t2, nowString);

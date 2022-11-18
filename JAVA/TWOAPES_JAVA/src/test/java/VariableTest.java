@@ -14,7 +14,7 @@ import java.util.Arrays;
 @Slf4j
 public class VariableTest {
     /**
-     * test Scope
+     * test scope
      *
      * @author add by huyingzhao
      * 2022-09-12 22:57
@@ -41,7 +41,7 @@ public class VariableTest {
     }
 
     /**
-     * test VariableType
+     * test variable type
      *
      * @author add by huyingzhao
      * 2022-09-12 23:00
@@ -54,7 +54,7 @@ public class VariableTest {
     }
 
     /**
-     * test PrimitiveType
+     * test primitive type
      *
      * @author add by huyingzhao
      * 2022-09-12 23:04
@@ -125,7 +125,7 @@ public class VariableTest {
     }
 
     /**
-     * test NumericalLiterals
+     * test numerical literals
      *
      * @author add by huyingzhao
      * 2022-09-12 23:04
@@ -147,7 +147,7 @@ public class VariableTest {
     }
 
     /**
-     * test MathFunction
+     * test math function
      *
      * @author add by huyingzhao
      * 2022-09-13 10:09
@@ -175,7 +175,7 @@ public class VariableTest {
     }
 
     /**
-     * test BigValue
+     * test big value
      *
      * @author add by huyingzhao
      * 2022-09-13 10:15
@@ -205,7 +205,7 @@ public class VariableTest {
     }
 
     /**
-     * test ForceConversion
+     * test force conversion
      *
      * @author add by huyingzhao
      * 2022-09-13 10:20
@@ -230,7 +230,7 @@ public class VariableTest {
     }
 
     /***
-     * test Escape
+     * test escape
      *
      * @author add by huyingzhao
      * 2022-09-13 10:20
@@ -248,7 +248,7 @@ public class VariableTest {
     }
 
     /**
-     * test DefaultValue
+     * test default value
      *
      * @author add by huyingzhao
      * 2022-09-13 10:38
@@ -259,7 +259,7 @@ public class VariableTest {
     }
 
     /**
-     * test CharacterType
+     * test character type
      *
      * @author add by huyingzhao
      * 2022-09-13 10:40
@@ -288,7 +288,7 @@ public class VariableTest {
     }
 
     /**
-     * test BlockScope
+     * test block scope
      *
      * @author add by huyingzhao
      * 2022-09-13 10:42
@@ -308,7 +308,7 @@ public class VariableTest {
     }
 
     /**
-     * test AutomaticUnpacking
+     * test automatic unpacking
      *
      * @author add by huyingzhao
      * 2022-09-13 10:42

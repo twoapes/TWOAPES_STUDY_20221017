@@ -1,7 +1,9 @@
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author add by huyingzhao
@@ -11,40 +13,42 @@ import java.util.Arrays;
 @Slf4j
 public class CaseTest {
     /**
-     * test EncryptEasy
+     * test encrypt easy
      *
      * @author method add by huyingzhao
      * 2022-10-08 18:26
      */
     @Test
     public void encryptEasyTest() {
-        String str="encryption/decryption";
-        log.info("old:"+str);
-        char[] strings=str.toCharArray();
+        String str = "encryption/decryption";
+        log.info("old:{}", str);
+        char[] strings = str.toCharArray();
+        List<Character> stringsList=new ArrayList<>();
         for (char s : strings) {
-            s=(char)(s^20000);
-            log.info("s:{}",s);
+            s = (char) (s ^ 20000);
+            stringsList.add(s);
         }
 
-        log.info("strings:{}",Arrays.toString(strings));
+        log.info("stringsList:{}", stringsList);
+        log.info("strings:{}", Arrays.toString(strings));
     }
 
     /**
-     * test NotMultiplication
+     * test not multiplication
      *
      * @author method add by huyingzhao
      * 2022-10-08 18:27
      */
     @Test
     public void notMultiplicationTest() {
-        log.info("2*2:{}",(2<<1));
-        log.info("2*4:{}",(2<<2));
-        log.info("2*8:{}",(2<<3));
-        log.info("2*16:{}",(2<<4));
+        log.info("2*2={}", (2 << 1));
+        log.info("2*4={}", (2 << 2));
+        log.info("2*8={}", (2 << 3));
+        log.info("2*16={}", (2 << 4));
     }
 
     /**
-     * test VariableSwap
+     * test variable swap
      *
      * @author method add by huyingzhao
      * 2022-10-08 18:27
@@ -53,27 +57,27 @@ public class CaseTest {
     public void variableSwap() {
         int a = 2;
         int b = 3;
-        log.info("before replacement\ta:{}\tb:{}", a , b);
+        log.info("before replacement\ta:{}\tb:{}", a, b);
         a = a ^ b;
         b = b ^ a;
         a = a ^ b;
-        log.info("after replacement\ta:{}\tb:{}", a , b);
+        log.info("after replacement\ta:{}\tb:{}", a, b);
     }
 
     /**
-     * test LeapYear
+     * test leap year
      *
      * @author method add by huyingzhao
      * 2022-10-08 18:27
      */
     @Test
     public void leapYearTest() {
-        int year=2012;
+        int year = (int) (Math.random() * 5 + 2012);
         log.info(year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? "leap year" : "non leap year");
     }
 
     /**
-     * test PascalTriangle
+     * test pascal triangle
      *
      * @author method add by huyingzhao
      * 2022-10-08 18:35
@@ -99,11 +103,11 @@ public class CaseTest {
             stringBuilder.append("\n");
         }
 
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder:{}", stringBuilder);
     }
 
     /**
-     * test Factorial
+     * test factorial
      *
      * @author method add by huyingzhao
      * 2022-10-09 9:38
@@ -112,7 +116,7 @@ public class CaseTest {
     public void factorialTest() {
         int index = 10;
         int sum = 0;
-        StringBuilder string = new StringBuilder("\n");
+        StringBuilder string1 = new StringBuilder("\n");
         StringBuilder string2 = new StringBuilder("\n");
         for (int i = index; i > 0; i--) {
             int mul = 1;
@@ -125,12 +129,12 @@ public class CaseTest {
                 }
             }
 
-            string.append(i).append("!+");
+            string1.append(i).append("!+");
             string2.append("+");
             sum += mul;
         }
 
-        log.info(string + "=" + sum);
-        log.info(string2 + "=" + sum);
+        log.info("string:{}={}", string1, sum);
+        log.info("string2:{}={}", string2, sum);
     }
 }

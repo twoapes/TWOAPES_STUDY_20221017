@@ -2,7 +2,9 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author add by huyingzhao
@@ -12,13 +14,13 @@ import java.util.Arrays;
 @Slf4j
 public class ArrayTest {
     /**
-     * test CreateDimensionalArray
+     * test dimensional array
      *
      * @author add by huyingzhao
      * 2022-09-13 14:36
      */
     @Test
-    public void createDimensionalArrayTest() {
+    public void dimensionalArrayTest() {
         int[] ints = new int[10];
         ints[0] = 100;
         ints[1] = 200;
@@ -31,42 +33,12 @@ public class ArrayTest {
         ints[8] = 900;
         ints[9] = 1000;
 
-        String str = "\n";
-        str += ("ints[0] --> " + ints[0] + "\t");
-        str += ("ints[1] --> " + ints[1] + "\t");
-        str += ("ints[2] --> " + ints[2] + "\t");
-        str += ("ints[3] --> " + ints[3] + "\t");
-        str += ("ints[4] --> " + ints[4] + "\t");
-        str += ("ints[5] --> " + ints[5] + "\t");
-        str += ("ints[6] --> " + ints[6] + "\t");
-        str += ("ints[7] --> " + ints[7] + "\t");
-        str += ("ints[8] --> " + ints[8] + "\t");
-        str += ("ints[9] --> " + ints[9] + "\t");
-        log.info("str:{}", str);
-        str = "";
-        str += (Arrays.toString(new int[]{100, 200, 300}));
-        log.info("str:{}", str);
+        log.info("ints:{}", ints);
+        log.info("ints:{}", Arrays.toString(new int[]{100, 200, 300}));
     }
 
     /**
-     * test MethodTransferDimensionalArray
-     *
-     * @author add by huyingzhao
-     * 2022-09-13 14:36
-     */
-    @Test
-    public void methodTransferDimensionalArrayTest() {
-        int[] ins = new int[]{1, 2, 3, 4, 5, 6};
-        StringBuilder stringBuilder = new StringBuilder("\n");
-        for (int i = 0; i < ins.length; i++) {
-            ins[i] = 5 * (i + 1);
-            stringBuilder.append(ins[i]).append("\n");
-        }
-        log.info("stringBuilder:{}", stringBuilder);
-    }
-
-    /**
-     * test UsingArrays
+     * test Using arrays
      *
      * @author add by huyingzhao
      * 2022-09-13 13:41
@@ -75,17 +47,11 @@ public class ArrayTest {
     public void usingArraysTest() {
         double[] doubleArrays = {1.1, 13.3, 7.2};
         Arrays.sort(doubleArrays);
-        StringBuilder str = new StringBuilder("\n");
-        int index = 0;
-        for (double d : doubleArrays) {
-            str.append("d(").append(++index).append("):").append(d).append("\t");
-        }
-
-        log.info("str:{}", str);
+        log.info("doubleArrays:{}", doubleArrays);
     }
 
     /**
-     * test LinearLookupMethod
+     * test linear lookup method
      *
      * @author add by huyingzhao
      * 2022-09-13 13:41
@@ -93,18 +59,18 @@ public class ArrayTest {
     @Test
     public void linearLookupMethodTest() {
         int[] ins = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
-        StringBuilder str = new StringBuilder("\n");
+        StringBuilder stringBuilder = new StringBuilder("\n");
         for (int in : ins) {
             if (in % 2 == 0) {
-                str.append(in).append("\t");
+                stringBuilder.append(in).append("\t");
             }
         }
 
-        log.info(String.valueOf(str));
+        log.info("stringBuilder:{}",stringBuilder);
     }
 
     /**
-     * test ObjectArray
+     * test object array
      *
      * @author add by huyingzhao
      * 2022-09-13 13:41
@@ -120,16 +86,11 @@ public class ArrayTest {
         ObjectPojo objectPojo2 = objectPojoList[1];
         objectPojo2.setI(3);
         objectPojo2.setJ(4);
-        StringBuilder stringBuilder = new StringBuilder("\n");
-        for (ObjectPojo objectPojo : objectPojoList) {
-            stringBuilder.append("i:").append(objectPojo.getI()).append(" j:").append(objectPojo.getJ()).append("\t");
-        }
-
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("objectPojoList:{}", Arrays.deepToString(objectPojoList));
     }
 
     /**
-     * test BinaryChop
+     * test binary chop
      *
      * @author add by huyingzhao
      * 2022-09-13 13:41
@@ -141,7 +102,7 @@ public class ArrayTest {
     }
 
     /**
-     * test InsertSort
+     * test insert sort
      *
      * @author add by huyingzhao
      * 2022-09-13 13:41
@@ -159,6 +120,7 @@ public class ArrayTest {
                     break;
             }
         }
+
         int index = 0;
         StringBuilder stringBuilder = new StringBuilder("\n");
         for (double d : doubleArrays) {
@@ -169,7 +131,7 @@ public class ArrayTest {
     }
 
     /**
-     * test SelectSort
+     * test select sort
      *
      * @author add by huyingzhao
      * 2022-09-13 13:41
@@ -177,11 +139,32 @@ public class ArrayTest {
     @Test
     public void selectSortTest() {
         double[] doubleArrays = {1.1, 13.3, 7.2, 3.3, 195.3};
-        Array.selectSort(doubleArrays);
+        StringBuilder stringBuilder = new StringBuilder("\n");
+        for (int i = 0; i < doubleArrays.length - 1; i++) {
+            final double cur = doubleArrays[i];
+            double last = 0;
+            int lastIndex = i;
+            for (int j = i + 1; j < doubleArrays.length; j++) {
+                if (cur > doubleArrays[j]) {
+                    last = doubleArrays[j];
+                    lastIndex = j;
+                }
+            }
+
+            if (lastIndex != i) {
+                doubleArrays[lastIndex] = doubleArrays[i];
+                doubleArrays[i] = last;
+            }
+
+            stringBuilder.append("(").append(i + 1).append("): ").append(cur).append("\t");
+        }
+
+        log.info("stringBuilder:{}", stringBuilder);
+        log.info("doubleArrays:{}", doubleArrays);
     }
 
     /**
-     * test DefaultValue
+     * test default value
      *
      * @author add by huyingzhao
      * 2022-09-13 13:41
@@ -192,13 +175,17 @@ public class ArrayTest {
         ins[0] = 1;
         ins[1] = 2;
         ins[2] = 3;
+
+        List<Integer> integers=new ArrayList<>();
         for (int i : ins) {
-            log.info("i:{}", i);
+            integers.add(i);
         }
+
+        log.info("integers:{}", integers);
     }
 
     /**
-     * test HandleArray
+     * test handle array
      *
      * @author add by huyingzhao
      * 2022-09-13 13:41
@@ -206,41 +193,35 @@ public class ArrayTest {
     @Test
     public void handleArrayTest() {
         StringBuilder stringBuilder = new StringBuilder("\n");
+
         int[] ins = {0, 1, 2, 3, 4, 5};
         for (int i = 0; i <= ins.length - 1; i++) {
-            stringBuilder.append("i:").append(ins[i]).append("\n");
+            stringBuilder.append("i:").append(ins[i]).append("\t");
         }
 
         log.info("stringBuilder:{}", stringBuilder);
     }
 
     /**
-     * test CopyString
+     * test copy string
      *
      * @author add by huyingzhao
      * 2022-09-13 14:19
      */
     @Test
     public void copyStringTest() {
-        StringBuilder stringBuilder = new StringBuilder("\n");
         int[] ins = {0, 1, 2, 3, 4, 5};
         int[] ins2 = new int[6];
         System.arraycopy(ins, 0, ins2, 0, 6);
-        for (int i : ins2) {
-            stringBuilder.append(i).append("\n");
-        }
-
-        stringBuilder.append("System.arraycopy <-----> Arrays.copyOfRange").append("\n");
+        log.info("ins:{}", ins);
+        log.info("ins2:{}", ins2);
+        log.info("System.arraycopy <-----> Arrays.copyOfRange");
         int[] ins3 = Arrays.copyOfRange(ins, 0, ins.length);
-        for (int i : ins3) {
-            stringBuilder.append(i).append("\n");
-        }
-
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("ins3:{}", ins3);
     }
 
     /**
-     * test DyadicArray
+     * test dyadic array
      *
      * @author add by huyingzhao
      * 2022-09-13 14:19
@@ -249,31 +230,57 @@ public class ArrayTest {
     public void dyadicArrayTest() {
         int[][] ints = new int[3][3];
         int count = 0;
-        StringBuilder stringBuilder = new StringBuilder("\n");
         for (int x = 0; x < ints.length; x++) {
             for (int y = 0; y < ints[x].length; y++) {
                 ints[x][y] = ++count;
-                stringBuilder.append("set[").append(x).append("]").append("[").append(y).append("]").append("value:").append(ints[x][y]).append("\n");
             }
         }
 
-        stringBuilder.append("dyadic array length:").append(ints.length);
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("dyadic array length:{}", ints.length);
+        log.info("stringBuilder:{}", Arrays.deepToString(ints));
     }
 
     /**
-     * test MethodTransferDyadicArray
+     * test   dimensional array transfer
+     *
+     * @author add by huyingzhao
+     * 2022-09-13 14:36
+     */
+    @Test
+    public void dimensionalArrayTransferTest() {
+        int[] ints = new int[]{1, 2, 3, 4, 5, 6};
+
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = 5 * (i + 1);
+        }
+
+        log.info("ints:{}", ints);
+    }
+
+    /**
+     * test  dyadic array transfer
      *
      * @author add by huyingzhao
      * 2022-09-13 14:19
      */
     @Test
-    public void methodTransferDyadicArrayTest() {
-        Array.methodTransferDyadicArray();
+    public void dyadicArrayTransferTest() {
+        int[][] ints = new int[3][4];
+        int count = 0;
+        int sum = 0;
+        for (int i = 0; i < ints.length; i++) {
+            for (int j = 0; j < ints[i].length; j++) {
+                ints[i][j] = count++;
+                sum+=count;
+            }
+        }
+
+        log.info("sum:{}", sum);
+        log.info("ints:{}", Arrays.deepToString(ints));
     }
 
     /**
-     * test VariableParameterLength
+     * test variable parameter length
      *
      * @author add by huyingzhao
      * 2022-09-13 14:19
@@ -287,7 +294,12 @@ public class ArrayTest {
 
 @Slf4j
 class Array {
-    public static void variableParameterLength(double... numbers) {
+    /**
+     * @author add by huyingzhao
+     * 2022-11-18 21:20
+     * @param numbers numbers
+     */
+    protected static void variableParameterLength(double... numbers) {
         if (numbers.length == 0) {
             log.warn("list must not empty");
         }
@@ -299,78 +311,15 @@ class Array {
             }
         }
 
-        log.info("numbers:[{}] result:{}", Arrays.toString(numbers), result);
+        log.info("numbers:{} result:{}", numbers, result);
     }
 
-
     /**
-     * @param arrays arrays
      * @author add by huyingzhao
-     * 2022-09-13 14:25
+     * 2022-11-18 21:20
+     * @param value value
      */
-    public static void selectSort(double[] arrays) {
-        StringBuilder stringBuilder = new StringBuilder("\n");
-        for (int i = 0; i < arrays.length - 1; i++) {
-            final double cur = arrays[i];
-            double last = 0;
-            int lastIndex = i;
-            for (int j = i + 1; j < arrays.length; j++) {
-                if (cur > arrays[j]) {
-                    last = arrays[j];
-                    lastIndex = j;
-                }
-            }
-
-            if (lastIndex != i) {
-                arrays[lastIndex] = arrays[i];
-                arrays[i] = last;
-            }
-
-            stringBuilder.append("(").append(i + 1).append("): ").append(array(arrays)).append("\n");
-        }
-
-        log.info("stringBuilder:{}", stringBuilder);
-    }
-
-    private static String array(double[] arrays) {
-        StringBuilder stringBuilder = new StringBuilder("\n");
-        for (double d : arrays) {
-            stringBuilder.append(d).append("\t");
-        }
-        return stringBuilder.toString();
-    }
-
-    public static void methodTransferDyadicArray() {
-        StringBuilder stringBuilder = new StringBuilder("\n");
-        int[][] ints = new int[3][4];
-        int count = 0;
-        for (int i = 0; i < ints.length; i++) {
-            for (int j = 0; j < ints[i].length; j++) {
-                stringBuilder.append("[").append(i + 1).append("],[").append(j + 1).append("]value:").append(++count).append("\n");
-                ints[i][j] = count;
-            }
-        }
-
-        stringBuilder.append("sum:").append(sum(ints)).append("\n");
-        log.info("stringBuilder:{}", stringBuilder);
-    }
-
-    /**
-     * @param ints ints
-     * @return sum
-     */
-    private static int sum(int[][] ints) {
-        int total = 0;
-        for (int[] anInt : ints) {
-            for (int i : anInt) {
-                total += i;
-            }
-        }
-
-        return total;
-    }
-
-    public static void binaryChop(int value) {
+    protected static void binaryChop(int value) {
         int[] arrays = {2, 3, 4, 5, 6};
 
         boolean is = false;

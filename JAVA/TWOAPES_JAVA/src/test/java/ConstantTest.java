@@ -9,7 +9,7 @@ import org.junit.Test;
 @Slf4j
 public class ConstantTest {
     /**
-     * test Constant
+     * test constant
      * @author add by huyingzhao
      * 2022-09-13 10:53
      */
@@ -19,7 +19,7 @@ public class ConstantTest {
         final double PI = Math.PI;
         double radius = 20;
         double area = radius * radius * PI;
-        stringBuilder.append("round's radius:").append(radius).append(" area is ").append(area);
+        stringBuilder.append("round's radius:").append(radius).append(" area is ").append(area).append("\n");
 
         radius = 30;
         area = radius * radius * PI;

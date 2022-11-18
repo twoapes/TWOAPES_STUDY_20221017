@@ -11,7 +11,7 @@ import java.util.Random;
 @Slf4j
 public class OperatorTest {
     /**
-     * test TypeOperator
+     * test type operator
      *
      * @author add by huyingzhao
      * 2022-09-13 10:48
@@ -40,7 +40,7 @@ public class OperatorTest {
     }
 
     /**
-     * test BitOperator
+     * test bit operator
      * @author add by huyingzhao
      * 2022-09-13 10:52
      */
@@ -61,7 +61,7 @@ public class OperatorTest {
         stringBuilder.append("~a:").append(~a).append("\n");
         stringBuilder.append("a ^ b:").append(a ^ b).append("\n");
         //Either a string or an object causes an error
-        //stringBuilder.append(x^y);
+        ///stringBuilder.append(x^y);
         // stringBuilder.append(x|y);
         /*import:import java.util.Random;*/
         Random random = new Random(47);

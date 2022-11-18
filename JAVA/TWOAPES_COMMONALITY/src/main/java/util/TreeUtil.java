@@ -84,32 +84,6 @@ public class TreeUtil {
         return "";
     }
 
-    // /**
-    //  * @param tree tree
-    //  * @return List<String>
-    //  * @author add by huyingzhao
-    //  * 2022-11-16 09:57
-    //  */
-    // private List<String> findChildrenIds(JSONArray tree) {
-    //     List<String> ids = new ArrayList<>();
-    //     for (int i = 0; i < tree.size(); i++) {
-    //         JSONObject note = tree.getJSONObject(i);
-    //         if (note.containsKey("child")) {
-    //             JSONArray noteList = note.getJSONArray("child");
-    //             ids.add(note.getString("id"));
-    //             for (int j = 0; j < noteList.size(); j++) {
-    //                 ids.add(noteList.getJSONObject(j).getString("id"));
-    //             }
-
-    //             ids = findChildrenIds(noteList);
-    //         } else {
-    //             ids.add(note.getString("id"));
-    //         }
-    //     }
-
-    //     return ids;
-    // }
-
     /**
      * @param dataList dataList
      * @param id       id

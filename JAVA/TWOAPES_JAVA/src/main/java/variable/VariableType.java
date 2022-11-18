@@ -50,9 +50,11 @@ public class VariableType {
         staticMethod1();
         instanceMethod2();
         // staticMethod2();
-        log.info("instance variables are not shared, while static variables are shared\n" +
-                "static variables can be accessed through instance methods and static methods\n" +
-                "instance variables can only be accessed by instance methods\n");
+        log.info("""
+                instance variables are not shared, while static variables are shared
+                static variables can be accessed through instance methods and static methods
+                instance variables can only be accessed by instance methods
+                """);
     }
 
     public static void variableTypeStatic() {
@@ -60,8 +62,10 @@ public class VariableType {
         staticMethod1();
         /// instanceMethod2();
         // staticMethod2();
-        log.info("instance variables are not shared, while static variables are shared\n" +
-                "static variables can be accessed through instance methods and static methods\n" +
-                "instance variables can only be accessed by instance methods\n");
+        log.info("""
+                instance variables are not shared, while static variables are shared
+                static variables can be accessed through instance methods and static methods
+                instance variables can only be accessed by instance methods
+                """);
     }
 }

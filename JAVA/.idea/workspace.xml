@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3a914a9-e546-4a16-8746-44bf2a82e0d3" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TWOAPES_COMMONALITY/TWOAPES_COMMONALITY.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_COMMONALITY/TWOAPES_COMMONALITY.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TWOAPES_COMMONALITY/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_COMMONALITY/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TWOAPES_JAVA/TWOAPES_JAVA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_JAVA/TWOAPES_JAVA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TWOAPES_JAVA/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_JAVA/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TWOAPES_SPRING/TWOAPES_SPRING.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_SPRING/TWOAPES_SPRING.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TWOAPES_SPRING/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_SPRING/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TWOAPES_SPRINGBOOT/TWOAPES_SPRINGBOOT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_SPRINGBOOT/TWOAPES_SPRINGBOOT.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TWOAPES_SPRINGBOOT/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_SPRINGBOOT/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TWOAPES_JAVA/src/test/java/ArrayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_JAVA/src/test/java/ArrayTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TWOAPES_JAVA/src/test/java/CaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TWOAPES_JAVA/src/test/java/CaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +22,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -51,6 +42,9 @@
       </list>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2GQtKZ6aV2XdDUAae9idPbDYinP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -60,35 +54,35 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;aspect.path.notification.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ecd_twoapes_189300657759/Documents/TWOAPES_STUDY_20220415/JAVA/dst-common-framework/pom.xml&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;7dd4905fab9d0a3da8aedf91f7b4ceae&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "aspect.path.notification.shown": "true",
+    "last_opened_file_path": "/home/ecd_twoapes_189300657759/Documents/TWOAPES_STUDY_20220415/JAVA/dst-common-framework/pom.xml",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "spring.configuration.checksum": "7dd4905fab9d0a3da8aedf91f7b4ceae"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mongo&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -106,7 +100,57 @@
       <recent name="dto" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ConstantTest.constantTest">
+    <configuration name="ArrayTest.binaryChopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TWOAPES_JAVA" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ArrayTest" />
+      <option name="METHOD_NAME" value="binaryChopTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArrayTest.dimensionalArrayTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TWOAPES_JAVA" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ArrayTest" />
+      <option name="METHOD_NAME" value="dimensionalArrayTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArrayTest.objectArrayTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TWOAPES_JAVA" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ArrayTest" />
+      <option name="METHOD_NAME" value="objectArrayTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArrayTest.usingArraysTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TWOAPES_JAVA" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ArrayTest" />
+      <option name="METHOD_NAME" value="usingArraysTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConstantTest.constantTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TWOAPES_JAVA" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConstantTest" />
+      <option name="METHOD_NAME" value="constantTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringBootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="TWOAPES_SPRINGBOOT" />
@@ -115,6 +159,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ConstantTest.constantTest" />
+        <item itemvalue="JUnit.ArrayTest.dimensionalArrayTest" />
+        <item itemvalue="JUnit.ArrayTest.usingArraysTest" />
+        <item itemvalue="JUnit.ArrayTest.objectArrayTest" />
+        <item itemvalue="JUnit.ArrayTest.binaryChopTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringBootOptions">
@@ -151,7 +204,7 @@
       <workItem from="1668595561837" duration="909000" />
       <workItem from="1668596478049" duration="778000" />
       <workItem from="1668605412069" duration="1135000" />
-      <workItem from="1668607252446" duration="1368000" />
+      <workItem from="1668607252446" duration="13756000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1666334709910</created>
@@ -272,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668594479433</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update">
+      <created>1668608708814</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668608708814</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

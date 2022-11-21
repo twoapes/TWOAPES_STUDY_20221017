@@ -9,6 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AnnotationDao {
     public void annotation(String str) {
-        log.info("using " + str + " annotation call annotationDao.annotation");
+        log.info("str :{} call {}", str,"ioc.annotation.object.AnnotationDao.annotation");
     }
 }

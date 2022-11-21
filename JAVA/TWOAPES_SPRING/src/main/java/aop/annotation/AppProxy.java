@@ -15,6 +15,6 @@ import org.springframework.stereotype.Component;
 public class AppProxy {
     @Before("execution(public void aop.annotation.App.add(..))")
     public void before() {
-        log.info("call aop.annotation.AppProxy.before");
+        log.info("call {}","aop.annotation.AppProxy.before");
     }
 }

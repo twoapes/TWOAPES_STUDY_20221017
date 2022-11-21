@@ -80,6 +80,9 @@ public enum ISO8601Enum {
      */
     EEE_DD_MMM_YYYY_HH_MM_SS_Z("EEE, dd MMM yyyy HH:mm:ss z"),
     ;
+
+    public static final String GMT = "GMT";
+
     /*
      * value
      */
@@ -87,7 +90,7 @@ public enum ISO8601Enum {
 
     /**
      * ISO8601
-     * @param value
+     * @param value value
      */
     ISO8601Enum(String value) {
         this.value = value;

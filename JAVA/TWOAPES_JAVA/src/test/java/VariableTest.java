@@ -121,7 +121,7 @@ public class VariableTest {
         stringBuilder.append("negative infinity:").append(Double.NEGATIVE_INFINITY).append("\n");
         stringBuilder.append("NaN:").append(Double.NaN).append("\n\n");
 //        stringBuilder.append(Double.isNaN(Math.sqrt(-2)));
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -143,7 +143,7 @@ public class VariableTest {
                 "integer literals(long):" + l + "\n" +
                 "floating point literals(double):" + d + "\n" +
                 "floating point literals(float):" + f + "\n";
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -171,7 +171,7 @@ public class VariableTest {
                         "cos60°:" + Math.cos(0) + "\n" +
                         "tan45°:" + Math.tan(45) + "\n" +
                         "tan22.5°:" + Math.tan(Math.PI / 4) + "\n";
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder :{}", stringBuilder);
     }
 
     /**
@@ -201,7 +201,7 @@ public class VariableTest {
             stringBuilder.append("bigInteger1=bigInteger2:").append(bigInteger1).append("=").append(bigInteger2).append("\n");
         }
 
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder :{}", stringBuilder);
     }
 
     /**
@@ -226,7 +226,7 @@ public class VariableTest {
         boolean is = d <= 2.7;
         double i = is ? 0 : 1;
         stringBuilder.append("if i less than 2.7 then 0 else 1").append(i).append("\n");
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder :{}", stringBuilder);
     }
 
     /***
@@ -244,7 +244,7 @@ public class VariableTest {
                 "single quote escape character:\\'" +
                 "backslashes escape character:\\\\" +
                 "tab character escape character:\\t";
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder :{}", stringBuilder);
     }
 
     /**
@@ -284,7 +284,7 @@ public class VariableTest {
         stringBuilder.append("'2' + 'a' computed result:").append(i).append("\n");
         i = 2 + 'a';
         stringBuilder.append("2 + 'a' computed result:").append(i).append("\n");
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder :{}", stringBuilder);
     }
 
     /**
@@ -304,7 +304,7 @@ public class VariableTest {
 
         stringBuilder.append(k).append("\n");
         // stringBuilder.append(j);
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder :{}", stringBuilder);
     }
 
     /**
@@ -349,6 +349,6 @@ public class VariableTest {
         Integer integer2 = Integer.valueOf(128);
         stringBuilder.append("wrong method(==):").append(integer1 == integer2).append("\n");
         stringBuilder.append("correct method(equals):").append(integer1.equals(integer2)).append("\n");
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder :{}", stringBuilder);
     }
 }

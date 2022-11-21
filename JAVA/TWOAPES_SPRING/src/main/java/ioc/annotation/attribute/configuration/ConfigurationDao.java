@@ -9,6 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ConfigurationDao {
     public void configuration(){
-        log.info("call ioc.annotation.attribute.configuration.ConfigurationDao.configuration");
+        log.info("call {}","ioc.annotation.attribute.configuration.ConfigurationDao.configuration");
     }
 }

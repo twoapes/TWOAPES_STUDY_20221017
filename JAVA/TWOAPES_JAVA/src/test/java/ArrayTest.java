@@ -33,8 +33,8 @@ public class ArrayTest {
         ints[8] = 900;
         ints[9] = 1000;
 
-        log.info("ints:{}", ints);
-        log.info("ints:{}", Arrays.toString(new int[]{100, 200, 300}));
+        log.info("ints: {}", ints);
+        log.info("ints: {}", Arrays.toString(new int[]{100, 200, 300}));
     }
 
     /**
@@ -47,7 +47,7 @@ public class ArrayTest {
     public void usingArraysTest() {
         double[] doubleArrays = {1.1, 13.3, 7.2};
         Arrays.sort(doubleArrays);
-        log.info("doubleArrays:{}", doubleArrays);
+        log.info("doubleArrays: {}", doubleArrays);
     }
 
     /**
@@ -66,7 +66,7 @@ public class ArrayTest {
             }
         }
 
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder: {}",stringBuilder);
     }
 
     /**
@@ -86,7 +86,7 @@ public class ArrayTest {
         ObjectPojo objectPojo2 = objectPojoList[1];
         objectPojo2.setI(3);
         objectPojo2.setJ(4);
-        log.info("objectPojoList:{}", Arrays.deepToString(objectPojoList));
+        log.info("objectPojoList: {}", Arrays.deepToString(objectPojoList));
     }
 
     /**
@@ -127,7 +127,7 @@ public class ArrayTest {
             stringBuilder.append("d(").append(++index).append("):").append(d).append("\t");
         }
 
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder: {}", stringBuilder);
     }
 
     /**
@@ -159,8 +159,8 @@ public class ArrayTest {
             stringBuilder.append("(").append(i + 1).append("): ").append(cur).append("\t");
         }
 
-        log.info("stringBuilder:{}", stringBuilder);
-        log.info("doubleArrays:{}", doubleArrays);
+        log.info("stringBuilder: {}", stringBuilder);
+        log.info("doubleArrays: {}", doubleArrays);
     }
 
     /**
@@ -181,7 +181,7 @@ public class ArrayTest {
             integers.add(i);
         }
 
-        log.info("integers:{}", integers);
+        log.info("integers: {}", integers);
     }
 
     /**
@@ -199,7 +199,7 @@ public class ArrayTest {
             stringBuilder.append("i:").append(ins[i]).append("\t");
         }
 
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder: {}", stringBuilder);
     }
 
     /**
@@ -213,11 +213,11 @@ public class ArrayTest {
         int[] ins = {0, 1, 2, 3, 4, 5};
         int[] ins2 = new int[6];
         System.arraycopy(ins, 0, ins2, 0, 6);
-        log.info("ins:{}", ins);
-        log.info("ins2:{}", ins2);
+        log.info("ins: {}", ins);
+        log.info("ins2: {}", ins2);
         log.info("System.arraycopy <-----> Arrays.copyOfRange");
         int[] ins3 = Arrays.copyOfRange(ins, 0, ins.length);
-        log.info("ins3:{}", ins3);
+        log.info("ins3: {}", ins3);
     }
 
     /**
@@ -236,8 +236,8 @@ public class ArrayTest {
             }
         }
 
-        log.info("dyadic array length:{}", ints.length);
-        log.info("stringBuilder:{}", Arrays.deepToString(ints));
+        log.info("dyadic array length :{}", ints.length);
+        log.info("stringBuilder :{}", Arrays.deepToString(ints));
     }
 
     /**
@@ -254,7 +254,7 @@ public class ArrayTest {
             ints[i] = 5 * (i + 1);
         }
 
-        log.info("ints:{}", ints);
+        log.info("ints :{}", ints);
     }
 
     /**
@@ -275,8 +275,8 @@ public class ArrayTest {
             }
         }
 
-        log.info("sum:{}", sum);
-        log.info("ints:{}", Arrays.deepToString(ints));
+        log.info("sum :{}", sum);
+        log.info("ints :{}", Arrays.deepToString(ints));
     }
 
     /**
@@ -311,7 +311,7 @@ class Array {
             }
         }
 
-        log.info("numbers:{} result:{}", numbers, result);
+        log.info("numbers :{} result :{}", numbers, result);
     }
 
     /**
@@ -329,7 +329,7 @@ class Array {
         while (begin <= end) {
             int mind = (begin + end) / 2;
             if (value == arrays[mind]) {
-                log.info("arrays find value:{} mind:{}", value, mind);
+                log.info("arrays find value :{} mind :{}", value, mind);
                 is = true;
                 break;
             } else if (value < arrays[mind]) {
@@ -340,7 +340,7 @@ class Array {
         }
 
         if (!is) {
-            log.info("arrays not find:{}", value);
+            log.info("arrays not find :{}", value);
         }
     }
 }

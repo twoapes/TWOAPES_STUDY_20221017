@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class Import {
-    private Import1 import1;
-    private Import2 import2;
+    private Student import1;
+    private Teacher import2;
 }

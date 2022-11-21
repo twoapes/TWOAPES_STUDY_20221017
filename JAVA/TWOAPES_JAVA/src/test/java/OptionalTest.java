@@ -24,7 +24,7 @@ public class OptionalTest {
         student.setAge(22);
 //        studentDTO.setName("ZhangSan");
         String name = Optional.of(student).map(Student::getName).orElse("");
-        log.info("name:{}",name);
+        log.info("name :{}",name);
     }
 }
 

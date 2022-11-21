@@ -33,6 +33,6 @@ public class AnnotationService {
     }
 
     public void annotation() {
-        log.info("call ioc.annotation.object.AnnotationService.annotation");
+        log.info("call {}","ioc.annotation.object.AnnotationService.annotation");
     }
 }

@@ -17,7 +17,7 @@ public class InjectionObject extends XmlDI {
     public static void createObject() {
         Student student = student("object");
         String stringBuilder = "--------------create object(init)---------------" + "\n" + student + "\n";
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -27,6 +27,6 @@ public class InjectionObject extends XmlDI {
     public static void alias() {
         Student student = student("aliasObject");
         String stringBuilder = "--------------create object(using alias)---------------" + "\n" + student + "\n";
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 }

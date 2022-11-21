@@ -94,17 +94,17 @@ class XmlDI {
     /**
      * @return usingImport1
      */
-    static Import1 usingImport1() {
+    static Student usingImport1() {
         ApplicationContext applicationContext = xml();
-        return applicationContext.getBean("import1", Import1.class);
+        return applicationContext.getBean("import1", Student.class);
     }
 
     /**
      * @return usingImport2
      */
-    static Import2 usingImport2() {
+    static Teacher usingImport2() {
         ApplicationContext applicationContext = xml();
-        return applicationContext.getBean("import2", Import2.class);
+        return applicationContext.getBean("import2", Teacher.class);
     }
 
     /**
@@ -122,7 +122,7 @@ class XmlDI {
     static void lifeCycleUnProcessors() {
         ApplicationContext applicationContext = AppCore.open("ioc/lifeCycle.xml");
         LifeCycle lifeCycle = applicationContext.getBean("lifeCycle", LifeCycle.class);
-        log.info("The fourth step:call object\t" + lifeCycle);
+        log.info("The fourth step:call object {}", lifeCycle);
         AppCore.close(applicationContext);
     }
 
@@ -133,7 +133,7 @@ class XmlDI {
     static void lifeCycle2Processors() {
         ApplicationContext applicationContext = AppCore.open("ioc/lifeCycle2.xml");
         LifeCycle2 lifeCycle2 = applicationContext.getBean("lifeCycle2", LifeCycle2.class);
-        log.info("The six step:call object\t" + lifeCycle2);
+        log.info("The six step:call object {}", lifeCycle2);
         AppCore.close(applicationContext);
     }
 

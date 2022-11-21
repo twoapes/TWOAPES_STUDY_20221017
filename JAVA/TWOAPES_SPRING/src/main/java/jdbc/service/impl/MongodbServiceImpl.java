@@ -1,9 +1,6 @@
 package jdbc.service.impl;
 
-import com.mongodb.MongoClientOptions;
-import com.mongodb.MongoCredential;
-import com.mongodb.ReadPreference;
-import com.mongodb.ServerAddress;
+import com.mongodb.*;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -30,7 +27,7 @@ import java.util.List;
 public class MongodbServiceImpl implements MongodbService {
     @Autowired
     private MongoDBPOJO mongoDBPOJO;
-    private com.mongodb.MongoClient mongoClient;
+    private MongoClient mongoClient;
 
 
     /**
@@ -177,7 +174,7 @@ public class MongodbServiceImpl implements MongodbService {
         ServerAddress serverAddress = new ServerAddress(mongoDBPOJO.getHost(), mongoDBPOJO.getPort());
         MongoCredential credential = MongoCredential.createScramSha1Credential(mongoDBPOJO.getUsername(), mongoDBPOJO.getSource(), mongoDBPOJO.getPassword().toCharArray());
         MongoClientOptions mongoClientOptions = new MongoClientOptions.Builder().readPreference(ReadPreference.secondaryPreferred()).build();
-        mongoClient = new com.mongodb.MongoClient(serverAddress, credential, mongoClientOptions);
+        mongoClient = new MongoClient(serverAddress, credential, mongoClientOptions);
         MongoDatabase mongoDatabase = mongoClient.getDatabase(mongoDBPOJO.getDatabaseName());
         log.info("database connection success");
         return mongoDatabase;

@@ -22,13 +22,13 @@ public class JDBCDI {
         log.info("{}---------------[using JdbcTemplate]Spring JDBC---------------{}", "\n", "\n");
         ApplicationContext context = AppCore.open("jdbc/jdbc.xml");
         JDBCDao jdbcDao = jdbcDao(context);
-        log.info("id=1:{}", jdbcDao.findId(1));
-        log.info("id=2:{}", jdbcDao.findId(2));
-        log.info("id>0:{}", jdbcDao.findIds(0));
-        log.info("id>0:{}", jdbcDao.findIdMap(0));
-//        log.info("insert:{}", jdbcDao.insert());
-//        log.info("update:{}", jdbcDao.update());
-//        log.info("delete:{}",jdbcDao.delete());
+        log.info("id=1 :{}", jdbcDao.findId(1));
+        log.info("id=2 :{}", jdbcDao.findId(2));
+        log.info("id>0 :{}", jdbcDao.findIds(0));
+        log.info("id>0 :{}", jdbcDao.findIdMap(0));
+//        log.info("insert :{}", jdbcDao.insert());
+//        log.info("update :{}", jdbcDao.update());
+//        log.info("delete :{}",jdbcDao.delete());
         AppCore.close(context);
     }
 
@@ -47,16 +47,16 @@ public class JDBCDI {
             StudentTO studentTO = new StudentTO();
             List<StudentTO> studentTOS = selectService.selectResult(parameterPOJO, studentTO);
             for (StudentTO student : studentTOS) {
-                log.info("student:{}", student);
+                log.info("student :{}", student);
             }
 
             List<Map<String, Object>> mapList = selectService.selectResultMap(parameterPOJO);
             for (Map<String, Object> student : mapList) {
-                log.info("student:{}", student);
+                log.info("student :{}", student);
             }
 
-            log.info("isConnected:{}", selectService.isConnected());
-            log.info("parameterPOJO:{}", parameterPOJO.getI());
+            log.info("isConnected :{}", selectService.isConnected());
+            log.info("parameterPOJO :{}", parameterPOJO.getI());
             selectService.close();
         } catch (Exception e) {
             log.error(e.getMessage(), e);

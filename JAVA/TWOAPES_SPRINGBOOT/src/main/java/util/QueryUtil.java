@@ -109,7 +109,6 @@ public class QueryUtil {
                 }
             }
 
-            //            pageResult.setPageSize((total + pageSize - 1) / pageSize);
             pageResult.setData(data);
             pageResult.setTotal(total);
             pageResult.setNowPage(nowPage);
@@ -135,15 +134,9 @@ public class QueryUtil {
             end = DateUtil.nowTime();
         }
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(begin);
-        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE) - 1, 23, 59,
-                59);
-        Date yesterday = calendar.getTime();
-        calendar.setTime(end);
-        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE) + 1, 0, 0,
-                0);
-        Date tomorrow = calendar.getTime();
+
+        Date yesterday =DateUtil.getMinimum(DateUtil.addDay(end,1));
+        Date tomorrow =DateUtil.getMaximum(DateUtil.addDay(begin,-1));
         criteria.and(name).gt(yesterday).lt(tomorrow);
     }
 }

@@ -22,18 +22,18 @@ public class OperatorTest {
         //out for false
         if (a instanceof Integer) {
             a = (Integer) a * 100;
-            log.info("a:{}", a);
+            log.info("a :{}", a);
         } else {
-            log.info("Integer:{}", false);
+            log.info("Integer :{}", false);
         }
 
 
         //out for true
         if (a instanceof Long) {
             a = (Long) a * 100;
-            log.info("a:{}", a);
+            log.info("a :{}", a);
         } else {
-            log.info("Long:{}", false);
+            log.info("Long :{}", false);
         }
 
         //a = (Integer) a * 100;
@@ -82,6 +82,6 @@ public class OperatorTest {
         stringBuilder.append("(i<10)&&(j<10) is ").append((i < 10) && (j < 10)).append("\n");
         stringBuilder.append("(i<10)||(j<10) is ").append((i < 10) || (j < 10)).append("\n");
         //top:operator number using bit operator,operator relation using logical operator
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 }

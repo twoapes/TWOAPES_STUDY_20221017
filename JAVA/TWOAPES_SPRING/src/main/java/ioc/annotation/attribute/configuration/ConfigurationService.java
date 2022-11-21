@@ -14,7 +14,7 @@ public class ConfigurationService {
     @Autowired
     private ConfigurationDao configurationDao;
     public void configuration(){
-        log.info("service call dao:configurationDao.configuration()");
+        log.info("service call dao :{}","ioc.annotation.attribute.configuration.ConfigurationService.configuration");
         configurationDao.configuration();
     }
 }

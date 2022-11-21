@@ -21,7 +21,7 @@ public class CaseTest {
     @Test
     public void encryptEasyTest() {
         String str = "encryption/decryption";
-        log.info("old:{}", str);
+        log.info("old :{}", str);
         char[] strings = str.toCharArray();
         List<Character> stringsList=new ArrayList<>();
         for (char s : strings) {
@@ -29,8 +29,8 @@ public class CaseTest {
             stringsList.add(s);
         }
 
-        log.info("stringsList:{}", stringsList);
-        log.info("strings:{}", Arrays.toString(strings));
+        log.info("stringsList :{}", stringsList);
+        log.info("strings :{}", Arrays.toString(strings));
     }
 
     /**
@@ -57,11 +57,11 @@ public class CaseTest {
     public void variableSwap() {
         int a = 2;
         int b = 3;
-        log.info("before replacement\ta:{}\tb:{}", a, b);
+        log.info("before replacement\ta :{}\tb :{}", a, b);
         a = a ^ b;
         b = b ^ a;
         a = a ^ b;
-        log.info("after replacement\ta:{}\tb:{}", a, b);
+        log.info("after replacement\ta :{}\tb :{}", a, b);
     }
 
     /**
@@ -103,7 +103,7 @@ public class CaseTest {
             stringBuilder.append("\n");
         }
 
-        log.info("stringBuilder:{}", stringBuilder);
+        log.info("stringBuilder :{}", stringBuilder);
     }
 
     /**
@@ -134,7 +134,7 @@ public class CaseTest {
             sum += mul;
         }
 
-        log.info("string:{}={}", string1, sum);
-        log.info("string2:{}={}", string2, sum);
+        log.info("string :{}={}", string1, sum);
+        log.info("string2 :{}={}", string2, sum);
     }
 }

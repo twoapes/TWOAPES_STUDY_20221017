@@ -9,6 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class App {
     public void add(){
-      log.info("call aop.annotation.App.add");
+      log.info("call {}","aop.annotation.App.add");
     }
 }

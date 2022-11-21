@@ -1,7 +1,8 @@
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import util.*;
 
-import org.junit.Test;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author add by huyingzhao
@@ -19,18 +20,16 @@ public class UtilTest {
     public void dateUtilsTest() {
         log.info(String.valueOf(DateUtil.get(2022, 7, 27)));
         log.info(String.valueOf(DateUtil.get(2022, 7, 27, 11, 11, 11)));
-        log.info("getMinimum" + DateUtil.getMinimum());
-        log.info("getMaximum:" + DateUtil.getMaximum());
-        log.info("assignDate1:" + DateUtil.assignDate(1, DateUtil.nowTime()));
-        log.info("assignDate2:" + DateUtil.assignDate(-1, DateUtil.nowTime()));
+        log.info("addDay1:" + DateUtil.addDay(DateUtil.nowTime(), 1));
+        log.info("addDay2:" + DateUtil.addDay(DateUtil.nowTime(), -1));
         log.info("getYear:" + DateUtil.getYear(DateUtil.nowTime()));
         log.info("getMonth:" + DateUtil.getMonth(DateUtil.nowTime()));
         log.info("getDay:" + DateUtil.getDay(DateUtil.nowTime()));
         log.info("getLocalDateTime:" + DateUtil.getLocalDateTime(DateUtil.nowTime()));
         log.info("getLocalTime:" + DateUtil.getLocalTime(DateUtil.nowTime()));
         log.info("getLocalDate:" + DateUtil.getLocalDate(DateUtil.nowTime()));
-        log.info("getDiffForDay:" + DateUtil.getDiffForDay(DateUtil.get(2022, 7, 27, 11, 11, 11), DateUtil.nowTime()));
-        log.info("getDiff:" + DateUtil.getDiff(DateUtil.get(2022, 7, 22, 11, 1, 10), DateUtil.get(2022, 7, 23, 11, 1, 11)));
+        log.info("diffDay:" + DateUtil.diffDay(DateUtil.get(2022, 7, 27, 11, 11, 11), DateUtil.nowTime()));
+        log.info("diff:" + DateUtil.diff(DateUtil.get(2022, 7, 22, 11, 1, 10), DateUtil.get(2022, 7, 23, 11, 1, 11)));
         log.info("lengthOfYear:" + DateUtil.lengthOfYear(DateUtil.nowTime()));
         log.info("lengthOfMonth:" + DateUtil.lengthOfMonth(DateUtil.nowTime()));
     }
@@ -72,6 +71,7 @@ public class UtilTest {
 
     /**
      * test local
+     *
      * @author method add by huyingzhao
      * 2022-10-13 16:06
      */

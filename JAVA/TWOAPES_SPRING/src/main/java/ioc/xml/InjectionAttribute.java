@@ -25,10 +25,10 @@ public class InjectionAttribute extends XmlDI {
      */
     public static void setter() {
         Student student = student("property");
-        String stringBuilder = "\n" + "--------------using setter method---------------" + "\n" +
+        String stringBuilder = "--------------using setter method---------------" + "\n" +
                 "name:" + student.getName() + "\n" +
                 "age:" + student.getAge();
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -38,10 +38,10 @@ public class InjectionAttribute extends XmlDI {
     public static void pNameSpace() {
         //xmlns:p also call the p-namespace
         Student student = student("pNameSpace");
-        String stringBuilder = "\n" + "--------------using xmlns:p---------------" + "\n" +
+        String stringBuilder = "--------------using xmlns:p---------------" + "\n" +
                 "name:" + student.getName() + "\n" +
                 "age:" + student.getAge();
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -50,10 +50,10 @@ public class InjectionAttribute extends XmlDI {
      */
     public static void nullLabel() {
         Student student = student("null");
-        String stringBuilder = "\n" + "--------------set null value---------------" + "\n" +
+        String stringBuilder = "--------------set null value---------------" + "\n" +
                 "name:" + student.getName() + "\n" +
                 "age:" + student.getAge();
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -66,7 +66,7 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("--------------set the value for the special attribute(escape method)---------------").append("\n");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge());
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
 
         student = student("special2");
@@ -74,7 +74,7 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("--------------set the value for the special attribute(CDATA method)---------------").append("\n");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge());
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -84,7 +84,7 @@ public class InjectionAttribute extends XmlDI {
     public static void bean() {
         StringBuilder stringBuilder = new StringBuilder("\n");
         stringBuilder.append("--------------outer bean---------------").append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
         XmlService xmlService = xmlService();
         xmlService.xml();
 
@@ -94,7 +94,7 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("--------------interior bean---------------").append("\n");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge());
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         stringBuilder.setLength(0);
         teacher = teacher("cascade1");
@@ -102,7 +102,7 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("--------------cascade assignment(using ref)---------------").append("\n");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge());
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         stringBuilder.setLength(0);
         teacher = teacher("cascade2");
@@ -110,7 +110,7 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("--------------cascade assignment(using '.')---------------").append("\n");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge());
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -123,38 +123,38 @@ public class InjectionAttribute extends XmlDI {
         String[] students = teacher.getStudents();
         stringBuilder.append("--------------array---------------").append("\n");
         stringBuilder.append("students:").append(Arrays.toString(students)).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         stringBuilder.setLength(0);
         List<String> studentList = teacher.getStudentList();
         stringBuilder.append("--------------list---------------").append("\n");
         stringBuilder.append("studentList:").append(studentList).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         stringBuilder.setLength(0);
         Map<String, String> studentMap = teacher.getStudentMap();
         stringBuilder.append("--------------Map---------------").append("\n");
         stringBuilder.append("studentMap:").append(studentMap).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         stringBuilder.setLength(0);
         Set<String> studentSet = teacher.getStudentSet();
         stringBuilder.append("--------------Set---------------").append("\n");
         stringBuilder.append("studentSet:").append(studentSet).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         stringBuilder.setLength(0);
         List<Student> studentObjectList = teacher.getStudentObjectList();
         stringBuilder.append("--------------List(object)---------------").append("\n");
         stringBuilder.append("studentObjectList:").append(studentObjectList).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         stringBuilder.setLength(0);
         teacher = teacher("aggregate2");
         studentObjectList = teacher.getStudentObjectList();
         stringBuilder.append("--------------List(public object)---------------").append("\n");
         stringBuilder.append("studentObjectList:").append(studentObjectList).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -169,7 +169,7 @@ public class InjectionAttribute extends XmlDI {
         //Spring default is singleton
         stringBuilder.append("--------------scope(singleton)---------------").append("\n");
         stringBuilder.append("is the same as object:").append(student1 == student2).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         //property,call getBean then create object
         student1 = student("scope2");
@@ -177,7 +177,7 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.setLength(0);
         stringBuilder.append("--------------scope(property)---------------").append("\n");
         stringBuilder.append("is the same as object:").append(student1 == student2).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
         //more request and session scope
     }
 
@@ -205,13 +205,13 @@ public class InjectionAttribute extends XmlDI {
         StringBuilder stringBuilder = new StringBuilder("\n");
         stringBuilder.append("--------------autowired(name di)---------------").append("\n");
         stringBuilder.append(student).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         student = student("autowired2");
         stringBuilder.setLength(0);
         stringBuilder.append("--------------autowired(type di)---------------").append("\n");
         stringBuilder.append(student).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -220,9 +220,9 @@ public class InjectionAttribute extends XmlDI {
      */
     public static void jdbcDI() {
         Jdbc jdbc = jdbc();
-        String stringBuilder = "\n" + "--------------using outer for configuration---------------" + "\n" +
+        String stringBuilder = "--------------using outer for configuration---------------" + "\n" +
                 "jdbc:" + jdbc;
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -235,14 +235,14 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("--------------parameter construction method(constructor-arg using name)---------------").append("\n");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge());
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         student = student("constructorArg2");
         stringBuilder.setLength(0);
         stringBuilder.append("--------------parameter construction method(constructor-arg using index)---------------").append("\n");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge());
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
 
         student = student("constructorArg3");
@@ -250,7 +250,7 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("--------------parameter construction method(constructor-arg using type)---------------").append("\n");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge());
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
 
         student = student("constructorArg4");
@@ -258,7 +258,7 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("--------------parameter construction method(constructor-arg using ConstructorProperties annotation)---------------").append("\n");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge());
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -294,7 +294,7 @@ public class InjectionAttribute extends XmlDI {
             }
         }
 
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -306,7 +306,7 @@ public class InjectionAttribute extends XmlDI {
         Student student = student("factory");
         stringBuilder.append("name:").append(student.getName()).append("\n");
         stringBuilder.append("age:").append(student.getAge()).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -332,7 +332,7 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("static2 object init success").append("\n");
         stringBuilder.append("static2:").append(static2).append("\n");
 
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -348,15 +348,15 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("import1:").append(anImport.getImport1()).append("\n");
         stringBuilder.append("import2:").append(anImport.getImport2()).append("\n");
 
-        Import1 import1 = usingImport1();
+        Student import1 = usingImport1();
         stringBuilder.append("import1 object init success").append("\n");
         stringBuilder.append("import1:").append(import1).append("\n");
 
-        Import2 import2 = usingImport2();
+        Teacher import2 = usingImport2();
         stringBuilder.append("import2 object init success").append("\n");
         stringBuilder.append("import2:").append(import2).append("\n");
 
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
 
         stringBuilder.setLength(0);
         stringBuilder.append("---------------more configuration(using more configuration)---------------").append("\n");
@@ -374,6 +374,6 @@ public class InjectionAttribute extends XmlDI {
         stringBuilder.append("import2 object init success").append("\n");
         stringBuilder.append("import2:").append(import2).append("\n");
 
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 }

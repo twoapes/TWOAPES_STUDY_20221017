@@ -46,7 +46,7 @@ public class AnnotationAspect {
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         try {
             long startTime = System.currentTimeMillis();
-            // 执行目标方法
+            // execute method
             Object ret = pjp.proceed();
             String className = pjp.getTarget().getClass().getName();
             String methodName = pjp.getSignature().getName();

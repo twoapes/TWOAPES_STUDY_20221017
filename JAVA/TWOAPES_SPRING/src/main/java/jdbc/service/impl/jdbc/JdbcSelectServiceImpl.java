@@ -132,8 +132,7 @@ class Select extends JdbcConnectServiceImpl {
                 } catch (IOException e) {
                     log.error(e.getMessage(), e);
                 }
-            } else if (o instanceof Clob) {
-                Clob clob = (Clob) o;
+            } else if (o instanceof Clob clob) {
                 String value = clob.getSubString(1, (int) (clob.length()));
                 stringBuilder.append(value);
             }
@@ -154,7 +153,7 @@ class Select extends JdbcConnectServiceImpl {
         } else if (is) {
             try {
                 dataList = getSelect(resultSet, parameterPOJO, string);
-                log.info("sql:{}" , parameterPOJO.getSql());
+                log.info("sql :{}" , parameterPOJO.getSql());
             } catch (SQLException e) {
                 log.error(e.getMessage(), e);
             } finally {
@@ -180,7 +179,7 @@ class Select extends JdbcConnectServiceImpl {
         } else if (is) {
             try {
                 dataList = getSelect(resultSet, o, pojo, string);
-                log.info("sql:{}" , pojo.getSql());
+                log.info("sql :{}" , pojo.getSql());
             } catch (SQLException e) {
                 log.error(e.getMessage(), e);
             } finally {

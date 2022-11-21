@@ -179,7 +179,7 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
         stringBuilder.append("drivers version:").append(databaseMetaData.getDriverVersion()).append("\n");
         stringBuilder.append("drivers main version:").append(databaseMetaData.getDriverMajorVersion()).append("\n");
         stringBuilder.append("drivers sub version:").append(databaseMetaData.getDriverMinorVersion()).append("\n");
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 
     /**
@@ -258,7 +258,7 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
                 preparedStatement.setObject(index++, parameter);
             }
 
-            log.info("current parameters:{}", parameters);
+            log.info("current parameters :{}", parameters);
         }
     }
 }

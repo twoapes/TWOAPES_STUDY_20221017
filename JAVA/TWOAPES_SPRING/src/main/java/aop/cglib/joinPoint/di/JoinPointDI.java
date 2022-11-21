@@ -15,7 +15,7 @@ public class JoinPointDI {
      *using JoinPoint
      */
     public static void runJoinPointDI() {
-        log.info("\n" + "---------------using JoinPoint---------------" + "\n");
+        log.info("---------------using JoinPoint---------------" + "\n");
         ApplicationContext context = AppCore.open("aop/joinPoint.xml");
         JoinPointService joinPointService = joinPointService(context);
         joinPointService.joinPointService();

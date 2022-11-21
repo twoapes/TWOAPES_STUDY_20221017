@@ -13,19 +13,19 @@ public class LifeCycle {
     private String name;
 
     public LifeCycle() {
-        log.info("the first step:call ioc.xml.pojo.LifeCycle.LifeCycle");
+        log.info("the first step:call {}","ioc.xml.pojo.LifeCycle.LifeCycle");
     }
 
     public void setName(String name) {
-        log.info("the second step:call ioc.xml.pojo.LifeCycle.setName");
+        log.info("the second step:call {}","ioc.xml.pojo.LifeCycle.setName");
         this.name = name;
     }
 
     public void init() {
-        log.info("the third step:call ioc.xml.pojo.LifeCycle.init");
+        log.info("the third step:call {}","ioc.xml.pojo.LifeCycle.init");
     }
 
     public void destroy() {
-        log.info("The fifth step:call ioc.xml.pojo.LifeCycle.destroy ");
+        log.info("The fifth step:call {}","ioc.xml.pojo.LifeCycle.destroy");
     }
 }

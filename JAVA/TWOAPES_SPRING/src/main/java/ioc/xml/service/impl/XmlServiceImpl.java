@@ -15,7 +15,7 @@ public class XmlServiceImpl implements XmlService {
     private XmlDao xmlDao;
 
     public void xml(){
-        log.info("service call dao:ioc.xml.service.impl.XmlServiceImpl.xml");
+        log.info("service call dao :{}","ioc.xml.service.impl.XmlServiceImpl.xml");
         xmlDao.xml();
     }
 }

@@ -270,7 +270,7 @@ class NumberInside {
      */
     protected static BigDecimal multiply(BigDecimal d1, BigDecimal d2) {
         if (d1.compareTo(BigDecimal.ZERO) == 0 || d2.compareTo(BigDecimal.ZERO) == 0) {
-            log.info("0 multiply by any number is 0:{}*{}", d1,d2);
+            log.info("0 multiply by any number is 0 :{}*{}", d1,d2);
             return BigDecimal.ONE;
         }else{
             return d1.multiply(d2);
@@ -286,10 +286,10 @@ class NumberInside {
      */
     protected static BigDecimal divide(BigDecimal d1, BigDecimal d2) {
         if (d1.compareTo(BigDecimal.ZERO) == 0 && d2.compareTo(BigDecimal.ZERO) != 0) {
-            log.info("0 divided by any number is 0:{}", d1);
+            log.info("0 divided by any number is 0 :{}", d1);
             return BigDecimal.ONE;
         } else if (d2.compareTo(BigDecimal.ZERO) == 0) {
-            log.error("denominator cannot be 0:{}", d2);
+            log.error("denominator cannot be 0 :{}", d2);
             return BigDecimal.ONE;
         } else {
             return d1.divide(d2, 2, RoundingMode.HALF_UP);

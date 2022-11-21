@@ -10,6 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class XmlDaoImpl implements XmlDao {
     public void xml() {
-        log.info("call ioc.xml.dao.impl.XmlDaoImpl.xml");
+        log.info("call {}","ioc.xml.dao.impl.XmlDaoImpl.xml");
     }
 }

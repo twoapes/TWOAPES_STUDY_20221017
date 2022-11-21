@@ -321,7 +321,7 @@ public class FileUtil extends Document {
                     stringBuilder.setLength(0);
                 }
 
-                log.info("split success:{}",listMap);
+                log.info("split success: {}",listMap);
             } else {
                 log.error("split max size :" + strings.size());
             }
@@ -386,7 +386,7 @@ class Document {
                 log.error("file [{}] write error",file.getPath());
             }
         } else {
-            log.error("file[{}] error",file.getPath());
+            log.error("file [{}] error",file.getPath());
         }
     }
 
@@ -477,7 +477,7 @@ class Document {
                 //free the memory
                 Object o = ClassUtil.invoke("sun.nio.ch.FileChannelImpl", "unmap", byteBuffer);
                 if (o != null) {
-                    log.info("o:{}",o);
+                    log.info("o: {}",o);
                 }
             }
         }
@@ -492,22 +492,17 @@ class Document {
         getDirectorList(folder);
         for (File file : fileList) {
             if (!file.delete()) {
-                if (!file.renameTo(file)) {
-                    log.error("file[" + file.getPath() + "]clear fail");
-                    log.error("file[{}]clear fail");
-                } else {
-                    log.error("file[" + file.getPath() + "]clear fail");
-                }
+                log.error("file [{}] clear fail",file.getPath());
             } else {
-                log.info("file[" + file.getPath() + "]clear success");
+                log.info("file [{}] clear success",file.getPath());
             }
         }
         Collections.reverse(directoryList);
         for (File file : directoryList) {
             if (!file.delete()) {
-                log.error("directory[" + file.getPath() + "]clear fail");
+                log.error("directory [{}] clear fail",file.getPath());
             } else {
-                log.info("directory[" + file.getPath() + "]clear success");
+                log.info("directory [{}] clear success",file.getPath());
             }
         }
     }

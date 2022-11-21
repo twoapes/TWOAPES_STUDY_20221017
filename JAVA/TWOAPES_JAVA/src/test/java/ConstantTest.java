@@ -24,6 +24,6 @@ public class ConstantTest {
         radius = 30;
         area = radius * radius * PI;
         stringBuilder.append("round's radius:").append(radius).append(" area is ").append(area);
-        log.info("stringBuilder:{}",stringBuilder);
+        log.info("stringBuilder :{}",stringBuilder);
     }
 }

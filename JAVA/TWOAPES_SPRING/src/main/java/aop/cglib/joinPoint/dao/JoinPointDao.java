@@ -9,10 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JoinPointDao {
     public JoinPointDao() {
-        log.info("call aop.cglib.joinPoint.dao.JoinPointDao.JoinPointDao");
+        log.info("call {}","aop.cglib.joinPoint.dao.JoinPointDao.JoinPointDao");
     }
 
     public void init() {
-        log.info("call aop.cglib.joinPoint.dao.JoinPointDao.init");
+        log.info("call {}","aop.cglib.joinPoint.dao.JoinPointDao.init");
     }
 }

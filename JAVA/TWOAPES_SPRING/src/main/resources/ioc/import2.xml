@@ -3,8 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="import1" class="ioc.xml.pojo.Import1">
+    <bean id="import1" class="ioc.xml.pojo.Student">
     </bean>
-    <bean id="import2" class="ioc.xml.pojo.Import2">
+    <bean id="import2" class="ioc.xml.pojo.Teacher">
     </bean>
 </beans>

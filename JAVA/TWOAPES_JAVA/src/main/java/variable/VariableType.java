@@ -19,14 +19,14 @@ public class VariableType {
      * instance methods can use static variables
      */
     private void instanceMethod1() {
-        log.info("instanceMethod1:{}",staticVariable);
+        log.info("instanceMethod1: {}",staticVariable);
     }
 
     /**
      * static methods can use static variables
      */
     private static void staticMethod1() {
-        log.info("staticMethod1:{}",staticVariable);
+        log.info("staticMethod1: {}",staticVariable);
     }
 
 //    private double instanceVariable;
@@ -35,7 +35,7 @@ public class VariableType {
      * instance methods can use instance variables
      */
     private void instanceMethod2() {
-        log.info("instanceMethod2:{}",staticVariable);
+        log.info("instanceMethod2: {}",staticVariable);
     }
 
     /*
@@ -50,11 +50,7 @@ public class VariableType {
         staticMethod1();
         instanceMethod2();
         // staticMethod2();
-        log.info("""
-                instance variables are not shared, while static variables are shared
-                static variables can be accessed through instance methods and static methods
-                instance variables can only be accessed by instance methods
-                """);
+        log.info("instance variables are not shared, while static variables are shared static variables can be accessed through instance methods and static methods instance variables can only be accessed by instance methods");
     }
 
     public static void variableTypeStatic() {
@@ -62,10 +58,6 @@ public class VariableType {
         staticMethod1();
         /// instanceMethod2();
         // staticMethod2();
-        log.info("""
-                instance variables are not shared, while static variables are shared
-                static variables can be accessed through instance methods and static methods
-                instance variables can only be accessed by instance methods
-                """);
+        log.info("instance variables are not shared, while static variables are shared static variables can be accessed through instance methods and static methods instance variables can only be accessed by instance methods");
     }
 }

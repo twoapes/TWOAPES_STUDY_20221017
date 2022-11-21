@@ -13,8 +13,6 @@ import util.DateUtil;
  */
 @Slf4j
 public class ProceedingJoinPointAspect {
-
-
     /**
      * Around method
      *
@@ -28,7 +26,7 @@ public class ProceedingJoinPointAspect {
             String className = pjp.getTarget().getClass().getName();
             String methodName = pjp.getSignature().getName();
             String now = DateUtil.format(DateUtil.nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS_S_S);
-            ComputerUtil.end(startTime, now + "\t" + className + "." + methodName);
+            ComputerUtil.end(startTime,"(" + className + "." + methodName+") ---> "+now);
             return ret;
         } catch (Throwable e) {
             log.error(e.getMessage(), e);

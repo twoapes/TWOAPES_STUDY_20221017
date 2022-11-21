@@ -13,13 +13,13 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 public class Processors implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        log.info("the third step:call ioc.xml.pojo.Processors.postProcessBeforeInitialization");
+        log.info("the third step:call {}","ioc.xml.pojo.Processors.postProcessBeforeInitialization");
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        log.info("The fifth step:call ioc.xml.pojo.Processors.postProcessAfterInitialization");
+        log.info("The fifth step:call {}","ioc.xml.pojo.Processors.postProcessAfterInitialization");
         return bean;
     }
 }

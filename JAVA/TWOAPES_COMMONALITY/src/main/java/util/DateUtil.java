@@ -150,26 +150,12 @@ public class DateUtil {
      * 2022-07-01 9:33
      */
     public static Date get(int year, int month, int day, int hour, int minute, int second) {
-        log.info("nowTime:{}", format(nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS));
         calendar.set(Calendar.YEAR, year);
         calendar.set(Calendar.MONTH, month - 1);
         calendar.set(Calendar.DAY_OF_MONTH, day);
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, second);
-        return calendar.getTime();
-    }
-
-    /**
-     * @return yyyyMMdd HH:mm:ss
-     * @author add by huyingzhao
-     * 2022-07-01 9:33
-     */
-    public static Date getMinimum() {
-        log.info("nowTime:{}", format(nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS));
-        calendar.set(Calendar.HOUR_OF_DAY, calendar.getMinimum(Calendar.HOUR_OF_DAY));
-        calendar.set(Calendar.MINUTE, calendar.getMinimum(Calendar.MINUTE));
-        calendar.set(Calendar.SECOND, calendar.getMinimum(Calendar.SECOND));
         return calendar.getTime();
     }
 
@@ -185,42 +171,18 @@ public class DateUtil {
      */
     public static int getDaysForMonth(int year, int month) {
         switch (month) {
-            case 1:
-                calendar.set(year, Calendar.JANUARY, 1);
-                break;
-            case 2:
-                calendar.set(year, Calendar.FEBRUARY, 1);
-                break;
-            case 3:
-                calendar.set(year, Calendar.MARCH, 1);
-                break;
-            case 4:
-                calendar.set(year, Calendar.APRIL, 1);
-                break;
-            case 5:
-                calendar.set(year, Calendar.MAY, 1);
-                break;
-            case 6:
-                calendar.set(year, Calendar.JUNE, 1);
-                break;
-            case 7:
-                calendar.set(year, Calendar.JULY, 1);
-                break;
-            case 8:
-                calendar.set(year, Calendar.AUGUST, 1);
-                break;
-            case 9:
-                calendar.set(year, Calendar.SEPTEMBER, 1);
-                break;
-            case 10:
-                calendar.set(year, Calendar.OCTOBER, 1);
-                break;
-            case 11:
-                calendar.set(year, Calendar.NOVEMBER, 1);
-                break;
-            default:
-                calendar.set(year, Calendar.DECEMBER, 1);
-                break;
+            case 1 -> calendar.set(year, Calendar.JANUARY, 1);
+            case 2 -> calendar.set(year, Calendar.FEBRUARY, 1);
+            case 3 -> calendar.set(year, Calendar.MARCH, 1);
+            case 4 -> calendar.set(year, Calendar.APRIL, 1);
+            case 5 -> calendar.set(year, Calendar.MAY, 1);
+            case 6 -> calendar.set(year, Calendar.JUNE, 1);
+            case 7 -> calendar.set(year, Calendar.JULY, 1);
+            case 8 -> calendar.set(year, Calendar.AUGUST, 1);
+            case 9 -> calendar.set(year, Calendar.SEPTEMBER, 1);
+            case 10 -> calendar.set(year, Calendar.OCTOBER, 1);
+            case 11 -> calendar.set(year, Calendar.NOVEMBER, 1);
+            default -> calendar.set(year, Calendar.DECEMBER, 1);
         }
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
@@ -230,12 +192,15 @@ public class DateUtil {
      * get weeks for year
      *
      * @param year year
-     * @return getMaxWeekNumOfYear
+     * @return getWeeksForYear
      * @author add by huyingzhao
      * 2022-11-16 14:03
      */
     public static int getWeeksForYear(int year) {
-        calendar.set(year, Calendar.DECEMBER, 31, 23, 59, 59);
+        calendar.set(year, Calendar.DECEMBER, 31);
+        calendar.set(Calendar.HOUR_OF_DAY, calendar.getMaximum(Calendar.HOUR_OF_DAY));
+        calendar.set(Calendar.MINUTE, calendar.getMaximum(Calendar.MINUTE));
+        calendar.set(Calendar.SECOND, calendar.getMaximum(Calendar.SECOND));
         return getDaysForYear(calendar.getTime());
     }
 
@@ -248,9 +213,9 @@ public class DateUtil {
      * 2022-11-16 14:03
      */
     public static int getDaysForYear(Date date) {
+        calendar.setTime(date);
         calendar.setFirstDayOfWeek(Calendar.MONDAY);
         calendar.setMinimalDaysInFirstWeek(7);
-        calendar.setTime(date);
         return calendar.get(Calendar.WEEK_OF_YEAR);
     }
 
@@ -263,8 +228,8 @@ public class DateUtil {
      * 2022-11-16 14:07
      */
     public static Date getFirstDayForWeek(Date date) {
-        calendar.setFirstDayOfWeek(Calendar.MONDAY);
         calendar.setTime(date);
+        calendar.setFirstDayOfWeek(Calendar.MONDAY);
         calendar.set(Calendar.DAY_OF_WEEK, calendar.getFirstDayOfWeek());
         return calendar.getTime();
     }
@@ -278,40 +243,12 @@ public class DateUtil {
      * 2022-11-16 14:07
      */
     public static Date getLastDayForWeek(Date date) {
-        calendar.setFirstDayOfWeek(Calendar.MONDAY);
         calendar.setTime(date);
+        calendar.setFirstDayOfWeek(Calendar.MONDAY);
         calendar.set(Calendar.DAY_OF_WEEK, calendar.getFirstDayOfWeek() + 6);
         return calendar.getTime();
     }
 
-    /**
-     * @return yyyyMMdd HH:mm:ss
-     * @author add by huyingzhao
-     * 2022-07-01 9:33
-     */
-    public static Date getMaximum() {
-        log.info("nowTime:{}", format(nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS));
-        calendar.set(Calendar.HOUR_OF_DAY, calendar.getMaximum(Calendar.HOUR_OF_DAY));
-        calendar.set(Calendar.MINUTE, calendar.getMaximum(Calendar.MINUTE));
-        calendar.set(Calendar.SECOND, calendar.getMaximum(Calendar.SECOND));
-        return calendar.getTime();
-    }
-
-    /**
-     * assign date
-     *
-     * @param day  negative numbers are calculated forward, and not back
-     * @param date date
-     * @return assignDate
-     * @author add by huyingzhao
-     * 2022-07-01 10:51
-     */
-    public static Date assignDate(int day, Date date) {
-        log.info("nowTime:{}", format(nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS));
-        calendar.setTime(date);
-        calendar.add(Calendar.DAY_OF_MONTH, day);
-        return calendar.getTime();
-    }
 
     /**
      * get year
@@ -321,7 +258,6 @@ public class DateUtil {
      * 2022-07-01 11:01
      */
     public static int getYear(Date date) {
-        log.info("nowTime:{}", format(nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS));
         calendar.setTime(date);
         return calendar.get(Calendar.YEAR);
     }
@@ -334,7 +270,6 @@ public class DateUtil {
      * 2022-07-01 11:01
      */
     public static int getMonth(Date date) {
-        log.info("nowTime:{}", format(nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS));
         calendar.setTime(date);
         return calendar.get(Calendar.MONTH) + 1;
     }
@@ -347,7 +282,6 @@ public class DateUtil {
      * 2022-07-01 11:01
      */
     public static int getDay(Date date) {
-        log.info("nowTime:{}", format(nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS));
         calendar.setTime(date);
         return calendar.get(Calendar.DAY_OF_MONTH);
     }
@@ -418,6 +352,7 @@ public class DateUtil {
             return null;
         }
 
+        calendar.setTime(date);
         return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 
@@ -434,6 +369,7 @@ public class DateUtil {
             return null;
         }
 
+        calendar.setTime(date);
         return date.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
     }
 
@@ -450,55 +386,10 @@ public class DateUtil {
             return null;
         }
 
+        calendar.setTime(date);
         return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
-    /**
-     * date difference(for day)
-     *
-     * @param startDate startDate
-     * @param endDate   endDate
-     * @return getDiffForDay
-     * @author add by huyingzhao
-     * 2022-07-01 11:16
-     */
-    public static int getDiffForDay(Date startDate, Date endDate) {
-        log.info("nowTime:{}", format(nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS));
-        Calendar startCalender = Calendar.getInstance();
-        startCalender.setTime(startDate);
-        Calendar endCalender = Calendar.getInstance();
-        endCalender.setTime(endDate);
-        long time = (endCalender.getTimeInMillis() - startCalender.getTimeInMillis());
-        return (int) (time / (1000 * 60 * 60 * 24));
-    }
-
-    /**
-     * date difference(for time)
-     *
-     * @param startDate startDate
-     * @param endDate   endDate
-     * @return getDiff
-     * @author add by huyingzhao
-     * 2022-07-01 11:16
-     */
-    public static String getDiff(Date startDate, Date endDate) {
-        log.info("nowTime:{}", format(nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS));
-        Calendar startCalender = Calendar.getInstance();
-        startCalender.setTime(startDate);
-        Calendar endCalender = Calendar.getInstance();
-        endCalender.setTime(endDate);
-        long time = (int) (endCalender.getTimeInMillis() - startCalender.getTimeInMillis());
-        if (time < 0) {
-            return "0 00:00:00";
-        }
-        Date date = nowTime();
-        date.setTime(time);
-        long day = time / (1000 * 60 * 60 * 24);
-        long hour = time / (1000 * 60 * 60);
-        long minute = time / (1000 * 60);
-        long second = time / 1000;
-        return day % lengthOfMonth(date) + " " + hour % 24 + ":" + minute % 60 + ":" + second % 24;
-    }
 
     /**
      * length of year
@@ -673,7 +564,7 @@ public class DateUtil {
      */
     private static Date add(Date date, int field, int amount) {
         if (date == null) {
-            log.error("date must not null:{}", date);
+            log.error("date must not null: {}", date);
             return null;
         }
 
@@ -717,8 +608,8 @@ public class DateUtil {
      * @author add by huyingzhao
      * 2022-11-16 14:59
      */
-    public static int diffMinute(Date begin, Date end) {
-        return (int) (end.getTime() - begin.getTime()) / 1000 / 60;
+    public static long diffMinute(Date begin, Date end) {
+        return (end.getTime() - begin.getTime()) / 1000 / 60;
     }
 
     /**
@@ -730,8 +621,8 @@ public class DateUtil {
      * @author add by huyingzhao
      * 2022-11-16 14:54
      */
-    public static int diffHour(Date begin, Date end) {
-        return (int) ((end.getTime() - begin.getTime()) / 1000 / 60 / 60);
+    public static long diffHour(Date begin, Date end) {
+        return ((end.getTime() - begin.getTime()) / 1000 / 60 / 60);
     }
 
 
@@ -744,12 +635,12 @@ public class DateUtil {
      * @author add by huyingzhao
      * 2022-11-16 14:51
      */
-    public static int diffDay(Date begin, Date end) {
+    public static long diffDay(Date begin, Date end) {
         if (begin == null || end == null) {
             return 0;
         }
 
-        return (int) ((end.getTime() - begin.getTime()) / (24 * 60 * 60 * 1000));
+        return ((end.getTime() - begin.getTime()) / (24 * 60 * 60 * 1000));
     }
 
     /**
@@ -762,6 +653,10 @@ public class DateUtil {
      * 2022-11-16 14:50
      */
     public static int diffMonth(Date begin, Date end) {
+        if (begin == null || end == null) {
+            return 0;
+        }
+
         int month;
         int years = diffYear(begin, end);
         Calendar c1 = Calendar.getInstance();
@@ -786,57 +681,40 @@ public class DateUtil {
      * 2022-11-16 14:49
      */
     public static int diffYear(Date begin, Date end) {
+        if (begin == null || end == null) {
+            return 0;
+        }
+
         return getYear(end) - getYear(begin);
     }
 
-    /**
-     * hh:mm:ss
-     *
-     * @param begin begin
-     * @param end   end
-     * @return getDate
-     * @author add by huyingzhao
-     * 2022-11-16 15:38
-     */
-    public static String getDate(Date begin, Date end) {
-        long nd = 1000 * 24 * 60 * 60;
-        long nh = 1000 * 60 * 60;
-        long nm = 1000 * 60;
-        long ns = 1000;
-        long diff = end.getTime() - begin.getTime();
-        long day = diff / nd;
-        long hour = diff % nd / nh;
-        long min = diff % nd % nh / nm;
-        long sec = diff % nd % nh % nm / ns;
-        return day + " " + hour + ":" + min + ":" + sec;
-    }
 
     /**
-     * distance days
+     * date difference(for time)
      *
-     * @param date date
-     * @return getLeftDate
+     * @param startDate startDate
+     * @param endDate   endDate
+     * @return getDiff
      * @author add by huyingzhao
-     * 2022-11-16 15:51
+     * 2022-07-01 11:16
      */
-    public static int getDistanceDate(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        long dateTime = calendar.getTimeInMillis();
-
-        Calendar nowTime = Calendar.getInstance();
-        nowTime.setTime(new Date());
-        nowTime.set(Calendar.HOUR_OF_DAY, 0);
-        nowTime.set(Calendar.MINUTE, 0);
-        nowTime.set(Calendar.SECOND, 0);
-        long todayTime = nowTime.getTimeInMillis();
-
-        return (int) ((dateTime - todayTime) / (1000 * 60 * 60 * 24));
+    public static String diff(Date startDate, Date endDate) {
+        Calendar startCalender = Calendar.getInstance();
+        startCalender.setTime(startDate);
+        Calendar endCalender = Calendar.getInstance();
+        endCalender.setTime(endDate);
+        long time = (int) (endCalender.getTimeInMillis() - startCalender.getTimeInMillis());
+        if (time < 0) {
+            return "0 00:00:00";
+        }
+        Date date = nowTime();
+        date.setTime(time);
+        long day = time / (1000 * 60 * 60 * 24);
+        long hour = time / (1000 * 60 * 60);
+        long minute = time / (1000 * 60);
+        long second = time / 1000;
+        return day % lengthOfMonth(date) + " " + hour % 24 + ":" + minute % 60 + ":" + second % 24;
     }
-
 
     /**
      * nowTime in [startTime, endTime]
@@ -844,11 +722,11 @@ public class DateUtil {
      * @param nowTime   nowTime
      * @param startTime startTime
      * @param endTime   endTime
-     * @return isEffectiveDate
+     * @return isBetweenDate
      * @author add by huyingzhao
      * 2022-11-16 15:53
      */
-    public static boolean isEffectiveDate(Date nowTime, Date startTime, Date endTime) {
+    public static boolean isBetweenDate(Date nowTime, Date startTime, Date endTime) {
         if (nowTime.getTime() == startTime.getTime()
                 || nowTime.getTime() == endTime.getTime()) {
             return true;
@@ -869,11 +747,13 @@ public class DateUtil {
     /**
      * month for one day
      *
-     * @return getCurrentDateStart
+     * @param date date
+     * @return getMonthStart
      * @author add by huyingzhao
-     * 2022-11-16 15:54
+     * 2022-11-19 15:17
      */
-    public static Date getMonthStart() {
+    public static Date getMonthStart(Date date) {
+        calendar.setTime(date);
         calendar.add(Calendar.MONTH, 0);
         calendar.set(Calendar.DAY_OF_MONTH, 1);
         return calendar.getTime();
@@ -882,12 +762,42 @@ public class DateUtil {
     /**
      * month for last day
      *
-     * @return getCurrentDateEnd
+     * @param date date
+     * @return getMonthEnd
      * @author add by huyingzhao
-     * 2022-11-16 15:55
+     * 2022-11-19 15:17
      */
-    public static Date getMonthEnd() {
+    public static Date getMonthEnd(Date date) {
+        calendar.setTime(date);
         calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+        return calendar.getTime();
+    }
+
+    /**
+     * @param date date
+     * @return yyyyMMdd HH:mm:ss
+     * @author add by huyingzhao
+     * 2022-07-01 9:33
+     */
+    public static Date getMinimum(Date date) {
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR_OF_DAY, calendar.getMinimum(Calendar.HOUR_OF_DAY));
+        calendar.set(Calendar.MINUTE, calendar.getMinimum(Calendar.MINUTE));
+        calendar.set(Calendar.SECOND, calendar.getMinimum(Calendar.SECOND));
+        return calendar.getTime();
+    }
+
+    /**
+     * @param date date
+     * @return yyyyMMdd HH:mm:ss
+     * @author add by huyingzhao
+     * 2022-07-01 9:33
+     */
+    public static Date getMaximum(Date date) {
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR_OF_DAY, calendar.getMaximum(Calendar.HOUR_OF_DAY));
+        calendar.set(Calendar.MINUTE, calendar.getMaximum(Calendar.MINUTE));
+        calendar.set(Calendar.SECOND, calendar.getMaximum(Calendar.SECOND));
         return calendar.getTime();
     }
 }

@@ -16,6 +16,6 @@ public class JoinPointAspect {
         String now = DateUtil.format(DateUtil.nowTime(), ISO8601Enum.YYYY_MM_DD_HE_HMS_S_S);
         String className = joinPoint.getTarget().getClass().getName();
         String methodName = joinPoint.getSignature().getName();
-        log.info("(" + className + "." + methodName + ") ---> " + now);
+        log.info("({}.{}) ---> {}" ,className,methodName,now);
     }
 }

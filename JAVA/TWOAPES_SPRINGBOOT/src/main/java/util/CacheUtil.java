@@ -14,6 +14,7 @@ import java.time.Duration;
 import java.util.function.Function;
 
 /**
+ * spring cache
  * @author add by huyingzhao
  * 2022-09-06 9:48
  */
@@ -59,18 +60,18 @@ public class CacheUtil {
         return cache;
     }
 
-    /**
-     * for (String cacheName : cacheMap.keySet()) {
-     * Cache cache = cacheMap.get(cacheName);
-     * File file = new File(NConst.CACHE_PATH + cacheName + ".txt");
-     * JsonUtil.writeValue(file, cache.iterator());
-     * }
-     *
-     * @param cache     cache
-     * @param cacheName cacheName
-     */
-    public static <K, V> void reloadCacheData(String path, String cacheName, Cache<K, V> cache) {
-        try {
+///    /**
+//     * for (String cacheName : cacheMap.keySet()) {
+//     * Cache cache = cacheMap.get(cacheName);
+//     * File file = new File(NConst.CACHE_PATH + cacheName + ".txt");
+//     * JsonUtil.writeValue(file, cache.iterator());
+//     * }
+//     *
+//     * @param cache     cache
+//     * @param cacheName cacheName
+//     */
+///    public static <K, V> void reloadCacheData(String path, String cacheName, Cache<K, V> cache) {
+//        try {
             // if (cacheMap.get(cacheName) == null) {
                 // File file = new File(path, cacheName + ".txt");
 //                if (file.exists() && System.currentTimeMillis() - file.lastModified() > 3600_000) {
@@ -81,10 +82,10 @@ public class CacheUtil {
 //                    }
 //                }
             // }
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        }
-    }
+//        } catch (Exception e) {
+//            log.error(e.getMessage(), e);
+//        }
+//    }
 
     public static <K, V> V getValue(String cacheName,K k, Class<K> key, Class<V> valueType) {
         Cache<K, V> cache = getCache(cacheName, key, valueType);

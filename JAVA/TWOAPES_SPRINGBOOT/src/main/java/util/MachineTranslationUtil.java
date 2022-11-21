@@ -1,8 +1,10 @@
 package util;
 
 import com.alibaba.fastjson.JSONObject;
+import entity.Param;
 import enums.ISO8601Enum;
 import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -11,10 +13,14 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Locale;
 import java.util.TimeZone;
 
+/**
+ * machine translation
+ */
 @Slf4j
 public class MachineTranslationUtil {
     /**
@@ -44,13 +50,13 @@ public class MachineTranslationUtil {
             str += ("machine before:=>" + jsonObject.getString("src"));
             str += ("\t");
             str += ("machine after:=>" + jsonObject.getString("dst"));
-            log.info("str:{}",str);
+            log.info("str :{}", str);
             str = jsonObject.getString("dst");
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
 
-        ComputerUtil.end(startTime,"util.MachineTranslationUtil.machine");
+        ComputerUtil.end(startTime, "util.MachineTranslationUtil.machine");
         return str;
     }
 
@@ -76,7 +82,7 @@ public class MachineTranslationUtil {
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setRequestProperty("Content-type", "application/json");
         OutputStream out = httpURLConnection.getOutputStream();
-        String params = buildParam(charset,id, from, to, text);
+        String params = buildParam(charset, id, from, to, text);
         out.write(params.getBytes());
         out.flush();
         InputStream is;
@@ -86,7 +92,7 @@ public class MachineTranslationUtil {
             is = httpURLConnection.getErrorStream();
             log.error(e.getMessage(), e);
         }
-        return readAllBytes(charset,is);
+        return readAllBytes(charset, is);
     }
 
     /**
@@ -103,10 +109,10 @@ public class MachineTranslationUtil {
         String httpRequestUrl = requestUrl.replace("ws://", "http://").replace("wss://", "https://");
         try {
             url = new URL(httpRequestUrl);
-            String date = DateUtil.format(DateUtil.nowTime(), ISO8601Enum.EEE_DD_MMM_YYYY_HH_MM_SS_Z, Locale.US, TimeZone.getTimeZone("GMT"));
+            String date = DateUtil.format(DateUtil.nowTime(), ISO8601Enum.EEE_DD_MMM_YYYY_HH_MM_SS_Z, Locale.US, TimeZone.getTimeZone(ISO8601Enum.GMT));
             String host = url.getHost();
             String builder = "host: " + host + "\n" + "date: " + date + "\n" + "POST " + url.getPath() + " HTTP/1.1";
-            byte[] hexDigits = ComputerUtil.hmacSHA256(builder,secret);
+            byte[] hexDigits = ComputerUtil.hmacSHA256(builder, secret);
 
             String sha = ComputerUtil.encodeAES(hexDigits);
             String authorization = String.format("api_key=\"%s\", algorithm=\"%s\", headers=\"%s\", signature=\"%s\"", key, "hmac-sha256", "host date request-line", sha);
@@ -120,18 +126,23 @@ public class MachineTranslationUtil {
     }
 
     /**
-     * @param charset   charset
-     * @param id   id
-     * @param from from
-     * @param to   to
-     * @param text text
+     * @param charset charset
+     * @param id      id
+     * @param from    from
+     * @param to      to
+     * @param text    text
      * @return buildParam
      * @author add by huyingzhao
      * 2022-09-24 10:57
      */
     private static String buildParam(Charset charset, String id, String from, String to, String text) {
         String RES_ID = "its_en_cn_word";
-        return "{" + "    \"header\": {" + "        \"app_id\": \"" + id + "\"," + "        \"status\": 3," + "        \"res_id\": \"" + RES_ID + "\"" + "    }," + "    \"parameter\": {" + "        \"its\": {" + "            \"from\": \"" + from + "\"," + "            \"to\": \"" + to + "\"," + "            \"result\": {}" + "        }" + "    }," + "    \"payload\": {" + "        \"input_data\": {" + "            \"encoding\": \"utf8\"," + "            \"status\": 3," + "            \"text\": \"" + ComputerUtil.encodeAES(text.getBytes(charset)) + "\"" + "        }" + "    }" + "}";
+        Param param = new Param();
+        param.setHeader(param.header(id, 3, RES_ID));
+        param.setParameter(param.its(from, to, new ArrayList<>()));
+        param.setPayload(param.inputData("utf8", 3, ComputerUtil.encodeAES(text.getBytes(charset))));
+        log.info("student:{}", JacksonUtil.toJson(param));
+        return JacksonUtil.toJson(param);
     }
 
     /**
@@ -141,7 +152,7 @@ public class MachineTranslationUtil {
      * @author add by huyingzhao
      * 2022-09-24 10:58
      */
-    private static String readAllBytes(Charset charset,InputStream is) throws IOException {
+    private static String readAllBytes(Charset charset, InputStream is) throws IOException {
         byte[] b = new byte[1024];
         StringBuilder sb = new StringBuilder("\n");
         int len;

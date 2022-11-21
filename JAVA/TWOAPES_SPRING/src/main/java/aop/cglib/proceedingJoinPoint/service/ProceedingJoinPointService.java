@@ -14,7 +14,7 @@ public class ProceedingJoinPointService {
     private ProceedingJoinPointDao proceedingJoinPointDao;
 
     public void proceedingJoinPointService() {
-        log.info("service call dao: proceedingJoinPointDao.init()");
+        log.info("service call dao: {}","aop.cglib.proceedingJoinPoint.service.ProceedingJoinPointService.proceedingJoinPointService");
         proceedingJoinPointDao.init();
     }
 }

@@ -7,47 +7,47 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="object" class="ioc.xml.pojo.Student">
+    <bean id="object" class="entity.Student">
     </bean>
     <alias name="object" alias="aliasObject"/>
 
-    <bean id="property" class="ioc.xml.pojo.Student">
+    <bean id="property" class="entity.Student">
         <property name="name" value="ZhangSan"/>
         <property name="age" value="18"/>
     </bean>
 
-    <bean id="pNameSpace" class="ioc.xml.pojo.Student" p:name="ZhangSan" p:age="18">
+    <bean id="pNameSpace" class="entity.Student" p:name="ZhangSan" p:age="18">
     </bean>
 
-    <bean id="constructorArg1" class="ioc.xml.pojo.Student">
+    <bean id="constructorArg1" class="entity.Student">
         <constructor-arg name="name" value="Lisi"/>
         <constructor-arg name="age" value="22"/>
     </bean>
 
-    <bean id="constructorArg2" class="ioc.xml.pojo.Student">
+    <bean id="constructorArg2" class="entity.Student">
         <constructor-arg index="0" value="Lisi"/>
         <constructor-arg index="1" value="22"/>
     </bean>
 
-    <bean id="constructorArg3" class="ioc.xml.pojo.Student">
+    <bean id="constructorArg3" class="entity.Student">
         <constructor-arg type="java.lang.String" value="Lisi"/>
         <constructor-arg type="int" value="22"/>
     </bean>
 
-    <bean id="constructorArg4" class="ioc.xml.pojo.Student">
+    <bean id="constructorArg4" class="entity.Student">
         <constructor-arg type="java.lang.String" value="Lisi"/>
         <constructor-arg type="int" value="22"/>
     </bean>
-    <bean id="null" class="ioc.xml.pojo.Student">
+    <bean id="null" class="entity.Student">
         <property name="name">
             <null/>
         </property>
     </bean>
-    <bean id="special1" class="ioc.xml.pojo.Student">
+    <bean id="special1" class="entity.Student">
         <property name="name" value="&lt;ZhangSan&gt;"/>
         <property name="age" value="33"/>
     </bean>
-    <bean id="special2" class="ioc.xml.pojo.Student">
+    <bean id="special2" class="entity.Student">
         <property name="name">
             <value><![CDATA[<ZhangSan>]]></value>
         </property>
@@ -58,35 +58,35 @@
     </bean>
     <bean id="xmlDao" class="ioc.xml.dao.impl.XmlDaoImpl">
     </bean>
-    <bean id="inside" class="ioc.xml.pojo.Teacher">
+    <bean id="inside" class="entity.Teacher">
         <property name="name" value="MR.Wang"/>
         <property name="age" value="36"/>
         <property name="student">
-            <bean class="ioc.xml.pojo.Student">
+            <bean class="entity.Student">
                 <property name="name" value="ZhangSan"/>
                 <property name="age" value="18"/>
             </bean>
         </property>
     </bean>
-    <bean id="cascade1" class="ioc.xml.pojo.Teacher">
+    <bean id="cascade1" class="entity.Teacher">
         <property name="name" value="MR.Wang"/>
         <property name="age" value="36"/>
         <property name="student" ref="student1"/>
     </bean>
-    <bean id="student1" class="ioc.xml.pojo.Student">
+    <bean id="student1" class="entity.Student">
         <property name="name" value="Lisi"/>
         <property name="age" value="18"/>
     </bean>
-    <bean id="cascade2" class="ioc.xml.pojo.Teacher">
+    <bean id="cascade2" class="entity.Teacher">
         <property name="name" value="MR.Wang"/>
         <property name="age" value="36"/>
         <property name="student" ref="student2"/>
         <property name="student.name" value="Lisi"/>
         <property name="student.age" value="18"/>
     </bean>
-    <bean id="student2" class="ioc.xml.pojo.Student">
+    <bean id="student2" class="entity.Student">
     </bean>
-    <bean id="aggregate1" class="ioc.xml.pojo.Teacher">
+    <bean id="aggregate1" class="entity.Teacher">
         <property name="name" value="MR.Li"/>
         <property name="age" value="36"/>
         <property name="students">
@@ -126,15 +126,15 @@
             </list>
         </property>
     </bean>
-    <bean id="student3" class="ioc.xml.pojo.Student">
+    <bean id="student3" class="entity.Student">
         <property name="name" value="ZhangSan"/>
         <property name="age" value="18"/>
     </bean>
-    <bean id="student4" class="ioc.xml.pojo.Student">
+    <bean id="student4" class="entity.Student">
         <property name="name" value="Lisi"/>
         <property name="age" value="17"/>
     </bean>
-    <bean id="student5" class="ioc.xml.pojo.Student">
+    <bean id="student5" class="entity.Student">
         <property name="name" value="WangWu"/>
         <property name="age" value="19"/>
     </bean>
@@ -143,22 +143,22 @@
         <ref bean="student4"/>
         <ref bean="student5"/>
     </util:list>
-    <bean id="aggregate2" class="ioc.xml.pojo.Teacher">
+    <bean id="aggregate2" class="entity.Teacher">
         <property name="studentObjectList" ref="studentObjectList2"/>
     </bean>
-    <bean id="scope1" class="ioc.xml.pojo.Student">
+    <bean id="scope1" class="entity.Student">
         <property name="name" value="ZhangSan"/>
         <property name="age" value="18"/>
     </bean>
 
-    <bean id="scope2" class="ioc.xml.pojo.Student" scope="prototype">
+    <bean id="scope2" class="entity.Student" scope="prototype">
         <property name="name" value="ZhangSan"/>
         <property name="age" value="18"/>
     </bean>
-    <bean id="autowired1" class="ioc.xml.pojo.Student" autowire="byName">
+    <bean id="autowired1" class="entity.Student" autowire="byName">
 
     </bean>
-    <bean id="autowired2" class="ioc.xml.pojo.Student" autowire="byType">
+    <bean id="autowired2" class="entity.Student" autowire="byType">
     </bean>
     <bean id="properties" class="ioc.xml.pojo.Properties">
         <property name="properties">
@@ -170,7 +170,7 @@
             </value>
         </property>
     </bean>
-    <bean id="factory" class="ioc.xml.pojo.Student">
+    <bean id="factory" class="entity.Student">
         <property name="name" value="ZhangSan"/>
         <property name="age" value="18"/>
     </bean>
@@ -194,4 +194,16 @@
           p:url="${mysql.url}"
           p:username="${mysql.mySqlUsername}"
           p:password="${mysql.mySqlPassword}"/>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${mysql.driver}"/>
+        <property name="username" value="${mysql.mySqlUsername}"/>
+        <property name="password" value="${mysql.mySqlPassword}"/>
+        <property name="url" value="${mysql.url}"/>
+    </bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="jdbcDao" class="jdbc.dao.JDBCDao">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 </beans>

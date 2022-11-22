@@ -21,8 +21,12 @@ import java.util.*;
 @Slf4j
 @Service
 public class SftpServiceImpl extends SSH implements SftpService {
-    @Autowired
     private SftpDo sftpDo;
+
+    @Autowired
+    public void setSftpDo(SftpDo sftpDo) {
+        this.sftpDo = sftpDo;
+    }
 
     public SftpServiceImpl() {
         super.sftpDo = sftpDo;
@@ -283,14 +287,14 @@ class SSH {
                 session = jsch.getSession(sftpDo.getSftpUserName(), sftpDo.getSftpHost(),
                         Integer.parseInt(sftpDo.getSftpPort()));
                 session.setPassword(sftpDo.getSftpPassword());
+                final String KEY = """
+                        Ciphers aes128-cbc,aes256-cbc,aes256-ctr,3des-cbc,arcfour128,arcfour256,arcfour,blowfish-cbc,cast128-cbc
+                        MACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160,hmac-sha1-96,hmac-md5-96
+                        KexAlgorithms diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group1-sha1,curve25519-sha256@libssh.org
+                        """;
                 Properties config = new Properties();
                 config.put("StrictHostKeyChecking", "no");
-                config.put("kex",
-                        "Ciphers aes128-cbc,aes256-cbc,aes256-ctr,3des-cbc,arcfour128,arcfour256,arcfour,blowfish-cbc,cast128-cbc\n"
-                                +
-                                "MACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160,hmac-sha1-96,hmac-md5-96\n"
-                                +
-                                "KexAlgorithms diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group1-sha1,curve25519-sha256@libssh.org");
+                config.put("kex", KEY);
                 session.setConfig(config);
                 session.connect();
                 channel = session.openChannel("sftp");
@@ -360,8 +364,7 @@ class SSH {
     void files(List<Map<String, Object>> hashMaps, String directory, boolean is) throws SftpException {
         Vector<?> vector = sftp.ls(directory);
         for (Object o : vector) {
-            if (o instanceof ChannelSftp.LsEntry) {
-                ChannelSftp.LsEntry lsEntry = (ChannelSftp.LsEntry) o;
+            if (o instanceof ChannelSftp.LsEntry lsEntry) {
                 if (is) {
                     getChannelSftp(hashMaps, directory, true, lsEntry);
                 } else {

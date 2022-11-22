@@ -1,4 +1,4 @@
-package ioc.xml.pojo;
+package entity;
 
 import lombok.Data;
 

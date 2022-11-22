@@ -1,6 +1,6 @@
 package ioc.xml;
 
-import ioc.xml.pojo.Student;
+import entity.Student;
 import lombok.extern.slf4j.Slf4j;
 
 /**

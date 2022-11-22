@@ -14,11 +14,15 @@ import javax.annotation.Resource;
 @Service
 @Slf4j
 public class AnnotationService {
-    @Autowired
     @Qualifier("annotationDao")
     private AnnotationDao annotationDao;
     @Resource
     private AnnotationDao annotationDao2;
+
+    @Autowired
+    public void setAnnotationDao(AnnotationDao annotationDao) {
+        this.annotationDao = annotationDao;
+    }
 
     public void autowired() {
         annotationDao.annotation("autowired");

@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 @Slf4j
 public class AppDI {
     public static void appDI() {
-        log.info("\n" + "---------------AOP for annotation---------------" + "\n");
+        log.info("---------------AOP for annotation---------------" + "\n");
         ApplicationContext applicationContext = AppCore.openClass(AppConfig.class);
         App app = app(applicationContext);
         app.add();

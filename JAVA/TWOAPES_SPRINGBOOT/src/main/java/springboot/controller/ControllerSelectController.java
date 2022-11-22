@@ -1,6 +1,6 @@
 package springboot.controller;
 
-import dto.StudentTO;
+import entity.StudentTO;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,8 +16,11 @@ import springboot.mapper.ControllerSelectMapper;
 @Controller
 @Api(value = "ControllerSelectController", tags = "using Controller(Select Annotation)")
 public class ControllerSelectController {
-    @Autowired
     private ControllerSelectMapper controllerSelectMapper;
+    @Autowired
+    public void setControllerSelectMapper(ControllerSelectMapper controllerSelectMapper) {
+        this.controllerSelectMapper = controllerSelectMapper;
+    }
 
     /**
      * @return student

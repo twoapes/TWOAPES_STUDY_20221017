@@ -1,5 +1,7 @@
 package ioc.xml;
 
+import entity.Student;
+import entity.Teacher;
 import ioc.xml.pojo.*;
 import ioc.xml.service.XmlService;
 import lombok.extern.slf4j.Slf4j;

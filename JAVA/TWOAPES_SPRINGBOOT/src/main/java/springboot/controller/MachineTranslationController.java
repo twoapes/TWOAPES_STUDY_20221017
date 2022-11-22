@@ -22,8 +22,12 @@ import util.MachineTranslationUtil;
 @RequestMapping("/machine")
 @Api(value = "MachineTranslationController", tags = "MachineTranslation")
 public class MachineTranslationController {
-    @Autowired
     private MachineTranslationDo machineTranslationDo;
+
+    @Autowired
+    public void setMachineTranslationDo(MachineTranslationDo machineTranslationDo) {
+        this.machineTranslationDo = machineTranslationDo;
+    }
 
     @ApiOperation(value = "select machine")
     @PostMapping("/machine")

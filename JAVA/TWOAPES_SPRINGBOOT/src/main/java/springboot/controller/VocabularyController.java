@@ -39,8 +39,12 @@ import java.util.List;
 @RequestMapping("/code")
 @Api(value = "VocabularyController", tags = "Vocabulary")
 public class VocabularyController {
-    @Autowired
     private VocabularyService vocabularyService;
+
+    @Autowired
+    public void setVocabularyService(VocabularyService vocabularyService) {
+        this.vocabularyService = vocabularyService;
+    }
 
     /**
      * @param name  name

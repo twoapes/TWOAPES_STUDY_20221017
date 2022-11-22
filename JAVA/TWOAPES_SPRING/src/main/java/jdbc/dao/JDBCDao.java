@@ -1,6 +1,6 @@
 package jdbc.dao;
 
-import jdbc.pojo.StudentTO;
+import entity.StudentTO;
 import lombok.Data;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

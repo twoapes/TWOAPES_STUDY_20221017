@@ -2,6 +2,9 @@ package entity;
 
 import lombok.Data;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
+
+import java.beans.ConstructorProperties;
 
 /**
  * @author add by huyingzhao
@@ -10,13 +13,18 @@ import lombok.ToString;
  */
 @Data
 @ToString
+@Slf4j
 public class Student {
-    /*
-     * name
-     */
     private String name;
-    /*
-     * age
-     */
     private int age;
+
+    public Student() {
+//        log.info("call {}","ioc.xml.pojo.Student.Student");
+    }
+
+    @ConstructorProperties({"name", "age"})
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 }

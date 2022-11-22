@@ -12,7 +12,7 @@ import org.springframework.context.ApplicationContext;
 @Slf4j
 public class ProceedingJoinPointDI {
     public static void runProceedingJoinPointDI() {
-        log.info("\n" + "---------------using ProceedingJoinPoint---------------");
+        log.info("---------------using ProceedingJoinPoint---------------");
         ApplicationContext context = AppCore.open("aop/proceedingJoinPoint.xml");
         ProceedingJoinPointService proceedingJoinPointService = proceedingJoinPoint(context);
         proceedingJoinPointService.proceedingJoinPointService();

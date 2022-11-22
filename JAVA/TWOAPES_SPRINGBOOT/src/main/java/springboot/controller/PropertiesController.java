@@ -26,8 +26,12 @@ public class PropertiesController {
      */
     @Value("${url.paramId}")
     private int paramId;
-    @Autowired
     private PropertiesDo propertiesDo;
+
+    @Autowired
+    public void setPropertiesDo(PropertiesDo propertiesDo) {
+        this.propertiesDo = propertiesDo;
+    }
 
     /**
      * using object get properties

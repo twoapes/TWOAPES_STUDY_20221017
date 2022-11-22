@@ -1,5 +1,7 @@
 package ioc.xml.pojo;
 
+import entity.Student;
+import entity.Teacher;
 import lombok.Data;
 
 @Data

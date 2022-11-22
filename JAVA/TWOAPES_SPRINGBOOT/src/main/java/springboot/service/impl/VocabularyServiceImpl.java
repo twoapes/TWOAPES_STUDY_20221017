@@ -24,8 +24,12 @@ import java.util.Map;
  */
 @Service
 public class VocabularyServiceImpl implements VocabularyService {
-    @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Autowired
+    public void setMongoTemplate(MongoTemplate mongoTemplate) {
+        this.mongoTemplate = mongoTemplate;
+    }
 
     /**
      * @param vocabularyDTO vocabularyDTO

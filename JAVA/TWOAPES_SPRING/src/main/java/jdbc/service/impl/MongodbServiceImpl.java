@@ -25,10 +25,13 @@ import java.util.List;
 @Slf4j
 @Service
 public class MongodbServiceImpl implements MongodbService {
-    @Autowired
     private MongoDBPOJO mongoDBPOJO;
     private MongoClient mongoClient;
 
+    @Autowired
+    public void setMongoDBPOJO(MongoDBPOJO mongoDBPOJO) {
+        this.mongoDBPOJO = mongoDBPOJO;
+    }
 
     /**
      * @param name name

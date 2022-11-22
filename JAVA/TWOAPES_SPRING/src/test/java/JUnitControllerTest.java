@@ -14,8 +14,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:ioc/xml.xml"})
 public class JUnitControllerTest {
-    @Autowired
     private XmlServiceImpl xmlService;
+
+    @Autowired
+    public void setXmlService(XmlServiceImpl xmlService) {
+        this.xmlService = xmlService;
+    }
 
     /**
      * test XmlServiceImpl

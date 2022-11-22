@@ -20,11 +20,15 @@ import java.util.Locale;
 @Slf4j
 @Service
 public class JdbcConnectServiceImpl implements JdbcConnectService {
-    @Autowired
     JdbcPOJO jdbcPOJO;
     PreparedStatement preparedStatement;
     ResultSet resultSet;
     Connection connection;
+
+    @Autowired
+    public void setJdbcPOJO(JdbcPOJO jdbcPOJO) {
+        this.jdbcPOJO = jdbcPOJO;
+    }
 
     /**
      * @return boolean

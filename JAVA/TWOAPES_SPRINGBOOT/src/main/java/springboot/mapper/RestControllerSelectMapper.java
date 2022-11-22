@@ -1,6 +1,6 @@
 package springboot.mapper;
 
-import dto.StudentTO;
+import entity.StudentTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

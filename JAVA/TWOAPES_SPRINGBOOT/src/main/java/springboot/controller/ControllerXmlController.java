@@ -1,6 +1,6 @@
 package springboot.controller;
 
-import dto.StudentTO;
+import entity.StudentTO;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,8 +16,11 @@ import springboot.mapper.ControllerXmlMapper;
 @Controller
 @Api(value = "ControllerXmlController", tags = "using Controller(XML profile)")
 public class ControllerXmlController {
-    @Autowired
     private ControllerXmlMapper controllerXmlMapper;
+    @Autowired
+    public void setControllerXmlMapper(ControllerXmlMapper controllerXmlMapper) {
+        this.controllerXmlMapper = controllerXmlMapper;
+    }
 
     @GetMapping("/viewXml1")
     public String student(ModelMap map) {

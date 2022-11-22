@@ -21,8 +21,7 @@ public class ParameterPOJO {
      * @return ParameterPOJO
      */
     public ParameterPOJO addParameter(Object parameterPOJO) {
-        if (parameterPOJO instanceof java.util.Date) {
-            java.util.Date date = (java.util.Date) parameterPOJO;
+        if (parameterPOJO instanceof java.util.Date date) {
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
             parameters.add(sqlDate);
         } else {

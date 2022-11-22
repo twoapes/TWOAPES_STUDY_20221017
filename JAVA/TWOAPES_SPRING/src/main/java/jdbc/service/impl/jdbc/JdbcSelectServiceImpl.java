@@ -171,19 +171,19 @@ class Select extends JdbcConnectServiceImpl {
      * @param pojo pojo
      * @return select
      */
-    <T> List<T> select(boolean is, T o, ParameterPOJO pojo, String string) {
+    <T> List<T> select(boolean is, T o, ParameterPOJO parameterPOJO, String string) {
         commMap.clear();
         List<T> dataList = new ArrayList<>();
-        if (pojo == null) {
+        if (parameterPOJO == null) {
             return dataList;
         } else if (is) {
             try {
-                dataList = getSelect(resultSet, o, pojo, string);
-                log.info("sql :{}" , pojo.getSql());
+                dataList = getSelect(resultSet, o, parameterPOJO, string);
+                log.info("sql :{}" , parameterPOJO.getSql());
             } catch (SQLException e) {
                 log.error(e.getMessage(), e);
             } finally {
-                pojo.clear();
+                parameterPOJO.clear();
                 closeResultSet();
             }
         }

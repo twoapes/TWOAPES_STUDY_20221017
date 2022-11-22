@@ -1,7 +1,7 @@
 package jdbc.di;
 
 import core.AppCore;
-import jdbc.pojo.StudentTO;
+import entity.StudentTO;
 import jdbc.dao.JDBCDao;
 import jdbc.pojo.ParameterPOJO;
 import jdbc.service.AppConfig;
@@ -20,7 +20,7 @@ import java.util.Map;
 public class JDBCDI {
     public static void jdbc1() {
         log.info("{}---------------[using JdbcTemplate]Spring JDBC---------------{}", "\n", "\n");
-        ApplicationContext context = AppCore.open("jdbc/jdbc.xml");
+        ApplicationContext context = AppCore.open("ioc/xml.xml");
         JDBCDao jdbcDao = jdbcDao(context);
         log.info("id=1 :{}", jdbcDao.findId(1));
         log.info("id=2 :{}", jdbcDao.findId(2));

@@ -1,6 +1,5 @@
 package util;
 
-import lombok.extern.slf4j.Slf4j;
 import org.ehcache.Cache;
 import org.ehcache.CacheManager;
 import org.ehcache.config.Configuration;
@@ -18,7 +17,6 @@ import java.util.function.Function;
  * @author add by huyingzhao
  * 2022-09-06 9:48
  */
-@Slf4j
 public class CacheUtil {
     private static volatile CacheManager cacheManager;
 

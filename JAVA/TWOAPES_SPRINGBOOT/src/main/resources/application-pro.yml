@@ -2,7 +2,7 @@ spring:
   #oracle configure
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306?serverTimezone=GMT%2B8&characterEncoding=utf8mb4&useSSL=true
+    url: jdbc:mysql://127.0.0.1:3306/twoapes?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=true
     username: twoapes
     password: 1
   #mongodb configure
@@ -20,8 +20,3 @@ sftp:
   sftpPassword: 1
   sftpPort: 1
   sftpPrivateKey: null
-#machine configure
-machine:
-  id: 1
-  secret: 1
-  key: 1

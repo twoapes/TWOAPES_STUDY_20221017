@@ -1,6 +1,7 @@
 package springboot.service.impl;
 
 import com.mongodb.client.result.DeleteResult;
+import dto.ExportVocabularyPO;
 import dto.VocabularyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -71,7 +72,7 @@ public class VocabularyServiceImpl implements VocabularyService {
      * @param vocabularyDTO vocabularyDTO
      * @return edit data
      */
-    public ObjectResult<Long> edit(VocabularyDTO vocabularyDTO) {
+    public ObjectResult<Long>  edit(VocabularyDTO vocabularyDTO) {
         if (vocabularyDTO == null) {
             return ObjectResult.warning("no need to update", null);
         }
@@ -111,5 +112,16 @@ public class VocabularyServiceImpl implements VocabularyService {
         }
 
         return QueryUtil.query(mongoTemplate, is, objectMap, index, size, VocabularyDTO.class, null, null);
+    }
+
+    @Override
+    public PageResult<List<ExportVocabularyPO>> export(boolean is, VocabularyDTO vocabularyDTO, int index, int size) {
+        Map<String, Object> objectMap = new HashMap<>();
+        objectMap.put("name", vocabularyDTO.getName());
+        if (vocabularyDTO.getType() != null) {
+            objectMap.put("type", vocabularyDTO.getType());
+        }
+
+        return QueryUtil.query(mongoTemplate, is, objectMap, index, size, ExportVocabularyPO.class, null, null);
     }
 }

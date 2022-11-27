@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="springboot.mapper.RestControllerXmlMapper">
-    <resultMap type="dto.StudentTO" id="student">
+    <resultMap type="entity.StudentTO" id="student">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="age" column="age"/>

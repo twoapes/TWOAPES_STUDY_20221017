@@ -1,13 +1,13 @@
 package springboot.controller;
 
 import dto.ExportVocabularyDTO;
+import dto.ExportVocabularyPO;
 import dto.QueryVocabularyDTO;
 import dto.VocabularyDTO;
 import enums.ISO8601Enum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -24,6 +24,7 @@ import util.CharsetUtil;
 import util.DateUtil;
 import util.XlsxUtils;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -201,7 +202,7 @@ public class VocabularyController {
         ExportVocabularyDTO exportVocabularyDTO = new ExportVocabularyDTO();
         exportVocabularyDTO.setName(name);
         exportVocabularyDTO.setType(type);
-        PageResult<List<VocabularyDTO>> listPageResult = vocabularyService.query(is, exportVocabularyDTO, index, size);
+        PageResult<List<ExportVocabularyPO>> listPageResult = vocabularyService.export(is, exportVocabularyDTO, index, size);
         export(listPageResult, response);
     }
 
@@ -211,7 +212,7 @@ public class VocabularyController {
      * @author add by huyingzhao
      * 2022-07-23 13:25
      */
-    private void export(PageResult<List<VocabularyDTO>> listPageResult, HttpServletResponse response) {
+    private void export(PageResult<List<ExportVocabularyPO>> listPageResult, HttpServletResponse response) {
         try {
             Charset utf_8=CharsetUtil.UTF_8;
             XlsxUtils.start();
@@ -234,7 +235,7 @@ public class VocabularyController {
      * @author add by huyingzhao
      * 2022-07-23 13:49
      */
-    private String export(List<VocabularyDTO> list) {
+    private String export(List<ExportVocabularyPO> list) {
         String fileName = "code";
         XlsxUtils.writXlsx("Sheet1", list);
         return fileName;

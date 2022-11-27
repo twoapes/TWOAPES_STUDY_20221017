@@ -1,7 +1,6 @@
 package aop.jdk;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -13,19 +12,17 @@ import java.lang.reflect.Proxy;
  * JDK Proxy
  */
 @Slf4j
-public class JDKProxyTest {
-    @Test
-    public void test() {
+public class JDKProxyDI {
+    public static void jDKProxyDI() {
         Class<?>[] classes = {JDKProxyDao.class};
         JDKProxyDaoImpl jdkProxyDao = new JDKProxyDaoImpl();
-        JDKProxyDao dao = (JDKProxyDao) Proxy.newProxyInstance(this.getClass().getClassLoader(), classes, new UserInvocationHandler(jdkProxyDao));
+        JDKProxyDao dao = (JDKProxyDao) Proxy.newProxyInstance(JDKProxyDI.class.getClassLoader(), classes, new UserInvocationHandler(jdkProxyDao));
         log.info("a=" + 22);
         log.info("b=" + 24);
         //point penetration add
         log.info("a+b=" + dao.add(22, 24));
     }
 }
-
 @Slf4j
 class UserInvocationHandler implements InvocationHandler {
     private final Object object;

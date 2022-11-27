@@ -60,35 +60,35 @@
     </bean>
     <bean id="inside" class="entity.Teacher">
         <property name="name" value="MR.Wang"/>
-        <property name="age" value="36"/>
+        <property name="age" value="33"/>
         <property name="student">
             <bean class="entity.Student">
                 <property name="name" value="ZhangSan"/>
-                <property name="age" value="18"/>
+                <property name="age" value="33"/>
             </bean>
         </property>
     </bean>
     <bean id="cascade1" class="entity.Teacher">
         <property name="name" value="MR.Wang"/>
-        <property name="age" value="36"/>
-        <property name="student" ref="student1"/>
-    </bean>
-    <bean id="student1" class="entity.Student">
-        <property name="name" value="Lisi"/>
-        <property name="age" value="18"/>
+        <property name="age" value="33"/>
+        <property name="student" ref="cascadeStudent1"/>
     </bean>
     <bean id="cascade2" class="entity.Teacher">
         <property name="name" value="MR.Wang"/>
-        <property name="age" value="36"/>
-        <property name="student" ref="student2"/>
+        <property name="age" value="33"/>
+        <property name="student" ref="cascadeStudent2"/>
         <property name="student.name" value="Lisi"/>
-        <property name="student.age" value="18"/>
+        <property name="student.age" value="22"/>
     </bean>
-    <bean id="student2" class="entity.Student">
+    <bean id="cascadeStudent1" class="entity.Student">
+        <property name="name" value="Lisi"/>
+        <property name="age" value="22"/>
+    </bean>
+    <bean id="cascadeStudent2" class="entity.Student">
     </bean>
     <bean id="aggregate1" class="entity.Teacher">
         <property name="name" value="MR.Li"/>
-        <property name="age" value="36"/>
+        <property name="age" value="22"/>
         <property name="students">
             <array>
                 <value>ZhangSan</value>
@@ -120,45 +120,45 @@
 
         <property name="studentObjectList">
             <list>
+                <ref bean="student1"/>
+                <ref bean="student2"/>
                 <ref bean="student3"/>
-                <ref bean="student4"/>
-                <ref bean="student5"/>
             </list>
         </property>
     </bean>
-    <bean id="student3" class="entity.Student">
+    <bean id="aggregate2" class="entity.Teacher">
+        <property name="studentObjectList" ref="refStudentObjectList"/>
+    </bean>
+    <util:list id="refStudentObjectList">
+        <ref bean="student1"/>
+        <ref bean="student2"/>
+        <ref bean="student3"/>
+    </util:list>
+    <bean id="student1" class="entity.Student">
         <property name="name" value="ZhangSan"/>
-        <property name="age" value="18"/>
+        <property name="age" value="33"/>
     </bean>
-    <bean id="student4" class="entity.Student">
+    <bean id="student2" class="entity.Student">
         <property name="name" value="Lisi"/>
-        <property name="age" value="17"/>
+        <property name="age" value="22"/>
     </bean>
-    <bean id="student5" class="entity.Student">
+    <bean id="student3" class="entity.Student">
         <property name="name" value="WangWu"/>
         <property name="age" value="19"/>
     </bean>
-    <util:list id="studentObjectList2">
-        <ref bean="student3"/>
-        <ref bean="student4"/>
-        <ref bean="student5"/>
-    </util:list>
-    <bean id="aggregate2" class="entity.Teacher">
-        <property name="studentObjectList" ref="studentObjectList2"/>
-    </bean>
     <bean id="scope1" class="entity.Student">
         <property name="name" value="ZhangSan"/>
-        <property name="age" value="18"/>
+        <property name="age" value="33"/>
     </bean>
-
     <bean id="scope2" class="entity.Student" scope="prototype">
         <property name="name" value="ZhangSan"/>
-        <property name="age" value="18"/>
+        <property name="age" value="33"/>
     </bean>
-    <bean id="autowired1" class="entity.Student" autowire="byName">
+    <bean id="autowired1" class="entity.Student">
 
     </bean>
-    <bean id="autowired2" class="entity.Student" autowire="byType">
+    <bean id="autowired2" class="entity.Student">
+        <property name="name" ref="getName"/>
     </bean>
     <bean id="properties" class="ioc.xml.pojo.Properties">
         <property name="properties">
@@ -172,7 +172,7 @@
     </bean>
     <bean id="factory" class="entity.Student">
         <property name="name" value="ZhangSan"/>
-        <property name="age" value="18"/>
+        <property name="age" value="33"/>
     </bean>
     <bean id="getName" factory-bean="factory" factory-method="getName"/>
     <bean id="getTime" factory-bean="factory" factory-method="getAge"/>

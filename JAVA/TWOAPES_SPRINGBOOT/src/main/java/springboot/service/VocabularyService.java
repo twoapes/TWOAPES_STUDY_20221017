@@ -1,5 +1,6 @@
 package springboot.service;
 
+import dto.ExportVocabularyPO;
 import dto.VocabularyDTO;
 import page.ObjectResult;
 import page.PageResult;
@@ -47,4 +48,15 @@ public interface VocabularyService {
      * @return query
      */
     PageResult<List<VocabularyDTO>> query(boolean is, VocabularyDTO vocabularyDTO, int index, int size);
+
+    /**
+     * @author add by huyingzhao
+     * 2022-11-27 16:31
+     * @param is is
+     * @param vocabularyDTO vocabularyDTO
+     * @param index index
+     * @param size size
+     * @return export
+     */
+    PageResult<List<ExportVocabularyPO>> export(boolean is, VocabularyDTO vocabularyDTO, int index, int size);
 }

@@ -22,7 +22,7 @@ public class ControllerXmlController {
         this.controllerXmlMapper = controllerXmlMapper;
     }
 
-    @GetMapping("/viewXml1")
+    @GetMapping("/controller/viewXml1")
     public String student(ModelMap map) {
         StudentTO studentTO = controllerXmlMapper.getStudentForXml(1);
         map.put("name", studentTO.getName());
@@ -31,7 +31,7 @@ public class ControllerXmlController {
         return "/view.html";
     }
 
-    @GetMapping("/viewXml2")
+    @GetMapping("/controller/viewXml2")
     public String student2(ModelMap map) {
         StudentTO studentTO = controllerXmlMapper.getStudentForXml(2);
         map.put("name", studentTO.getName());

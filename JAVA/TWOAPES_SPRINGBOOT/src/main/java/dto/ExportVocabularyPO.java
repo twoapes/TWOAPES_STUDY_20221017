@@ -2,6 +2,7 @@ package dto;
 
 import document.XLSXColumnEnum;
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
@@ -10,6 +11,7 @@ import java.util.Date;
  * 2022-11-27 16:28
  */
 @Data
+@Document(collection = "hyz_voc")
 public class ExportVocabularyPO {
     /*
      * id

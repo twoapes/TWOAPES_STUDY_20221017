@@ -27,7 +27,7 @@ public class RestControllerSelectController {
     /**
      * @return student
      */
-    @GetMapping("/viewRest1")
+    @GetMapping("/restController/viewRest1")
     public ModelAndView student(ModelMap map) {
         StudentTO studentTO = restControllerSelectMapper.getStudent(1);
         map.put("age", studentTO.getAge());
@@ -39,7 +39,7 @@ public class RestControllerSelectController {
     /**
      * @return student
      */
-    @GetMapping("/viewRest2")
+    @GetMapping("/restController/viewRest2")
     public ModelAndView student2(ModelMap map) {
         StudentTO studentTO = restControllerSelectMapper.getStudent(2);
         map.put("age", studentTO.getAge());

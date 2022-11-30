@@ -25,7 +25,7 @@ public class ControllerSelectController {
     /**
      * @return student
      */
-    @GetMapping("/view1")
+    @GetMapping("/controller/view1")
     public String student(ModelMap map) {
         StudentTO studentTO = controllerSelectMapper.getStudent(1);
         map.put("age", studentTO.getAge());
@@ -37,7 +37,7 @@ public class ControllerSelectController {
     /**
      * @return student
      */
-    @GetMapping("/view2")
+    @GetMapping("/controller/view2")
     public String student2(ModelMap map) {
         StudentTO studentTO = controllerSelectMapper.getStudent(2);
         map.put("age", studentTO.getAge());

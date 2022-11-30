@@ -36,7 +36,7 @@ public class PropertiesController {
     /**
      * using object get properties
      */
-    @GetMapping({"/properties"})
+    @GetMapping({"/propertiesController/properties"})
     @ResponseBody
     public ObjectResult<String> properties() {
         String str = "";
@@ -48,7 +48,7 @@ public class PropertiesController {
     /**
      * using placeholder pass attribute
      */
-    @GetMapping("/placeholder")
+    @GetMapping("/propertiesController/placeholder")
     @ResponseBody
     public ObjectResult<String> placeholder() {
         String str = "";

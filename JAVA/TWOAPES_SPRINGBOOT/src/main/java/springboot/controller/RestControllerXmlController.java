@@ -24,7 +24,7 @@ public class RestControllerXmlController {
         this.restControllerXmlMapper = restControllerXmlMapper;
     }
 
-    @GetMapping("/viewXmlRest1")
+    @GetMapping("/restController/viewXmlRest1")
     public ModelAndView student(ModelMap map) {
         StudentTO studentTO = restControllerXmlMapper.getStudentForXml(1);
         map.put("name", studentTO.getName());
@@ -33,7 +33,7 @@ public class RestControllerXmlController {
         return new ModelAndView("/view.html");
     }
 
-    @GetMapping("/viewXmlRest2")
+    @GetMapping("/restController/viewXmlRest2")
     public ModelAndView student2(ModelMap map) {
         StudentTO studentTO = restControllerXmlMapper.getStudentForXml(2);
         map.put("name", studentTO.getName());

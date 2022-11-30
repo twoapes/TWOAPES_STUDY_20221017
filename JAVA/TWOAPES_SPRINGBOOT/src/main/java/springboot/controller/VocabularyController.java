@@ -12,10 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import page.ObjectResult;
 import page.PageResult;
 import springboot.enums.VOCEnum;
@@ -37,7 +34,7 @@ import java.util.List;
  */
 @Controller
 @Slf4j
-@RequestMapping("/code")
+@RequestMapping("/voc")
 @Api(value = "VocabularyController", tags = "Vocabulary")
 public class VocabularyController {
     private VocabularyService vocabularyService;
@@ -191,7 +188,7 @@ public class VocabularyController {
      * 2022-07-23 13:44
      */
     @ApiOperation(value = "export(page)")
-    @PostMapping("/export")
+    @RequestMapping(value = "/export",method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
     public void export(@RequestParam @ApiParam(value = "index") int index,
                        @RequestParam @ApiParam(value = "size") int size,

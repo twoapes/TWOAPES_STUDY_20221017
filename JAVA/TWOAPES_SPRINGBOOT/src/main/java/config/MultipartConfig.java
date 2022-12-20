@@ -4,8 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-
-import util.CharsetUtil;
+import statics.CharsetUtil;
 
 /**
  * @author add by huyingzhao

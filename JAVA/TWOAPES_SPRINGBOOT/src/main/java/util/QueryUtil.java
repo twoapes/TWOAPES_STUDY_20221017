@@ -4,6 +4,8 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import page.PageResult;
+import statics.DateUtils;
+
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -127,16 +129,22 @@ public class QueryUtil {
      */
     private static void nowDate(Criteria criteria, String name, Date begin, Date end) {
         if (begin == null) {
-            begin = DateUtil.nowTime();
+            begin = DateUtils.nowTime();
         }
 
         if (end == null) {
-            end = DateUtil.nowTime();
+            end = DateUtils.nowTime();
         }
 
-
-        Date yesterday =DateUtil.getMinimum(DateUtil.addDay(end,1));
-        Date tomorrow =DateUtil.getMaximum(DateUtil.addDay(begin,-1));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(begin);
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE) - 1, 23, 59,
+                59);
+        Date yesterday = calendar.getTime();
+        calendar.setTime(end);
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE) + 1, 0, 0,
+                0);
+        Date tomorrow = calendar.getTime();
         criteria.and(name).gt(yesterday).lt(tomorrow);
     }
 }

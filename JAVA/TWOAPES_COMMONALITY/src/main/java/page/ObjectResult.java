@@ -13,36 +13,17 @@ import java.util.Locale;
 @EqualsAndHashCode(callSuper = false)
 @Data
 public class ObjectResult<T> extends Result {
-    /*
-     * data
-     */
     private T data;
 
-    /**
-     * ObjectResult
-     */
     private ObjectResult() {
         super();
     }
 
 
-    /**
-     * ObjectResult
-     * @param code code
-     * @param type type
-     * @param msg msg
-     */
     private ObjectResult(String code, String type, String msg) {
         super(code, type, msg);
     }
 
-   /**
-    * ObjectResult
-    * @param code code
-    * @param type type
-    * @param msg msg
-    * @param data data
-    */
     private ObjectResult(String code, String type, String msg, T data) {
         super(code, type, msg);
         this.data = data;

@@ -16,18 +16,9 @@ public class Result {
     static final String WARNING = "200";
     static final String ERROR = "500";
 
-    /**
-     * Result
-     */
     Result() {
     }
 
-    /**
-     * Result
-     * @param code code
-     * @param type type
-     * @param msg msg
-     */
     Result(String code, String type, String msg) {
         this.code = code;
         this.type = type;

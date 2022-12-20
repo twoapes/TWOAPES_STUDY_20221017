@@ -1,9 +1,8 @@
 package springboot.service;
 
-import dto.ExportVocabularyPO;
-import dto.VocabularyDTO;
 import page.ObjectResult;
 import page.PageResult;
+import dto.VocabularyTO;
 
 import java.util.List;
 
@@ -13,12 +12,12 @@ import java.util.List;
  */
 public interface VocabularyService {
     /**
-     * @param vocabularyDTO vocabularyDTO
+     * @param vocabularyTO vocabularyTO
      * @return insert
      * @author add by huyingzhao
      * 2022-06-01 10:44
      */
-    ObjectResult<VocabularyDTO> insert(VocabularyDTO vocabularyDTO);
+    ObjectResult<VocabularyTO> insert(VocabularyTO vocabularyTO);
 
     /**
      * @param id id
@@ -29,34 +28,23 @@ public interface VocabularyService {
     ObjectResult<Long> delete(String id);
 
     /**
-     * @param vocabularyDTO vocabularyDTO
+     * @param vocabularyTO VocabularyTO
      * @return edit data
      */
-    ObjectResult<Long> edit(VocabularyDTO vocabularyDTO);
+    ObjectResult<Long> edit(VocabularyTO vocabularyTO);
 
     /**
      * @param id id
      * @return findOne
      */
-    VocabularyDTO findOne(String id);
+    VocabularyTO findOne(String id);
 
     /**
-     * @param vocabularyDTO vocabularyDTO
+     * @param vocabularyTO vocabularyTO
      * @param index        index
      * @param is           is
      * @param size         size
      * @return query
      */
-    PageResult<List<VocabularyDTO>> query(boolean is, VocabularyDTO vocabularyDTO, int index, int size);
-
-    /**
-     * @author add by huyingzhao
-     * 2022-11-27 16:31
-     * @param is is
-     * @param vocabularyDTO vocabularyDTO
-     * @param index index
-     * @param size size
-     * @return export
-     */
-    PageResult<List<ExportVocabularyPO>> export(boolean is, VocabularyDTO vocabularyDTO, int index, int size);
+    PageResult<List<VocabularyTO>> query(boolean is, VocabularyTO vocabularyTO, int index, int size);
 }

@@ -18,8 +18,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface OracleColumn {
     /**
      * @return column name
-     * @author add by huyingzhao
-     * 2022-10-24 14:51
      */
     String name() default "";
 }

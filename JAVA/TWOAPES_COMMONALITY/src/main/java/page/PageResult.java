@@ -14,29 +14,11 @@ import java.util.Locale;
 @EqualsAndHashCode(callSuper = false)
 @Data
 public class PageResult<T> extends Result {
-    /*
-     * page now
-     */
-    private long nowPage;
-    /*
-     * size page
-     */
-    private long pageSize;
-    /*
-     * total
-     */
-    private long total;
-    /*
-     * data
-     */
-    private T data;
+    private long nowPage;//page now
+    private long pageSize;//size page
+    private long total;//total
+    private T data;//data
 
-    /**
-     * PageResult
-     * @param code code
-     * @param type type
-     * @param msg msg
-     */
     private PageResult(String code, String type, String msg) {
         super(code, type, msg);
     }
@@ -47,7 +29,6 @@ public class PageResult<T> extends Result {
     }
 
     /**
-     * PageResult
      * @param msg  msg
      * @param data data
      * @return success message
@@ -59,7 +40,6 @@ public class PageResult<T> extends Result {
     }
 
     /**
-     * PageResult
      * @param msg  msg
      * @param data data
      * @return warning message
@@ -71,7 +51,6 @@ public class PageResult<T> extends Result {
     }
 
     /**
-     * PageResult
      * @param msg  msg
      * @param data data
      * @return error message
@@ -83,7 +62,6 @@ public class PageResult<T> extends Result {
     }
 
     /**
-     * PageResult
      * @param msg msg
      * @return success message
      * @author add by huyingzhao
@@ -94,7 +72,6 @@ public class PageResult<T> extends Result {
     }
 
     /**
-     * PageResult
      * @param msg msg
      * @return warning message
      * @author add by huyingzhao
@@ -105,7 +82,6 @@ public class PageResult<T> extends Result {
     }
 
     /**
-     * PageResult
      * @param msg msg
      * @return error message
      * @author add by huyingzhao

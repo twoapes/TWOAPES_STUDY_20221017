@@ -1,7 +1,6 @@
 package application;
 
 import lombok.extern.slf4j.Slf4j;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,8 +15,7 @@ import springfox.documentation.spring.web.SpringfoxWebMvcConfiguration;
  */
 //@org.springframework.boot.autoconfigure.SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
 @org.springframework.boot.autoconfigure.SpringBootApplication
-@ComponentScan({"config", "domain", "function.*", "springboot.*"})
-@MapperScan(basePackages = {"springboot.mapper"})
+@ComponentScan({"config", "springboot.*"})
 @ConditionalOnClass(SpringfoxWebMvcConfiguration.class)
 @EnableAspectJAutoProxy
 @Slf4j

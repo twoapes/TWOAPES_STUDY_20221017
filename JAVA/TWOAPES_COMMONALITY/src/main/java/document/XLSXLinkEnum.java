@@ -13,17 +13,17 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface XLSXLinkEnum {
-    /**
+    /*
      *url link
      */
     String url() default "";
 
-    /**
+    /*
      *email link
      */
     String email() default "";
 
-    /**
+    /*
      *file link
      */
     String file() default "";

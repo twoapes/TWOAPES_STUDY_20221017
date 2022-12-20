@@ -1,8 +1,6 @@
 package springboot.service.impl;
 
 import com.mongodb.client.result.DeleteResult;
-import dto.ExportVocabularyPO;
-import dto.VocabularyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -11,8 +9,9 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 import page.ObjectResult;
 import page.PageResult;
+import dto.VocabularyTO;
 import springboot.service.VocabularyService;
-import util.DateUtil;
+import statics.DateUtils;
 import util.QueryUtil;
 
 import java.util.HashMap;
@@ -25,25 +24,24 @@ import java.util.Map;
  */
 @Service
 public class VocabularyServiceImpl implements VocabularyService {
-    private MongoTemplate mongoTemplate;
-
+    private final MongoTemplate mongoTemplate;
     @Autowired
-    public void setMongoTemplate(MongoTemplate mongoTemplate) {
+    public VocabularyServiceImpl(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
 
     /**
-     * @param vocabularyDTO vocabularyDTO
+     * @param vocabularyTO vocabularyTO
      * @return insert
      * @author add by huyingzhao
      * 2022-06-01 10:44
      */
-    public ObjectResult<VocabularyDTO> insert(VocabularyDTO vocabularyDTO) {
+    public ObjectResult<VocabularyTO> insert(VocabularyTO vocabularyTO) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("name").is(vocabularyDTO.getName()));
-        VocabularyDTO voc = mongoTemplate.findOne(query, VocabularyDTO.class);
+        query.addCriteria(Criteria.where("name").is(vocabularyTO.getName()));
+        VocabularyTO voc = mongoTemplate.findOne(query, VocabularyTO.class);
         if (voc == null) {
-            return ObjectResult.success("save success", mongoTemplate.insert(vocabularyDTO));
+            return ObjectResult.success("save success", mongoTemplate.insert(vocabularyTO));
         } else {
             return ObjectResult.warning("maybe repeat", voc);
         }
@@ -59,7 +57,7 @@ public class VocabularyServiceImpl implements VocabularyService {
         Query query = new Query();
         Criteria criteria = Criteria.where("_id").is(id);
         query.addCriteria(criteria);
-        DeleteResult deleteResult = mongoTemplate.remove(query, VocabularyDTO.class);
+        DeleteResult deleteResult = mongoTemplate.remove(query, VocabularyTO.class);
         long deleteCount = deleteResult.getDeletedCount();
         if (deleteCount > 0) {
             return ObjectResult.success("id[" + id + "]delete success", deleteCount);
@@ -69,21 +67,21 @@ public class VocabularyServiceImpl implements VocabularyService {
     }
 
     /**
-     * @param vocabularyDTO vocabularyDTO
+     * @param vocabularyTO VocabularyTO
      * @return edit data
      */
-    public ObjectResult<Long>  edit(VocabularyDTO vocabularyDTO) {
-        if (vocabularyDTO == null) {
+    public ObjectResult<Long> edit(VocabularyTO vocabularyTO) {
+        if (vocabularyTO == null) {
             return ObjectResult.warning("no need to update", null);
         }
 
         Query query = new Query();
-        query.addCriteria(Criteria.where("_id").is(vocabularyDTO.getId()));
+        query.addCriteria(Criteria.where("_id").is(vocabularyTO.getId()));
         Update update = new Update();
-        update.set("name", vocabularyDTO.getName());
-        update.set("value", vocabularyDTO.getValue());
-        update.set("last_modify_time", DateUtil.nowTime());
-        return ObjectResult.success("edit success", mongoTemplate.upsert(query, update, VocabularyDTO.class).getModifiedCount());
+        update.set("name", vocabularyTO.getName());
+        update.set("value", vocabularyTO.getValue());
+        update.set("last_modify_time", DateUtils.nowTime());
+        return ObjectResult.success("edit success", mongoTemplate.upsert(query, update, VocabularyTO.class).getModifiedCount());
     }
 
 
@@ -91,37 +89,26 @@ public class VocabularyServiceImpl implements VocabularyService {
      * @param id id
      * @return findOne
      */
-    public VocabularyDTO findOne(String id) {
+    public VocabularyTO findOne(String id) {
         Query query = new Query();
         query.addCriteria(Criteria.where("_id").is(id));
-        return mongoTemplate.findOne(query, VocabularyDTO.class);
+        return mongoTemplate.findOne(query, VocabularyTO.class);
     }
 
     /**
-     * @param vocabularyDTO vocabularyDTO
+     * @param vocabularyTO vocabularyTO
      * @param index        index
      * @param is           is
      * @param size         size
      * @return query
      */
-    public PageResult<List<VocabularyDTO>> query(boolean is, VocabularyDTO vocabularyDTO, int index, int size) {
+    public PageResult<List<VocabularyTO>> query(boolean is, VocabularyTO vocabularyTO, int index, int size) {
         Map<String, Object> objectMap = new HashMap<>();
-        objectMap.put("name", vocabularyDTO.getName());
-        if (vocabularyDTO.getType() != null) {
-            objectMap.put("type", vocabularyDTO.getType());
+        objectMap.put("name", vocabularyTO.getName());
+        if (vocabularyTO.getType() != null) {
+            objectMap.put("type", vocabularyTO.getType());
         }
 
-        return QueryUtil.query(mongoTemplate, is, objectMap, index, size, VocabularyDTO.class, null, null);
-    }
-
-    @Override
-    public PageResult<List<ExportVocabularyPO>> export(boolean is, VocabularyDTO vocabularyDTO, int index, int size) {
-        Map<String, Object> objectMap = new HashMap<>();
-        objectMap.put("name", vocabularyDTO.getName());
-        if (vocabularyDTO.getType() != null) {
-            objectMap.put("type", vocabularyDTO.getType());
-        }
-
-        return QueryUtil.query(mongoTemplate, is, objectMap, index, size, ExportVocabularyPO.class, null, null);
+        return QueryUtil.query(mongoTemplate, is, objectMap, index, size, VocabularyTO.class, null, null);
     }
 }

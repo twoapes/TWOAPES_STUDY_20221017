@@ -12,3 +12,13 @@ JAVA/TWOAPES_SPRINGBOOT/twoapesLogs
 
 JAVA/target
 JAVA/out
+
+TWOAPES_SAAS/yhy-admin-api/target
+TWOAPES_SAAS/yhy-admin-service/target
+TWOAPES_SAAS/yhy-code-generator/target
+TWOAPES_SAAS/yhy-common/target
+TWOAPES_SAAS/yhy-form-api/target
+TWOAPES_SAAS/yhy-form-service/target
+TWOAPES_SAAS/yhy-job-service/target
+TWOAPES_SAAS/yhy-parent/target
+TWOAPES_SAAS/yhy-web/target

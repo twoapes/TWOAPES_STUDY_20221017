@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="joinPointDao" class="spring.aop.cglib.joinPoint.dao.JoinPointDao"/>
+    <bean id="joinPointService" class="spring.aop.cglib.joinPoint.service.JoinPointService">
+        <property name="joinPointDao" ref="joinPointDao"/>
+    </bean>
+    <!--AOP Configuration-->
+    <bean id="joinPointAspect" class="spring.aop.cglib.joinPoint.aspect.JoinPointAspect"/>
+    <aop:config>
+        <aop:pointcut id="joinPointPointcut" expression="execution(public void spring.aop.cglib.joinPoint.service.JoinPointService.joinPointService(..))"/>
+        <aop:aspect ref="joinPointAspect">
+            <aop:after method="time" pointcut-ref="joinPointPointcut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

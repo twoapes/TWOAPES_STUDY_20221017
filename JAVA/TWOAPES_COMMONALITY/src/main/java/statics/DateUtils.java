@@ -45,7 +45,7 @@ public class DateUtils {
      * 2022-06-30 18:06
      */
     public static Date parse(String str, ISO8601 format) {
-        if (StringUtils.isBlank(str)) {
+        if (StringUtil.isBlank(str)) {
             return null;
         }
 

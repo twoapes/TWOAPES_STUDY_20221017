@@ -59,12 +59,12 @@ public class UtilTest {
      */
     @Test
     public void stringUtilsTest() {
-        log.info(StringUtils.stringToThousand("123456"));
+        log.info(StringUtil.stringToThousand("123456"));
 
         String str = "english:ENGLISH,java:JAVA,idiom:IDIOM";
-        log.info(StringUtils.toMap(str).toString());
+        log.info(StringUtil.toMap(str).toString());
 
-        for (String s : StringUtils.stringToList(CharsetUtil.UTF_8, "123\n456\n789")) {
+        for (String s : StringUtil.stringToList(CharsetUtil.UTF_8, "123\n456\n789")) {
             log.info(s);
         }
     }

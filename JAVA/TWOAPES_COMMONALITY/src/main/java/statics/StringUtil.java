@@ -1,6 +1,7 @@
 package statics;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -17,7 +18,7 @@ import java.util.regex.Pattern;
  * String execute
  */
 @Slf4j
-public class StringUtils extends org.apache.commons.lang3.StringUtils {
+public class StringUtil extends org.apache.commons.lang3.StringUtils {
     /**
      * @param charset charset
      * @param str     copy content(every line)

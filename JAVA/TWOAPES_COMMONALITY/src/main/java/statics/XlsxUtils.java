@@ -406,7 +406,7 @@ class Workbook {
             // create row
             if (o instanceof String) {
                 if (xlsxColumnEnum.map() != null && !xlsxColumnEnum.map().isEmpty()) {
-                    Map<String, String> map = StringUtils.toMap(xlsxColumnEnum.map());
+                    Map<String, String> map = StringUtil.toMap(xlsxColumnEnum.map());
                     String str = (String) o;
                     for (String s : map.keySet()) {
                         if (s.equals(str)) {

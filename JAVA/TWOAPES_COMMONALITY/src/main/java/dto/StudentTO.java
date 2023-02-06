@@ -13,10 +13,19 @@ import lombok.ToString;
 @ApiModel(value = "StudentTO", description = "student")
 @ToString
 public class StudentTO {
+    /*
+     * id
+     */
     @ApiModelProperty(value = "id")
     private int id;
+    /*
+     * name
+     */
     @ApiModelProperty(value = "name")
     private String name;
+    /*
+     * age
+     */
     @ApiModelProperty(value = "age")
     private int age;
 }

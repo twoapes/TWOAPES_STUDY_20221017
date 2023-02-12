@@ -1,14 +1,11 @@
 JAVA/TWOAPES_COMMONALITY/target
-JAVA/TWOAPES_COMMONALITY/twoapesLogs
-
-JAVA/TWOAPES_JAVA/target
-JAVA/TWOAPES_JAVA/twoapesLogs
-
-JAVA/TWOAPES_SPRING/target
-JAVA/TWOAPES_SPRING/twoapesLogs
+JAVA/TWOAPES_COMMONALITY/src/main/resources/rebel.xml
 
 JAVA/TWOAPES_SPRINGBOOT/target
-JAVA/TWOAPES_SPRINGBOOT/twoapesLogs
+JAVA/TWOAPES_SPRINGBOOT/src/main/resources/rebel.xml
+
+JAVA/TWOAPES_STUDY/target
+JAVA/TWOAPES_STUDY/src/main/resources/rebel.xml
 
 JAVA/target
 JAVA/out

@@ -20,7 +20,6 @@
             <id>TWOAPES</id>
             <modules>
                 <module>TWOAPES_COMMONALITY</module>
-                <module>TWOAPES_SPRINGBOOT</module>
                 <module>TWOAPES_STUDY</module>
             </modules>
         </profile>
@@ -66,17 +65,9 @@
             <version>1.9.6</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
             <version>9.0.69</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
         <dependency>
             <groupId>io.projectreactor.netty</groupId>

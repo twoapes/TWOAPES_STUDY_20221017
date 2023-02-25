@@ -1,13 +1,9 @@
 package core.jdbc.mongodb.impl;
 
-import com.mongodb.MongoClientOptions;
+import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoCredential;
-import com.mongodb.ReadPreference;
 import com.mongodb.ServerAddress;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoIterable;
+import com.mongodb.client.*;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import core.entity.MongoDBPOJO;
@@ -29,7 +25,7 @@ import java.util.List;
 @Service
 public class MongodbServiceImpl implements MongodbService {
     private final MongoDBPOJO mongoDBPOJO;
-    private com.mongodb.MongoClient mongoClient;
+    private MongoClient mongoClient;
 
     @Autowired
     public MongodbServiceImpl(MongoDBPOJO mongoDBPOJO) {
@@ -176,11 +172,29 @@ public class MongodbServiceImpl implements MongodbService {
         }
     }
 
+//    private MongoDatabase getMongoDatabaseVerify2() {
+//        ServerAddress serverAddress = new ServerAddress(mongoDBPOJO.getHost(), mongoDBPOJO.getPort());
+//        MongoCredential credential = MongoCredential.createScramSha1Credential(mongoDBPOJO.getUsername(), mongoDBPOJO.getSource(), mongoDBPOJO.getPassword().toCharArray());
+//        MongoClientOptions mongoClientOptions = new MongoClientOptions.Builder().readPreference(ReadPreference.secondaryPreferred()).build();
+//        mongoClient = MongoClient(serverAddress, credential, mongoClientOptions);
+//        MongoDatabase mongoDatabase = mongoClient.getDatabase(mongoDBPOJO.getDatabaseName());
+//        log.info("database connection success");
+//        return mongoDatabase;
+//    }
+
     private MongoDatabase getMongoDatabaseVerify() {
         ServerAddress serverAddress = new ServerAddress(mongoDBPOJO.getHost(), mongoDBPOJO.getPort());
+//        MongoCredential credential = MongoCredential.createScramSha256Credential(mongoDBPOJO.getUsername(), mongoDBPOJO.getSource(), mongoDBPOJO.getPassword());
         MongoCredential credential = MongoCredential.createScramSha1Credential(mongoDBPOJO.getUsername(), mongoDBPOJO.getSource(), mongoDBPOJO.getPassword().toCharArray());
-        MongoClientOptions mongoClientOptions = new MongoClientOptions.Builder().readPreference(ReadPreference.secondaryPreferred()).build();
-        mongoClient = new com.mongodb.MongoClient(serverAddress, credential, mongoClientOptions);
+        List<ServerAddress> seeds = new ArrayList<>();
+        seeds.add(serverAddress);
+        MongoClientSettings settings = MongoClientSettings.builder()
+                .applyToClusterSettings(builder -> builder.hosts(seeds))
+                .applyToConnectionPoolSettings(builder -> builder.maxSize(100))
+                .applyToConnectionPoolSettings(builder -> builder.minSize(5))
+                .credential(credential)
+                .build();
+        mongoClient = MongoClients.create(settings);
         MongoDatabase mongoDatabase = mongoClient.getDatabase(mongoDBPOJO.getDatabaseName());
         log.info("database connection success");
         return mongoDatabase;

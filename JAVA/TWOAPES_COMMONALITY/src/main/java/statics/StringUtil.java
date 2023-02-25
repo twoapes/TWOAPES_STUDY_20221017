@@ -71,7 +71,7 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils {
             return "";
         }
 
-        return NumberUtils.numberToThousand(Double.parseDouble(num));
+        return NumberUtil.numberToThousand(Double.parseDouble(num));
     }
 
     /**

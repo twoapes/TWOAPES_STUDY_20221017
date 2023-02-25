@@ -1,21 +1,11 @@
 JAVA/TWOAPES_COMMONALITY/target
 JAVA/TWOAPES_COMMONALITY/src/main/resources/rebel.xml
 
-JAVA/TWOAPES_SPRINGBOOT/target
-JAVA/TWOAPES_SPRINGBOOT/src/main/resources/rebel.xml
-
 JAVA/TWOAPES_STUDY/target
 JAVA/TWOAPES_STUDY/src/main/resources/rebel.xml
 
 JAVA/target
 JAVA/out
 
-TWOAPES_SAAS/yhy-admin-api/target
-TWOAPES_SAAS/yhy-admin-service/target
-TWOAPES_SAAS/yhy-code-generator/target
-TWOAPES_SAAS/yhy-common/target
-TWOAPES_SAAS/yhy-form-api/target
-TWOAPES_SAAS/yhy-form-service/target
-TWOAPES_SAAS/yhy-job-service/target
-TWOAPES_SAAS/yhy-parent/target
-TWOAPES_SAAS/yhy-web/target
+Spring/target
+SpringBoot/target

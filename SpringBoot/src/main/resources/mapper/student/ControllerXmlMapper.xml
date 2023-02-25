@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="springboot.mapper.ControllerXmlMapper">
+    <resultMap type="domain.StudentTO" id="student">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+    </resultMap>
+    <sql id="selectStudent">
+        SELECT s.id, s.name, s.age FROM student s
+    </sql>
+    <select id="getStudentForXml" resultMap="student">
+        <include refid="selectStudent"/>
+        <if test="id!=null">where s.id = #{id}</if>
+    </select>
+</mapper>

@@ -16,22 +16,22 @@ public class UtilTest {
      */
     @Test
     public void dateUtilsTest() {
-        log.info(String.valueOf(DateUtils.get(2022, 7, 27)));
-        log.info(String.valueOf(DateUtils.get(2022, 7, 27, 11, 11, 11)));
-        log.info("getMinimum" + DateUtils.getMinimum());
-        log.info("getMaximum:" + DateUtils.getMaximum());
-        log.info("assignDate1:" + DateUtils.assignDate(1, DateUtils.nowTime()));
-        log.info("assignDate2:" + DateUtils.assignDate(-1, DateUtils.nowTime()));
-        log.info("getYear:" + DateUtils.getYear(DateUtils.nowTime()));
-        log.info("getMonth:" + DateUtils.getMonth(DateUtils.nowTime()));
-        log.info("getDay:" + DateUtils.getDay(DateUtils.nowTime()));
-        log.info("getLocalDateTime:" + DateUtils.getLocalDateTime(DateUtils.nowTime()));
-        log.info("getLocalTime:" + DateUtils.getLocalTime(DateUtils.nowTime()));
-        log.info("getLocalDate:" + DateUtils.getLocalDate(DateUtils.nowTime()));
-        log.info("getDiffForDay:" + DateUtils.getDiffForDay(DateUtils.get(2022, 7, 27, 11, 11, 11), DateUtils.nowTime()));
-        log.info("getDiff:" + DateUtils.getDiff(DateUtils.get(2022, 7, 22, 11, 1, 10), DateUtils.get(2022, 7, 23, 11, 1, 11)));
-        log.info("lengthOfYear:" + DateUtils.lengthOfYear(DateUtils.nowTime()));
-        log.info("lengthOfMonth:" + DateUtils.lengthOfMonth(DateUtils.nowTime()));
+        log.info(String.valueOf(DateUtil.get(2022, 7, 27)));
+        log.info(String.valueOf(DateUtil.get(2022, 7, 27, 11, 11, 11)));
+        log.info("getMinimum" + DateUtil.getMinimum());
+        log.info("getMaximum:" + DateUtil.getMaximum());
+        log.info("assignDate1:" + DateUtil.assignDate(1, DateUtil.nowTime()));
+        log.info("assignDate2:" + DateUtil.assignDate(-1, DateUtil.nowTime()));
+        log.info("getYear:" + DateUtil.getYear(DateUtil.nowTime()));
+        log.info("getMonth:" + DateUtil.getMonth(DateUtil.nowTime()));
+        log.info("getDay:" + DateUtil.getDay(DateUtil.nowTime()));
+        log.info("getLocalDateTime:" + DateUtil.getLocalDateTime(DateUtil.nowTime()));
+        log.info("getLocalTime:" + DateUtil.getLocalTime(DateUtil.nowTime()));
+        log.info("getLocalDate:" + DateUtil.getLocalDate(DateUtil.nowTime()));
+        log.info("getDiffForDay:" + DateUtil.getDiffForDay(DateUtil.get(2022, 7, 27, 11, 11, 11), DateUtil.nowTime()));
+        log.info("getDiff:" + DateUtil.getDiff(DateUtil.get(2022, 7, 22, 11, 1, 10), DateUtil.get(2022, 7, 23, 11, 1, 11)));
+        log.info("lengthOfYear:" + DateUtil.lengthOfYear(DateUtil.nowTime()));
+        log.info("lengthOfMonth:" + DateUtil.lengthOfMonth(DateUtil.nowTime()));
     }
 
     /**
@@ -44,11 +44,11 @@ public class UtilTest {
     @Test
     public void numberTest() {
         log.info("longRandom:" + RandomUtil.longRandom(5));
-        log.info("numberToThousand:" + NumberUtils.numberToThousand(51233.1415926));
-        log.info("numberToThousand:" + NumberUtils.numberToThousand(123456));
-        log.info("thousandToNumber:" + NumberUtils.thousandToNumber("123,456"));
-        log.info("add:" + NumberUtils.add(12, 12));
-        log.info("multiply:" + NumberUtils.multiply(12, 12));
+        log.info("numberToThousand:" + NumberUtil.numberToThousand(51233.1415926));
+        log.info("numberToThousand:" + NumberUtil.numberToThousand(123456));
+        log.info("thousandToNumber:" + NumberUtil.thousandToNumber("123,456"));
+        log.info("add:" + NumberUtil.add(12, 12));
+        log.info("multiply:" + NumberUtil.multiply(12, 12));
     }
 
     /**
@@ -88,8 +88,8 @@ public class UtilTest {
      */
     @Test
     public void computerUtilsTest() {
-        String e = ComputerUtils.encodeAES(CharsetUtil.UTF_8, "test");
-        String d = ComputerUtils.decodeAES(CharsetUtil.UTF_8, e);
+        String e = ComputerUtil.encodeAES(CharsetUtil.UTF_8, "test");
+        String d = ComputerUtil.decodeAES(CharsetUtil.UTF_8, e);
         log.info("encode:" + e);
         log.info("decode:" + d);
     }

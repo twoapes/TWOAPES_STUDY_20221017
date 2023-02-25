@@ -134,7 +134,7 @@ public class FileUtil extends Document {
         } catch (IOException e) {
             log.error(e.getMessage(), e);
         } finally {
-            ComputerUtils.end(begin, md+"-statics.FileUtil.getFileMd5");
+            ComputerUtil.end(begin, md+"-statics.FileUtil.getFileMd5");
         }
         return value;
     }
@@ -164,7 +164,7 @@ public class FileUtil extends Document {
             map.put(FileEnum.FILE_POSITION.value(), file.getParent());
             map.put(FileEnum.FILE_LONG_SIZE.value(), file.length());
             map.put(FileEnum.FILE_SIZE.value(),
-                    ComputerUtils.unit(BigDecimal.valueOf(file.length())) + "(" + file.length() + "字节)");
+                    ComputerUtil.unit(BigDecimal.valueOf(file.length())) + "(" + file.length() + "字节)");
             map.put(FileEnum.FILE_CONTAIN.value(), "");
             map.put(FileEnum.FILE_READ.value(), file.canRead());
             map.put(FileEnum.FILE_WRITE.value(), file.canWrite());
@@ -181,7 +181,7 @@ public class FileUtil extends Document {
             map.put(FileEnum.FILE_TYPE.value(), "folder");
             map.put(FileEnum.FILE_POSITION.value(), file.getParent());
             map.put(FileEnum.FILE_LONG_SIZE.value(), bigDecimal);
-            map.put(FileEnum.FILE_SIZE.value(), ComputerUtils.unit(bigDecimal) + "(" + bigDecimal + " byte)");
+            map.put(FileEnum.FILE_SIZE.value(), ComputerUtil.unit(bigDecimal) + "(" + bigDecimal + " byte)");
             map.put(FileEnum.FILE_CONTAIN.value(), fileList.size() + " file," + directoryList.size() + " folder");
             map.put(FileEnum.FILE_READ.value(), file.canRead());
             map.put(FileEnum.FILE_WRITE.value(), file.canWrite());
@@ -475,7 +475,7 @@ class Document {
             if (byteBuffer != null) {
                 byteBuffer.clear();
                 //free the memory
-                Object o = ClassUtils.invoke("sun.nio.ch.FileChannelImpl", "unmap", byteBuffer);
+                Object o = ClassUtil.invoke("sun.nio.ch.FileChannelImpl", "unmap", byteBuffer);
                 if (o != null) {
                     log.debug(o.toString());
                 }

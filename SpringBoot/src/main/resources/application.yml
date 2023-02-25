@@ -1,0 +1,22 @@
+#set web port
+server:
+  port: 8084
+#mybatis configure
+mybatis:
+  config-location: classpath:mapper/mybatis-config.xml
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+spring:
+  #if you need web configure
+  thymeleaf:
+    cache: false
+    encoding: utf-8
+    mode: HTML
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  profiles:
+    active: dev
+#custom attribute
+student:
+  id: 1
+  name: zhangSan

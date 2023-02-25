@@ -7,7 +7,7 @@ import enums.JdbcEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import statics.ComputerUtils;
+import statics.ComputerUtil;
 
 import java.sql.*;
 import java.util.List;
@@ -38,7 +38,7 @@ public class JdbcConnectServiceImpl implements JdbcConnectService {
     }
 
     public void open() {
-        boolean isIpReachable = ComputerUtils.isConnectIp(jdbcPOJO.getJdbcHost())
+        boolean isIpReachable = ComputerUtil.isConnectIp(jdbcPOJO.getJdbcHost())
                 && (!(jdbcPOJO.getJdbcType() == null || jdbcPOJO.getJdbcUsername() == null
                 || jdbcPOJO.getJdbcPassword() == null));
         if (isIpReachable) {

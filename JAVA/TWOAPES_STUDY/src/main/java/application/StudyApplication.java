@@ -1,7 +1,6 @@
 package application;
 
 import lombok.extern.slf4j.Slf4j;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,8 +13,7 @@ import springfox.documentation.spring.web.SpringfoxWebMvcConfiguration;
  * 2022-09-25 10:48
  */
 @org.springframework.boot.autoconfigure.SpringBootApplication
-@ComponentScan({"config","domain", "springboot.*"})
-@MapperScan(basePackages = {"springboot.mapper"})
+@ComponentScan({"config","springboot.*"})
 @ConditionalOnClass(SpringfoxWebMvcConfiguration.class)
 @EnableAspectJAutoProxy
 @Slf4j

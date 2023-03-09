@@ -7,5 +7,7 @@ JAVA/TWOAPES_STUDY/src/main/resources/rebel.xml
 JAVA/target
 JAVA/out
 
-Spring/target
-SpringBoot/target
+STUDY/Spring/target
+STUDY/SpringBoot/target
+STUDY/Thread/target
+STUDY/Java/target

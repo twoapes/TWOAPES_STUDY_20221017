@@ -1,9 +1,0 @@
-#set web port
-server:
-  port: 8084
-spring:
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-  profiles:
-    active: dev

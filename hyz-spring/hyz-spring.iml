@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/aop/annotation/AppConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/ioc/configuration/AppConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/aggregate.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/autowired.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/cascade.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/constructorArg.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/import.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/import1.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/import2.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/inside.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/aop/joinPoint.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/lifeCycle.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/null.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/object.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/pNameSpace.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/aop/proceedingJoinPoint.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/properties.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/property.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/scope.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/special.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/static.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/unLifeCycle.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ioc/xmlService.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+</module>

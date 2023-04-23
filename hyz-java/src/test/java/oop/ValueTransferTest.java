@@ -77,8 +77,8 @@ public class ValueTransferTest {
      * 2023-03-30 23:55
      */
     private void changeNum(int number) {
-        System.out.println("在方法内部，number 的值为: " + number);
+        log.info("在方法内部，number 的值为: " + number);
         number = 20;
-        System.out.println("修改值之后，number 的值为: " + number);
+        log.info("修改值之后，number 的值为: " + number);
     }
 }

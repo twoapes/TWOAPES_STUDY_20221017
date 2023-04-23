@@ -1,10 +1,10 @@
 package springboot.service;
 
-import springboot.domain.vocabulary.VocabularyDML;
-import springboot.domain.vocabulary.VocabularyQuery;
-import springboot.domain.vocabulary.VocabularyVO;
 import page.ObjectResult;
 import page.PageResult;
+import springboot.domain.vocabulary.VocabularyDML;
+import springboot.domain.vocabulary.VocabularyQueryPage;
+import springboot.domain.vocabulary.VocabularyVO;
 
 /**
  * @author add by huyingzhao
@@ -40,11 +40,11 @@ public interface VocabularyService {
     VocabularyVO findOne(String id);
 
     /**
-     * @param vocabulary vocabulary
-     * @param index        index
-     * @param is           is
-     * @param size         size
+     * @param is         is
+     * @param vocabularyQueryPage vocabularyQueryPage
      * @return query
+     * @author add by huyingzhao
+     * 2023-04-22 12:59
      */
-    PageResult<VocabularyVO> query(boolean is, VocabularyQuery vocabulary, int index, int size);
+    PageResult<VocabularyVO> query(boolean is, VocabularyQueryPage vocabularyQueryPage);
 }

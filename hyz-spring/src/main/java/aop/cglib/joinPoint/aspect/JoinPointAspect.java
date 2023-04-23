@@ -4,6 +4,7 @@ package aop.cglib.joinPoint.aspect;
 import enums.ISO8601;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import util.ComputerUtil;
 import util.DateUtil;
 
 /**
@@ -13,9 +14,10 @@ import util.DateUtil;
 @Slf4j
 public class JoinPointAspect {
     public void time(JoinPoint joinPoint) {
-        String now = DateUtil.format(DateUtil.nowTime(), ISO8601.YYYY_MM_DD_HE_HMS_S_S);
+        long startTime = System.currentTimeMillis();
         String className = joinPoint.getTarget().getClass().getName();
         String methodName = joinPoint.getSignature().getName();
-        log.info("(" + className + "." + methodName + ") ---> " + now);
+        String now = DateUtil.format(DateUtil.nowTime(), ISO8601.YYYY_MM_DD_HE_HMS_S_S);
+        ComputerUtil.end(startTime, now + "\t" + className + "." + methodName);
     }
 }

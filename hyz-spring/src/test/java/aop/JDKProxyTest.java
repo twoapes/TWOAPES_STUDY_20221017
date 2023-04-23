@@ -25,6 +25,7 @@ public class JDKProxyTest {
         log.info("b=" + 24);
         //point penetration add
         log.info("a+b=" + dao.add(22, 24));
+        log.info("a*b=" + dao.mul(22, 24));
     }
 }
 

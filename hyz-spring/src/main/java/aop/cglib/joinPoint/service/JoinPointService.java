@@ -14,7 +14,7 @@ public class JoinPointService {
     private JoinPointDao joinPointDao;
 
     public void joinPointService() {
-        log.info("service call dao:aop.cglib.joinPoint.service.JoinPointService.joinPointService");
+        log.info("call aop.cglib.joinPoint.service.JoinPointService.joinPointService");
         joinPointDao.init();
     }
 }

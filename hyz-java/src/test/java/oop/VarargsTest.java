@@ -47,7 +47,7 @@ public class VarargsTest {
     }
 
     /**
-     * 原1.5之前
+     * 1.5之前
      *
      * @param args args
      * @author add by huyingzhao
@@ -58,7 +58,7 @@ public class VarargsTest {
     }
 
     /**
-     * 原1.5之后
+     * 1.5之后
      *
      * @param args args
      * @author add by huyingzhao

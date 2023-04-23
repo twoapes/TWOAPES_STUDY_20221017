@@ -1,10 +1,6 @@
 package springboot.service.impl;
 
 import com.mongodb.client.result.DeleteResult;
-import springboot.domain.transformation.VocabularyTransformation;
-import springboot.domain.vocabulary.VocabularyDML;
-import springboot.domain.vocabulary.VocabularyQuery;
-import springboot.domain.vocabulary.VocabularyVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -14,6 +10,10 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 import page.ObjectResult;
 import page.PageResult;
+import springboot.domain.transformation.VocabularyTransformation;
+import springboot.domain.vocabulary.VocabularyDML;
+import springboot.domain.vocabulary.VocabularyQueryPage;
+import springboot.domain.vocabulary.VocabularyVO;
 import springboot.service.VocabularyService;
 import util.DateUtil;
 import util.QueryUtils;
@@ -101,14 +101,12 @@ public class VocabularyServiceImpl implements VocabularyService {
     }
 
     /**
-     * @param vocabulary vocabulary
-     * @param index      index
      * @param is         is
-     * @param size       size
+     * @param vocabularyQueryPage vocabularyQueryPage
      * @return query
      */
-    public PageResult<VocabularyVO> query(boolean is, VocabularyQuery vocabulary, int index, int size) {
-        String o = vocabulary.getName();
+    public PageResult<VocabularyVO> query(boolean is, VocabularyQueryPage vocabularyQueryPage) {
+        String o = vocabularyQueryPage.getName();
         Criteria criteria = Criteria.where("_id").ne(null).ne("");
         if (!StringUtil.isEmpty(o)) {
             if (is) {
@@ -120,6 +118,6 @@ public class VocabularyServiceImpl implements VocabularyService {
         }
 
         Sort sort = Sort.by(Sort.Direction.ASC, "name");
-        return QueryUtils.query("query success", mongoTemplate, VocabularyVO.class, index, size, criteria, sort);
+        return QueryUtils.query("query success", mongoTemplate, VocabularyVO.class, vocabularyQueryPage.getPageNumber(), vocabularyQueryPage.getPageSize(), criteria, sort);
     }
 }

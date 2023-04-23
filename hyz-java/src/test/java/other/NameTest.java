@@ -21,13 +21,13 @@ public class NameTest {
         int nameLength = 2; // 指定名字长度为2
         for (String full  : name) {
             String ming = getFullName(nameLength);
-            System.out.println(full  + ming);
+            log.info(full  + ming);
         }
 
         nameLength = 3; // 指定名字长度为3
         for (String full  : name) {
             String ming = getFullName(nameLength);
-            System.out.println(full  + ming);
+            log.info(full  + ming);
         }
     }
 

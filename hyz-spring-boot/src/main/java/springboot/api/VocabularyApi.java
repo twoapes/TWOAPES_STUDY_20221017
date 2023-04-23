@@ -1,9 +1,5 @@
 package springboot.api;
 
-import springboot.domain.transformation.VocabularyTransformation;
-import springboot.domain.vocabulary.VocabularyDML;
-import springboot.domain.vocabulary.VocabularyQuery;
-import springboot.domain.vocabulary.VocabularyVO;
 import enums.ISO8601;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,6 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import page.ObjectResult;
 import page.PageResult;
+import springboot.domain.transformation.VocabularyTransformation;
+import springboot.domain.vocabulary.VocabularyDML;
+import springboot.domain.vocabulary.VocabularyQueryPage;
+import springboot.domain.vocabulary.VocabularyVO;
 import springboot.service.VocabularyService;
 import util.CharsetUtil;
 import util.DateUtil;
@@ -88,9 +88,9 @@ public class VocabularyApi {
     }
 
     /**
-     * @param index index
-     * @param size  size
-     * @param is    is
+     * @param pageNumber pageNumber
+     * @param pageSize   pageSize
+     * @param is         is
      * @return queryPage
      * @author add by huyingzhao
      * 2022-06-10 21:51
@@ -98,13 +98,15 @@ public class VocabularyApi {
     @ApiOperation(value = "queryPage(page)")
     @PostMapping("/queryPage")
     @ResponseBody
-    public PageResult<VocabularyVO> queryPage(@RequestParam @ApiParam(value = "index") int index,
-                                              @RequestParam @ApiParam(value = "size") int size,
+    public PageResult<VocabularyVO> queryPage(@RequestParam @ApiParam(value = "pageNumber") int pageNumber,
+                                              @RequestParam @ApiParam(value = "pageSize") int pageSize,
                                               @RequestParam(required = false) @ApiParam(value = "name") String name,
                                               @RequestParam(required = false) @ApiParam(value = "is accurate query") boolean is) {
-        VocabularyQuery vocabulary = new VocabularyQuery();
-        vocabulary.setName(name);
-        return vocabularyService.query(is, vocabulary, index, size);
+        VocabularyQueryPage vocabularyQueryPage = new VocabularyQueryPage();
+        vocabularyQueryPage.setName(name);
+        vocabularyQueryPage.setPageNumber(pageNumber);
+        vocabularyQueryPage.setPageSize(pageSize);
+        return vocabularyService.query(is, vocabularyQueryPage);
     }
 
     /**
@@ -121,25 +123,27 @@ public class VocabularyApi {
     }
 
     /**
-     * @param index    index
-     * @param size     size
-     * @param name     name
-     * @param is       is
-     * @param response response
+     * @param pageNumber pageNumber
+     * @param pageSize   pageSize
+     * @param name       name
+     * @param is         is
+     * @param response   response
      * @author add by huyingzhao
      * 2022-07-23 13:44
      */
     @ApiOperation(value = "export(page)")
     @RequestMapping(value = "/export", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public void export(@RequestParam @ApiParam(value = "index") int index,
-                       @RequestParam @ApiParam(value = "size") int size,
+    public void export(@RequestParam @ApiParam(value = "index") int pageNumber,
+                       @RequestParam @ApiParam(value = "size") int pageSize,
                        @RequestParam(required = false) @ApiParam(value = "name") String name,
                        @RequestParam(required = false) @ApiParam(value = "is accurate query") boolean is,
                        HttpServletResponse response) {
-        VocabularyQuery vocabulary = new VocabularyQuery();
-        vocabulary.setName(name);
-        PageResult<VocabularyVO> listPageResult = vocabularyService.query(is, vocabulary, index, size);
+        VocabularyQueryPage vocabularyQueryPage = new VocabularyQueryPage();
+        vocabularyQueryPage.setName(name);
+        vocabularyQueryPage.setPageNumber(pageNumber);
+        vocabularyQueryPage.setPageSize(pageSize);
+        PageResult<VocabularyVO> listPageResult = vocabularyService.query(is, vocabularyQueryPage);
         export(listPageResult, response);
     }
 

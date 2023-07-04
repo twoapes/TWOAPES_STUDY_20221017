@@ -14,7 +14,6 @@
     <modules>
         <module>hyz-common</module>
         <module>hyz-model</module>
-        <module>hyz-thread</module>
         <module>hyz-spring</module>
         <module>hyz-spring-boot</module>
     </modules>

@@ -36,7 +36,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("TWOAPES_SPRINGBOOT API doc")
                 .description("a pure SpringBoot project")
-                .termsOfServiceUrl("http://127.0.0.1:8084/doc.html")
+                .termsOfServiceUrl("https://space.bilibili.com/290120984")
                 .contact(contact)
                 .version("1.0.2")
                 .build();

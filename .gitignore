@@ -1,6 +1,4 @@
 hyz-common/target
-hyz-model/target
+hyz-juc/target
 hyz-spring/target
-hyz-spring-boot/target
-hyz-thread/target
 target

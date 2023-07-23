@@ -1,7 +1,7 @@
 package aop;
 
 import aop.jdk.JDKProxyDao;
-import aop.jdk.JDKProxyDaoImpl;
+import aop.jdk.impl.JDKProxyDaoImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class JDKProxyTest {
     @Test
     public void test() {
         Class<?>[] classes = {JDKProxyDao.class};
-        JDKProxyDaoImpl jdkProxyDao = new JDKProxyDaoImpl();
+        JDKProxyDao jdkProxyDao = new JDKProxyDaoImpl();
         JDKProxyDao dao = (JDKProxyDao) Proxy.newProxyInstance(this.getClass().getClassLoader(), classes, new UserInvocationHandler(jdkProxyDao));
         log.info("a=" + 22);
         log.info("b=" + 24);

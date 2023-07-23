@@ -1,4 +1,6 @@
-package aop.jdk;
+package aop.jdk.impl;
+
+import aop.jdk.JDKProxyDao;
 
 /**
  * @author add by huyingzhao

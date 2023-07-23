@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="constructorArg1" class="pojo.Student">
+        <constructor-arg name="name" value="Lisi"/>
+        <constructor-arg name="age" value="22"/>
+    </bean>
+
+    <bean id="constructorArg2" class="pojo.Student">
+        <constructor-arg index="0" value="Lisi"/>
+        <constructor-arg index="1" value="22"/>
+    </bean>
+
+    <bean id="constructorArg3" class="pojo.Student">
+        <constructor-arg type="java.lang.String" value="Lisi"/>
+        <constructor-arg type="int" value="22"/>
+    </bean>
+
+    <bean id="constructorArg4" class="pojo.Student">
+        <constructor-arg type="java.lang.String" value="Lisi"/>
+        <constructor-arg type="int" value="22"/>
+    </bean>
+</beans>

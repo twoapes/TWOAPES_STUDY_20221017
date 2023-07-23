@@ -2,16 +2,8 @@ package util;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.net.InetAddress;
-import java.nio.charset.Charset;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author add by huyingzhao
@@ -20,97 +12,16 @@ import java.util.Map;
  */
 @Slf4j
 public class ComputerUtil {
-
-    /**
-     * @param file     file/directory
-     * @param isSelect isSelect
-     */
-    public static void open(final File file, final boolean isSelect) {
-        final String os = System.getProperty("os.name");
-        if (file != null) try {
-            if (file.exists()) {
-                if (os.toLowerCase().contains("windows")) {
-                    Runtime runtime = Runtime.getRuntime();
-                    String shell = "rundll32 SHELL32.DLL,ShellExec_RunDLL Explorer.exe /";
-                    if (isSelect) {
-                        if (file.isDirectory()) {
-                            runtime.exec("," + file.getPath());
-                        } else {
-                            runtime.exec(shell + "select," + file.getPath());
-                            runtime.exec(shell + "," + file.getPath());
-                        }
-                    } else {
-                        runtime.exec(shell + "," + file.getPath());
-                    }
-                } else {
-                    Desktop desktop = Desktop.getDesktop();
-                    if (isSelect) {
-                        desktop.open(file.getParentFile());
-                        desktop.open(file);
-                    } else {
-                        desktop.open(file);
-                    }
-                }
-            }
-        } catch (IOException e) {
-            log.error(e.getMessage(), e);
-        }
-    }
-
-    /**
-     * base for unit
-     *
-     * @param sizeBigDecimal sizeBigDecimal
-     * @return unit
-     */
-    public static String unit(BigDecimal sizeBigDecimal) {
-        if (sizeBigDecimal.compareTo(BigDecimal.valueOf(1024).pow(1)) < 0) {
-            return along(sizeBigDecimal, 0);
-        } else if (sizeBigDecimal.compareTo(BigDecimal.valueOf(1024).pow(2)) < 0) {
-            return along(sizeBigDecimal, 1);
-        } else if (sizeBigDecimal.compareTo(BigDecimal.valueOf(1024).pow(3)) < 0) {
-            return along(sizeBigDecimal, 2);
-        } else if (sizeBigDecimal.compareTo(BigDecimal.valueOf(1024).pow(4)) < 0) {
-            return along(sizeBigDecimal, 3);
-        } else if (sizeBigDecimal.compareTo(BigDecimal.valueOf(1024).pow(5)) < 0) {
-            return along(sizeBigDecimal, 4);
-        } else if (sizeBigDecimal.compareTo(BigDecimal.valueOf(1024).pow(6)) < 0 && (sizeBigDecimal.longValue() <= Long.MAX_VALUE - 1)) {
-            return along(sizeBigDecimal, 5);
-        } else {
-            return BigDecimal.ZERO + "B";
-        }
-    }
-
-    /**
-     * @param ip ip
-     * @return isConnectIp
-     */
-    public static boolean isConnectIp(String ip) {
-        boolean status;
-        if (ip != null) {
-            try {
-                status = InetAddress.getByName(ip).isReachable(3 * 1000);
-            } catch (IOException e) {
-                log.error(e.getMessage(), e);
-                status = false;
-            }
-        } else {
-            status = false;
-        }
-
-        return status;
-    }
-
     /**
      * end
-     * ºÁÃë£¨ms£©£º1ºÁÃëµÈÓÚ1/1,000Ãë£¬Í¨³£ÓÃÓÚºâÁ¿¼ÆËã»ú´¦ÀíËÙ¶È¡¢³ÌÐòÖ´ÐÐÊ±¼äµÈ¡£
-     * Ãë£¨s£©£º1ÃëµÈÓÚ1,000ºÁÃë£¬Í¨³£ÓÃÓÚºâÁ¿ÊÂ¼þ·¢ÉúµÄ³ÖÐøÊ±¼ä¡¢ÒôÆµÊÓÆµ³¤¶ÈµÈ¡£
-     * ·ÖÖÓ£¨min£©£º1·ÖÖÓµÈÓÚ60Ãë£¬Í¨³£ÓÃÓÚºâÁ¿Ê±¼ä¼ä¸ô»òÊ±³¤£¬ÈçµçÓ°Ê±³¤µÈ¡£
-     * Ð¡Ê±£¨h£©£º1Ð¡Ê±µÈÓÚ60·ÖÖÓ£¬Í¨³£ÓÃÓÚºâÁ¿Ê±¼ä¼ä¸ô»òÊ±³¤£¬Èç¹¤×÷Ê±³¤µÈ¡£
-     * Ìì£¨d£©£º1ÌìµÈÓÚ24Ð¡Ê±£¬Í¨³£ÓÃÓÚºâÁ¿ÈÕÆÚ¼ä¸ô»ò³ÖÐøÊ±¼ä£¬Èç¼ÙÆÚÊ±³¤µÈ¡£
-     * ÖÜ£¨wk£©£º1ÖÜµÈÓÚ7Ìì£¬Í¨³£ÓÃÓÚºâÁ¿ÈÕÆÚ¼ä¸ô»ò³ÖÐøÊ±¼ä£¬ÈçÐÝ¼ÙÊ±³¤µÈ¡£
-     * ÔÂ£¨mo£©£º1ÔÂµÄ³¤¶È²»¹Ì¶¨£¬Í¨³£ÓÃÓÚºâÁ¿ÈÕÆÚ¼ä¸ô»ò³ÖÐøÊ±¼ä£¬Èç×â·¿ºÏÍ¬ÆÚÏÞµÈ¡£
-     * Äê£¨y£©£º1ÄêµÈÓÚ12¸öÔÂ£¬Í¨³£ÓÃÓÚºâÁ¿ÈÕÆÚ¼ä¸ô»ò³ÖÐøÊ±¼ä£¬ÈçÈËµÄÄêÁäµÈ¡£
+     * æ¯«ç§’ï¼ˆmsï¼‰ï¼š1æ¯«ç§’ç­‰äºŽ1/1,000ç§’,é€šå¸¸ç”¨äºŽè¡¡é‡è®¡ç®—æœºå¤„ç†é€Ÿåº¦ã€ç¨‹åºæ‰§è¡Œæ—¶é—´ç­‰ã€‚
+     * ç§’ï¼ˆsï¼‰ï¼š1ç§’ç­‰äºŽ1,000æ¯«ç§’,é€šå¸¸ç”¨äºŽè¡¡é‡äº‹ä»¶å‘ç”Ÿçš„æŒç»­æ—¶é—´ã€éŸ³é¢‘è§†é¢‘é•¿åº¦ç­‰ã€‚
+     * åˆ†é’Ÿï¼ˆminï¼‰ï¼š1åˆ†é’Ÿç­‰äºŽ60ç§’,é€šå¸¸ç”¨äºŽè¡¡é‡æ—¶é—´é—´éš”æˆ–æ—¶é•¿,å¦‚ç”µå½±æ—¶é•¿ç­‰ã€‚
+     * å°æ—¶ï¼ˆhï¼‰ï¼š1å°æ—¶ç­‰äºŽ60åˆ†é’Ÿ,é€šå¸¸ç”¨äºŽè¡¡é‡æ—¶é—´é—´éš”æˆ–æ—¶é•¿,å¦‚å·¥ä½œæ—¶é•¿ç­‰ã€‚
+     * å¤©ï¼ˆdï¼‰ï¼š1å¤©ç­‰äºŽ24å°æ—¶,é€šå¸¸ç”¨äºŽè¡¡é‡æ—¥æœŸé—´éš”æˆ–æŒç»­æ—¶é—´,å¦‚å‡æœŸæ—¶é•¿ç­‰ã€‚
+     * å‘¨ï¼ˆwkï¼‰ï¼š1å‘¨ç­‰äºŽ7å¤©,é€šå¸¸ç”¨äºŽè¡¡é‡æ—¥æœŸé—´éš”æˆ–æŒç»­æ—¶é—´,å¦‚ä¼‘å‡æ—¶é•¿ç­‰ã€‚
+     * æœˆï¼ˆmoï¼‰ï¼š1æœˆçš„é•¿åº¦ä¸å›ºå®š,é€šå¸¸ç”¨äºŽè¡¡é‡æ—¥æœŸé—´éš”æˆ–æŒç»­æ—¶é—´,å¦‚ç§Ÿæˆ¿åˆåŒæœŸé™ç­‰ã€‚
+     * å¹´ï¼ˆyï¼‰ï¼š1å¹´ç­‰äºŽ12ä¸ªæœˆ,é€šå¸¸ç”¨äºŽè¡¡é‡æ—¥æœŸé—´éš”æˆ–æŒç»­æ—¶é—´,å¦‚äººçš„å¹´é¾„ç­‰ã€‚
      *
      * @param begin please using System.currentTimeMillis()
      * @param desc  desc
@@ -143,73 +54,5 @@ public class ComputerUtil {
         }
 
         log.info("[{}] consuming: [{}]", desc, str);
-    }
-
-    /**
-     * @param sizeBigDecimal sizeBigDecimal
-     * @param end            end
-     * @return calculate in order
-     */
-    private static String along(BigDecimal sizeBigDecimal, int end) {
-        if (end < 0) {
-            return "";
-        } else {
-            if (sizeBigDecimal.compareTo(BigDecimal.ZERO) <= 0) {
-                return "0" + level(end);
-            } else {
-                BigDecimal result = sizeBigDecimal;
-                for (int i = 0; i < end; i++) {
-                    if (result.compareTo(BigDecimal.ZERO) == 0) {
-                        result = BigDecimal.ZERO;
-                        break;
-                    } else {
-                        result = result.divide(BigDecimal.valueOf(1024.0), 2, RoundingMode.DOWN);
-                    }
-                }
-
-                result = result.divide(BigDecimal.ONE, 2, RoundingMode.DOWN);
-                return result + level(end);
-            }
-        }
-    }
-
-    /**
-     * @param level level
-     * @return init level
-     */
-    private static String level(int level) {
-        Map<Integer, String> stringMap = new HashMap<>();
-        stringMap.put(0, "B");
-        stringMap.put(1, "KB");
-        stringMap.put(2, "MB");
-        stringMap.put(3, "GB");
-        stringMap.put(4, "TB");
-        stringMap.put(5, "PB");// PB is very big unit
-        /// stringMap.put(6, "EB");
-        /// stringMap.put(7, "ZB");
-        /// stringMap.put(8, "YB");
-        /// stringMap.put(9, "NB");
-        /// stringMap.put(10, "DB");
-        return stringMap.get(level);
-    }
-
-    /**
-     * @param charset charset
-     * @param content content
-     * @return encodeAES
-     */
-    public static String encodeAES(Charset charset, String content) {
-        final Base64.Encoder encoder = Base64.getEncoder();
-        return encoder.encodeToString(content.getBytes(charset));
-    }
-
-    /**
-     * @param charset charset
-     * @param content content
-     * @return decodeAES
-     */
-    public static String decodeAES(Charset charset, String content) {
-        final Base64.Decoder decoder = Base64.getDecoder();
-        return new String(decoder.decode(content), charset);
     }
 }

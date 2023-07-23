@@ -1,0 +1,15 @@
+# ObjectInputStream和OjbectOutputSteam
+
+用于存储和读取基本数据类型数据或对象的处理流
+
+它的强大之处就是可以把Java中的对象写入到数据源中，也能把对象从数据源中还原回来
+
+- 序列化
+
+> 用ObjectOutputStream类保存基本类型数据或对象的机制
+
+- 反序列化
+
+> 用ObjectInputStream类读取基本类型数据或对象的机
+
+ObjectOutputStream和ObjectInputStream不能序列化static和transient修饰的成员变量

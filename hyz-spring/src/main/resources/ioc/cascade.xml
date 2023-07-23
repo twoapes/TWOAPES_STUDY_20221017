@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="cascade1" class="pojo.Teacher">
+        <property name="name" value="MR.Wang"/>
+        <property name="age" value="36"/>
+        <property name="student" ref="student1"/>
+    </bean>
+    <bean id="student1" class="pojo.Student">
+    </bean>
+
+    <bean id="cascade2" class="pojo.Teacher">
+        <property name="name" value="MR.Wang"/>
+        <property name="age" value="36"/>
+        <property name="student" ref="student2"/>
+        <property name="student.name" value="Lisi"/>
+        <property name="student.age" value="18"/>
+    </bean>
+    <bean id="student2" class="pojo.Student">
+        <property name="name" value="Lisi"/>
+        <property name="age" value="18"/>
+    </bean>
+</beans>

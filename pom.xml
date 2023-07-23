@@ -12,10 +12,9 @@
     <name>Parent</name>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
+        <module>hyz-juc</module>
         <module>hyz-common</module>
-        <module>hyz-model</module>
         <module>hyz-spring</module>
-        <module>hyz-spring-boot</module>
     </modules>
     <packaging>pom</packaging>
 
